@@ -1,0 +1,11 @@
+{
+  "checkpoint_load_action_identity": true,
+  "train_validation_scene_disjoint": true,
+  "finite_losses": true,
+  "representation_exactly_frozen": true,
+  "separate_critic_present": true,
+  "evaluation_disjoint_from_logged_training_tasks": true,
+  "train_scenes": 312,
+  "validation_scenes": 66,
+  "evaluation_available": true
+}

@@ -1,0 +1,21 @@
+{
+  "state": "completed",
+  "completed_at": "2026-11-06T08:35:30.345191+08:00",
+  "git_commit": "e854c3abf390e45b5f4e1399cfaaeff98dcf9737",
+  "report": "docs/REPRODUCTION_REPORT.md",
+  "handoff": "docs/HANDOFF.md",
+  "summary": "artifacts/delivery_20261106/summary.json",
+  "cpu_tests": 23,
+  "report_tests_after_final_update": 4,
+  "source_sha256": {
+    "docs/REPRODUCTION_REPORT.md": "d2de6f0f3ce6f698959003a945966639f54a48e9b7206153064500dac5b138c3",
+    "docs/HANDOFF.md": "97a131a21d2dce228a714f4af1737b39708f6e4d5dc51c3c76b19fe977282781",
+    "docs/RESULTS.md": "96c256e3db49156e78bc34e5ffc93d71733ee7d42f02a03a74cb8d763dc46665",
+    "artifacts/delivery_20261106/summary.json": "e7024a1f1a83419ef3f8ed3d4d98c01300b8e58a50ea7ecba9bbfb013562cadf",
+    "artifacts/delivery_20261106/WEIGHTS.json": "4a8a24f3243b6addb079775e42f1940f409a5f7cca96c31c19a18473b69a4cb1",
+    "logs/tests_delivery_20261106.log": "62da3f1afbc83513b950806f9a506a674fd106ca0a47d082fa2110293d05e050",
+    "logs/tests_delivery_report_20261106.log": "72db1de6bd24d2f410c469d4e49732b83d66362d5dddcd5693982b03713ee3f9"
+  },
+  "scope": "Engineering migration, planned single-seed three-run experiments, paired checks and delivery documents complete. Past-image reconstruction arrival-rate benefit was not observed; speed result limited to this target/reward setting. No additional GPU runs scheduled.",
+  "scheduled_morning_report": "2026-11-06T09:00:00+08:00"
+}

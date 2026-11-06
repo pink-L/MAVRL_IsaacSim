@@ -1,0 +1,38 @@
+{
+  "exact_replay": true,
+  "paired_outcomes": [
+    {
+      "density": "sparse",
+      "both_success": 100,
+      "normal_only_success": 0,
+      "reset_only_success": 0,
+      "both_fail": 0
+    },
+    {
+      "density": "medium",
+      "both_success": 97,
+      "normal_only_success": 2,
+      "reset_only_success": 1,
+      "both_fail": 0
+    },
+    {
+      "density": "dense",
+      "both_success": 77,
+      "normal_only_success": 12,
+      "reset_only_success": 5,
+      "both_fail": 6
+    }
+  ],
+  "sha256": {
+    "artifacts/capture2_current_seed0/evaluation_full/summary.json": "e5651c44cb52b2913e7970906687f113cbff7ed4a4f610de982fa385358b62f8",
+    "artifacts/capture2_current_seed0/evaluation_full/episodes.json": "fceefaeae416a4b8ef0c53cbb0af94ae65a8c0166f0596d43dfc13748ef236e1",
+    "artifacts/capture2_current_seed0/evaluation_full/trajectories.json": "eb81e33b3b6dc57d0d3a99aae74307c1dcf0be0de98dee779c4cfc77e3fa6663",
+    "artifacts/capture2_current_seed0/evaluation_full_reset/summary.json": "c25b777b3eee7d9d0d76b6cdcbee436af64d07e029e852cf6b6320f59d7e4656",
+    "artifacts/capture2_current_seed0/evaluation_full_reset/episodes.json": "50467ce5bc7e76366154e7eb6250ac86f2a35679b687cb713fe7b452aa242308",
+    "artifacts/capture2_current_seed0/evaluation_full_reset/trajectories.json": "2dfdc87bbb997754aea4a76096aad9806bfb68c77073993aaa6802bc4e29fbb9",
+    "artifacts/capture2_current_seed0/evaluation_full_replay/summary.json": "4b76f6f3e6fd0d48059c477afcd7510988681a96a88b381ab573f5e0d2f0152c",
+    "artifacts/capture2_current_seed0/evaluation_full_replay/episodes.json": "fceefaeae416a4b8ef0c53cbb0af94ae65a8c0166f0596d43dfc13748ef236e1",
+    "artifacts/capture2_current_seed0/evaluation_full_replay/trajectories.json": "eb81e33b3b6dc57d0d3a99aae74307c1dcf0be0de98dee779c4cfc77e3fa6663"
+  },
+  "scope": "One weight, inference-time reset, not a separately retrained current-only baseline. All-episode speed is affected by failures. Exact replay is limited to this hardware/software/capture configuration."
+}

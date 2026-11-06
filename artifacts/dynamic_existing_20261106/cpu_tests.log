@@ -1,0 +1,46 @@
+test_coordinate_and_acceleration (test_core.CoreTests.test_coordinate_and_acceleration) ... ok
+test_depth_scale (test_core.CoreTests.test_depth_scale) ... ok
+test_lstm_reset_and_frozen_gradients (test_core.CoreTests.test_lstm_reset_and_frozen_gradients) ... ok
+test_observation_and_reward (test_core.CoreTests.test_observation_and_reward) ... ok
+test_official_vae_shapes (test_core.CoreTests.test_official_vae_shapes) ... ok
+test_scene_reproducibility_feasibility (test_core.CoreTests.test_scene_reproducibility_feasibility) ... ok
+test_swept_collision (test_core.CoreTests.test_swept_collision) ... ok
+test_terminal_and_reset (test_core.CoreTests.test_terminal_and_reset) ... ok
+test_crossing_between_frames (test_dynamic_obstacles.DynamicTests.test_crossing_between_frames) ... ok
+test_environment_uses_relative_motion_and_resets_time (test_dynamic_obstacles.DynamicTests.test_environment_uses_relative_motion_and_resets_time) ... ok
+test_moved_obstacle_does_not_leave_static_collision_at_origin (test_dynamic_obstacles.DynamicTests.test_moved_obstacle_does_not_leave_static_collision_at_origin) ... ok
+test_reversal_inside_action_step (test_dynamic_obstacles.DynamicTests.test_reversal_inside_action_step) ... ok
+test_seeded_tracks_preserve_map_and_clear_endpoints (test_dynamic_obstacles.DynamicTests.test_seeded_tracks_preserve_map_and_clear_endpoints) ... ok
+test_spatial_crossing_at_different_times_is_not_collision (test_dynamic_obstacles.DynamicTests.test_spatial_crossing_at_different_times_is_not_collision) ... ok
+test_zero_speed_matches_static_collision (test_dynamic_obstacles.DynamicTests.test_zero_speed_matches_static_collision) ... ok
+test_reward_phase_gate_and_unchanged_dynamics (test_fixed_speed.FixedSpeedTests.test_reward_phase_gate_and_unchanged_dynamics) ... ok
+test_terminal_reward_overrides_target_speed_cost (test_fixed_speed.FixedSpeedTests.test_terminal_reward_overrides_target_speed_cost) ... ok
+test_completed_valid_baseline_starts_followup_once_and_writes_report (test_overnight.OvernightTests.test_completed_valid_baseline_starts_followup_once_and_writes_report) ... ok
+test_failed_baseline_does_not_launch_gpu_followup (test_overnight.OvernightTests.test_failed_baseline_does_not_launch_gpu_followup) ... ok
+test_paired_counts_and_missing_task_rejection (test_overnight.OvernightTests.test_paired_counts_and_missing_task_rejection) ... ok
+test_report_watcher_includes_unstarted_fixed_without_launching_jobs (test_overnight.OvernightTests.test_report_watcher_includes_unstarted_fixed_without_launching_jobs) ... ok
+test_collector_uses_mean_action_and_keeps_episode_splits (test_run_integrity.RunIntegrity.test_collector_uses_mean_action_and_keeps_episode_splits) ... latent size:  64
+latent size:  64
+COLLECT 0
+DATASET 24 2
+ok
+test_early_stop_does_not_shorten_learning_rate_schedule (test_run_integrity.RunIntegrity.test_early_stop_does_not_shorten_learning_rate_schedule) ... ok
+test_resume_preserves_final_phase_config_and_schedule (test_run_integrity.RunIntegrity.test_resume_preserves_final_phase_config_and_schedule) ... ok
+test_run_snapshot_hashes_match_copied_sources (test_run_integrity.RunIntegrity.test_run_snapshot_hashes_match_copied_sources) ... ok
+test_third_mission_source_y_interval (test_run_integrity.RunIntegrity.test_third_mission_source_y_interval) ... ok
+test_gae_terminal_does_not_leak (test_source_parity.SourceParity.test_gae_terminal_does_not_leak) ... ok
+test_official_encoder_decoder (test_source_parity.SourceParity.test_official_encoder_decoder) ... Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+ok
+test_official_lstm_episode_reset (test_source_parity.SourceParity.test_official_lstm_episode_reset) ... ok
+test_source_forward_actor_critic_shared_and_reloaded (test_source_parity.SourceParity.test_source_forward_actor_critic_shared_and_reloaded) ... ok
+
+----------------------------------------------------------------------
+Ran 30 tests in 3.806s
+
+OK
+latent size:  64
+latent size:  64
+latent size:  64
+latent size:  64

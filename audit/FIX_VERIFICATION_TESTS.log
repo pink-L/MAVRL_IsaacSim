@@ -1,0 +1,14 @@
+test_gae_terminal_does_not_leak (test_source_parity.SourceParity.test_gae_terminal_does_not_leak) ... ok
+test_official_encoder_decoder (test_source_parity.SourceParity.test_official_encoder_decoder) ... ok
+test_official_lstm_episode_reset (test_source_parity.SourceParity.test_official_lstm_episode_reset) ... ok
+test_source_forward_actor_critic_shared_and_reloaded (test_source_parity.SourceParity.test_source_forward_actor_critic_shared_and_reloaded) ... ok
+test_collector_uses_mean_action_and_keeps_episode_splits (test_run_integrity.RunIntegrity.test_collector_uses_mean_action_and_keeps_episode_splits) ... ok
+test_early_stop_does_not_shorten_learning_rate_schedule (test_run_integrity.RunIntegrity.test_early_stop_does_not_shorten_learning_rate_schedule) ... ok
+test_resume_preserves_final_phase_config_and_schedule (test_run_integrity.RunIntegrity.test_resume_preserves_final_phase_config_and_schedule) ... ok
+test_run_snapshot_hashes_match_copied_sources (test_run_integrity.RunIntegrity.test_run_snapshot_hashes_match_copied_sources) ... ok
+test_third_mission_source_y_interval (test_run_integrity.RunIntegrity.test_third_mission_source_y_interval) ... ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 0.333s
+
+OK

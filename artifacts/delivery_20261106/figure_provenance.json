@@ -1,0 +1,43 @@
+{
+  "source_sha256": {
+    "artifacts/capture2_baseline_seed0/final/config.json": "f8dd806404ca302bddb453ddfb386a743b6c73a51aa60880ebda27315c741582",
+    "artifacts/capture2_baseline_seed0/final/train.jsonl": "52298c97ee88ff4db5057056700455a2d3292e0810eb4ef868e0a4be1a26a317",
+    "artifacts/capture2_baseline_seed0/evaluation_full/summary.json": "c1de91adb6bf0466755171188101627b22a93886839791c0025a3f709e0ec26a",
+    "artifacts/capture2_baseline_seed0/evaluation_full/episodes.json": "bbdc548dae20f2ce98024e61951e11c6a37672cda08d614d2f45395eef09eaf2",
+    "artifacts/capture2_baseline_seed0/evaluation_full/trajectories.json": "42f7abc9da31f60d3d02e633d015619c73a1e8093a1b852654b0b702a10eb1fd",
+    "artifacts/capture2_baseline_seed0/evaluation_full_reset/summary.json": "b6fee047fad18b7799c0340c3cd9d744d161d43b140a29abfed8f1227b335ea9",
+    "artifacts/capture2_baseline_seed0/evaluation_full_replay/summary.json": "127c75b229eda136f27be4a94fb8d6577c2b269987165a79b42e1ffd59f411e4",
+    "artifacts/capture2_baseline_seed0/memory_figures_full/provenance.json": "88699e8695f526c6a2643627aa326cff21a29dc153abe2d53c796f49e085eda3",
+    "artifacts/capture2_baseline_seed0/validation.json": "7ba08d82c098d7fc7f5d77918360d48cb2c00481731d48e4742c30084a92c915",
+    "artifacts/capture2_baseline_seed0/REUSED_INPUTS.json": "8951a2c408b50ba5fb5b56150fc60f6f5ec1b786a067783dd6e2c55bc12f6470",
+    "artifacts/capture2_current_seed0/final/config.json": "98d56e67ac8be5181987a9278b59600d20a88be5a6704abb335c2476834b3b3a",
+    "artifacts/capture2_current_seed0/final/train.jsonl": "9b1c2beb05b5a9e913cb20a760ed0535e770fba0c32004499110b4045fa47ca5",
+    "artifacts/capture2_current_seed0/evaluation_full/summary.json": "e5651c44cb52b2913e7970906687f113cbff7ed4a4f610de982fa385358b62f8",
+    "artifacts/capture2_current_seed0/evaluation_full/episodes.json": "fceefaeae416a4b8ef0c53cbb0af94ae65a8c0166f0596d43dfc13748ef236e1",
+    "artifacts/capture2_current_seed0/evaluation_full/trajectories.json": "eb81e33b3b6dc57d0d3a99aae74307c1dcf0be0de98dee779c4cfc77e3fa6663",
+    "artifacts/capture2_current_seed0/evaluation_full_reset/summary.json": "c25b777b3eee7d9d0d76b6cdcbee436af64d07e029e852cf6b6320f59d7e4656",
+    "artifacts/capture2_current_seed0/evaluation_full_replay/summary.json": "4b76f6f3e6fd0d48059c477afcd7510988681a96a88b381ab573f5e0d2f0152c",
+    "artifacts/capture2_current_seed0/memory_figures_full/provenance.json": "b35afee713a56d7e3910af3d958d2e7ec80e1bd8d9b41a1a7ea2ac5de8ecdb61",
+    "artifacts/capture2_current_seed0/validation.json": "7ba08d82c098d7fc7f5d77918360d48cb2c00481731d48e4742c30084a92c915",
+    "artifacts/capture2_current_seed0/REUSED_INPUTS.json": "2e991a6ce369313e1f8f72465ac852cad882002a9df7a1a6d82a42ed9bdddfe3",
+    "artifacts/capture2_fixed_speed_seed0/final/config.json": "d667c48d32c81171a6b7785ee4bc38dcf4f3cc0f70c5019dff19884f35d17663",
+    "artifacts/capture2_fixed_speed_seed0/final/train.jsonl": "87b113f51c55067e9fe56199e4bbbff329bc8bab89ec81db9b8d73f17468bb0e",
+    "artifacts/capture2_fixed_speed_seed0/evaluation_full/summary.json": "abd3f8ac76128769774032d37af3e7822b01952cf5ae593ae20927cdee41d6f0",
+    "artifacts/capture2_fixed_speed_seed0/evaluation_full/episodes.json": "d8d25ca42b3129618bafd201762b2283ede077ab52bfc497615b33a10e85401f",
+    "artifacts/capture2_fixed_speed_seed0/evaluation_full/trajectories.json": "8f203d675c409b7346af573a383037f7fca34ca248c13e167ca97430aedda9da",
+    "artifacts/capture2_fixed_speed_seed0/evaluation_full_reset/summary.json": "b20e183f3b63ab2804e4386384da915e0a9339cf0a0d160658116a1278eebf3d",
+    "artifacts/capture2_fixed_speed_seed0/evaluation_full_replay/summary.json": "c37955054e39f546ae276d228293d7e893aa137f6094db2670e82c105fb20573",
+    "artifacts/capture2_fixed_speed_seed0/memory_figures_full/provenance.json": "f87c3ab311318e4c997ec37709c1c44097e44ea1f2616eff020d4f01c14e8ae4",
+    "artifacts/capture2_fixed_speed_seed0/validation.json": "7ba08d82c098d7fc7f5d77918360d48cb2c00481731d48e4742c30084a92c915",
+    "artifacts/capture2_fixed_speed_seed0/REUSED_INPUTS.json": "8951a2c408b50ba5fb5b56150fc60f6f5ec1b786a067783dd6e2c55bc12f6470",
+    "artifacts/capture_recovery_20261105/memory_comparison/comparison.json": "30586375f274381859261d08b623d2883f462be56df63d101da20ea3db191306",
+    "artifacts/capture_recovery_20261105/speed_comparison/comparison.json": "410ff617bd35c6850432c325790a4c8710a532a3512c637c8fc5b8d80f43d8d6"
+  },
+  "summary_sha256": "e7024a1f1a83419ef3f8ed3d4d98c01300b8e58a50ea7ecba9bbfb013562cadf",
+  "script_sha256": "fa54ac34d4f47f238b00ca2dcd82b0c57accba9d461fe05ff300b6b2fa8e4941",
+  "transformations": "Raw rollout means without smoothing. Navigation arrival fractions and Wilson intervals from saved independent evaluations; speed is all-episode mean. No rescaling or selecting best checkpoints.",
+  "software": {
+    "matplotlib": "3.10.3",
+    "numpy": "1.26.0"
+  }
+}

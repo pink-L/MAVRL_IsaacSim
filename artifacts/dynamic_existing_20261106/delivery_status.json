@@ -1,0 +1,33 @@
+{
+  "state": "completed",
+  "completed_at": "2026-11-06T10:29:21.085956+08:00",
+  "git_base_commit": "e854c3abf390e45b5f4e1399cfaaeff98dcf9737",
+  "git_dirty": true,
+  "formal_episodes": 600,
+  "paired_tasks": 300,
+  "cpu_tests_passed": 30,
+  "original_delivery_hashes_unchanged": 39,
+  "original_weight_entries_unchanged": 12,
+  "source_sha256": {
+    "artifacts/dynamic_existing_20261106/protocol.json": "94733749ad192afb8b39f9c6ccb0b2822e89e2602b4895b84f39fe456b41bf7a",
+    "artifacts/dynamic_existing_20261106/status.json": "c5004c81b16b155e5e278308d824ea2cddd0f374ad94a7f64bd06bf4b0ae0230",
+    "artifacts/dynamic_existing_20261106/geometry_audit.json": "832b757ba421978ef531f90cd6ed50c20040e3edb9f9ad9a4bd28c2f8785f4d4",
+    "artifacts/dynamic_existing_20261106/cpu_tests.log": "6664d1c78d185bf5426250011ace0c8c9da797ec893b93c4b0218fbd657dbf50",
+    "artifacts/dynamic_existing_20261106/smoke_replay_checks.json": "faefb3942c284298fca210ac0aa9ea6c34af5da35dceff69e3b9fa36ba31a766",
+    "artifacts/dynamic_existing_20261106/render_probe/result.json": "a3e4633409703ee106531cb70b5456b2f813e6bc8432a87f82ef0bf061b96f9f",
+    "artifacts/dynamic_existing_20261106/render_probe/frames.npz": "c769ebaca80647f6a1f361c306ae53a389576b1472de7e78368e971c554218a1",
+    "artifacts/dynamic_existing_20261106/comparison.json": "7a43442b2c528607ef7e7b0e04fffd1fb20edee338312948aa1142f042ed37aa",
+    "artifacts/dynamic_existing_20261106/RESULTS.md": "44c8e1bcc03a5e7f2f70db1bf67b31f370717726ad9c20ae779d38d9aeb38450",
+    "artifacts/dynamic_existing_20261106/comparison.png": "3375e6a2937ecf8dea387fbb6731fa1397c97e5b772a9616a1fc634c3c16736b",
+    "artifacts/dynamic_existing_20261106/comparison.svg": "546f517d74d6e96c839a649472abec12771c5590459f710dcdac4694edcc39da",
+    "artifacts/dynamic_existing_20261106/reporting_source.py": "b5134a29098d3f48873b7c6cbc534450aed8e250376a0f296e73aac61502a643",
+    "configs/isaac_capture2_dynamic.json": "e8cd075afd28ab34c9a8f3ecdb22b41d461b754e042cdd8203b47f63f24ee18d",
+    "docs/DYNAMIC_EVALUATION.md": "a719278c3e3e8595031bcd19f29c8a0e54685eead112a811c48428c23616b923",
+    "tests/test_dynamic_obstacles.py": "fec5dba7e6868a0cbf37b31464229e2d680af16d54534da623b1773c0397560d"
+  },
+  "evaluation_source_snapshots": [
+    "baseline_full/source/",
+    "current_only_full/source/"
+  ],
+  "scope": "Three original cylinders per map move at 1 m/s on 4 m tracks; count, radii and initial map retained. Existing models evaluated without training. One dynamic setting and one training seed."
+}

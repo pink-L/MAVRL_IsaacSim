@@ -1,0 +1,3667 @@
+{
+  "config": {
+    "seed": 0,
+    "num_envs": 4,
+    "device": "cuda",
+    "simulation": {
+      "dt": 0.1,
+      "max_time": 100.0,
+      "action_scale": [
+        4.0,
+        4.0,
+        1.0,
+        0.6
+      ],
+      "bounds": [
+        [
+          -22.0,
+          22.0
+        ],
+        [
+          -2.0,
+          45.0
+        ],
+        [
+          0.4,
+          6.0
+        ]
+      ],
+      "drone_radius": 0.1,
+      "reset_if_collide": true
+    },
+    "camera": {
+      "width": 256,
+      "height": 256,
+      "fov": 70.0,
+      "max_depth": 12.0,
+      "offset_flu": [
+        0.2,
+        -0.1,
+        0.3
+      ],
+      "tiled": true
+    },
+    "scene": {
+      "width": 40.0,
+      "length": 40.0,
+      "goal_y": 37.0,
+      "start_band": 6.0,
+      "height": 8.0,
+      "density": "mixed",
+      "distribution": "poisson",
+      "radius_range": [
+        0.5,
+        1.8
+      ],
+      "large_probability": 0.25,
+      "large_radius_range": [
+        1.8,
+        3.0
+      ],
+      "endpoint_clearance": 1.5,
+      "path_grid": 0.5,
+      "spacing": {
+        "sparse": 7.0,
+        "medium": 5.0,
+        "dense": 3.5
+      }
+    },
+    "reward": {
+      "initial": [
+        -0.001,
+        -0.001,
+        -0.002,
+        -0.003,
+        -0.0005,
+        -0.003
+      ],
+      "final": [
+        0.0,
+        -0.05,
+        0.0,
+        -0.0015,
+        -0.0001,
+        -0.0015
+      ],
+      "speed_threshold": 3.0,
+      "boundary": -2.0,
+      "collision": -2.0,
+      "timeout": -5.0,
+      "arrival_scale": 20.0,
+      "goal_tolerance": 0.4
+    },
+    "ppo": {
+      "learning_rate": 0.0001,
+      "gamma": 0.99,
+      "gae_lambda": 0.95,
+      "n_steps": 1000,
+      "batch_size": 4000,
+      "n_epochs": 10,
+      "clip_range": 0.2,
+      "ent_coef": 0.0,
+      "vf_coef": 0.2,
+      "max_grad_norm": 0.5,
+      "total_timesteps": 8000000,
+      "warmup_timesteps": 1200000,
+      "save_every": 10,
+      "schedule_timesteps": 8000000
+    },
+    "vae": {
+      "latent_size": 64,
+      "batch_size": 32,
+      "epochs": 1000,
+      "learning_rate": 0.001,
+      "early_stop_patience": 50
+    },
+    "lstm": {
+      "hidden_size": 256,
+      "num_layers": 1,
+      "reconstruction_members": [
+        1,
+        1,
+        0
+      ],
+      "reconstruction_steps": 10,
+      "sequence_length": 500,
+      "batch_sequences": 1,
+      "epochs": 2000,
+      "learning_rate": 0.0001
+    }
+  },
+  "tasks": 270,
+  "all_generated_tasks_pass_geometry_checks": true,
+  "elapsed_s": 23.165261238988023,
+  "summary": [
+    {
+      "distribution": "uniform",
+      "density": "sparse",
+      "tasks": 30,
+      "mean_obstacles": 23.866666666666667,
+      "min_endpoint_clearance": 1.6108196021971106
+    },
+    {
+      "distribution": "uniform",
+      "density": "medium",
+      "tasks": 30,
+      "mean_obstacles": 47.86666666666667,
+      "min_endpoint_clearance": 1.5083328002153364
+    },
+    {
+      "distribution": "uniform",
+      "density": "dense",
+      "tasks": 30,
+      "mean_obstacles": 96.2,
+      "min_endpoint_clearance": 1.5083328002153364
+    },
+    {
+      "distribution": "poisson",
+      "density": "sparse",
+      "tasks": 30,
+      "mean_obstacles": 22.766666666666666,
+      "min_endpoint_clearance": 1.5318063966965745
+    },
+    {
+      "distribution": "poisson",
+      "density": "medium",
+      "tasks": 30,
+      "mean_obstacles": 42.8,
+      "min_endpoint_clearance": 1.5044187745082358
+    },
+    {
+      "distribution": "poisson",
+      "density": "dense",
+      "tasks": 30,
+      "mean_obstacles": 83.7,
+      "min_endpoint_clearance": 1.506881728965639
+    },
+    {
+      "distribution": "clustered",
+      "density": "sparse",
+      "tasks": 30,
+      "mean_obstacles": 23.866666666666667,
+      "min_endpoint_clearance": 1.5636094253621704
+    },
+    {
+      "distribution": "clustered",
+      "density": "medium",
+      "tasks": 30,
+      "mean_obstacles": 47.86666666666667,
+      "min_endpoint_clearance": 1.5520950651427525
+    },
+    {
+      "distribution": "clustered",
+      "density": "dense",
+      "tasks": 30,
+      "mean_obstacles": 92.86666666666666,
+      "min_endpoint_clearance": 1.552669593429441
+    }
+  ],
+  "rows": [
+    {
+      "seed": 2000,
+      "distribution": "uniform",
+      "density": "sparse",
+      "obstacles": 24,
+      "radius_min": 0.5125420650312404,
+      "radius_max": 2.948626550825727,
+      "endpoint_min_clearance": 2.955271871872033,
+      "traversability": 8.294384743383048
+    },
+    {
+      "seed": 2001,
+      "distribution": "uniform",
+      "density": "sparse",
+      "obstacles": 23,
+      "radius_min": 0.6831824304035301,
+      "radius_max": 2.4907456050764383,
+      "endpoint_min_clearance": 2.3122005198364857,
+      "traversability": 8.848474477995127
+    },
+    {
+      "seed": 2002,
+      "distribution": "uniform",
+      "density": "sparse",
+      "obstacles": 27,
+      "radius_min": 0.5395775369781942,
+      "radius_max": 2.6577025267462258,
+      "endpoint_min_clearance": 2.296081897518636,
+      "traversability": 8.720887488072968
+    },
+    {
+      "seed": 2003,
+      "distribution": "uniform",
+      "density": "sparse",
+      "obstacles": 21,
+      "radius_min": 0.5048160641994988,
+      "radius_max": 2.5617302131899025,
+      "endpoint_min_clearance": 2.3184968182726378,
+      "traversability": 10.332052872988106
+    },
+    {
+      "seed": 2004,
+      "distribution": "uniform",
+      "density": "sparse",
+      "obstacles": 25,
+      "radius_min": 0.5016441950319004,
+      "radius_max": 2.8141990411849935,
+      "endpoint_min_clearance": 3.078560387879646,
+      "traversability": 7.906845160590576
+    },
+    {
+      "seed": 2005,
+      "distribution": "uniform",
+      "density": "sparse",
+      "obstacles": 26,
+      "radius_min": 0.504577999997456,
+      "radius_max": 2.579508196534707,
+      "endpoint_min_clearance": 3.5578913337845526,
+      "traversability": 8.073301600464854
+    },
+    {
+      "seed": 2006,
+      "distribution": "uniform",
+      "density": "sparse",
+      "obstacles": 27,
+      "radius_min": 0.5164934972903827,
+      "radius_max": 2.294640578952688,
+      "endpoint_min_clearance": 2.023473416104623,
+      "traversability": 8.709151305076825
+    },
+    {
+      "seed": 2007,
+      "distribution": "uniform",
+      "density": "sparse",
+      "obstacles": 26,
+      "radius_min": 0.565928217988181,
+      "radius_max": 2.8590914650506454,
+      "endpoint_min_clearance": 1.729239054791937,
+      "traversability": 7.0754826516328455
+    },
+    {
+      "seed": 2008,
+      "distribution": "uniform",
+      "density": "sparse",
+      "obstacles": 27,
+      "radius_min": 0.5226093452265026,
+      "radius_max": 2.7926826413681036,
+      "endpoint_min_clearance": 1.986024915065868,
+      "traversability": 8.925818633466573
+    },
+    {
+      "seed": 2009,
+      "distribution": "uniform",
+      "density": "sparse",
+      "obstacles": 21,
+      "radius_min": 0.5508527135311216,
+      "radius_max": 2.4983035842817776,
+      "endpoint_min_clearance": 2.647736883000367,
+      "traversability": 9.964366032805101
+    },
+    {
+      "seed": 2010,
+      "distribution": "uniform",
+      "density": "sparse",
+      "obstacles": 21,
+      "radius_min": 0.6108314896850986,
+      "radius_max": 2.250447338152515,
+      "endpoint_min_clearance": 4.539294579124844,
+      "traversability": 9.702291933914209
+    },
+    {
+      "seed": 2011,
+      "distribution": "uniform",
+      "density": "sparse",
+      "obstacles": 26,
+      "radius_min": 0.5005504239098039,
+      "radius_max": 2.7868257469301114,
+      "endpoint_min_clearance": 5.082602957156123,
+      "traversability": 9.112241767256306
+    },
+    {
+      "seed": 2012,
+      "distribution": "uniform",
+      "density": "sparse",
+      "obstacles": 21,
+      "radius_min": 0.884866223302897,
+      "radius_max": 2.8156310330365164,
+      "endpoint_min_clearance": 4.023193200724885,
+      "traversability": 8.419679627463648
+    },
+    {
+      "seed": 2013,
+      "distribution": "uniform",
+      "density": "sparse",
+      "obstacles": 21,
+      "radius_min": 0.5030302939191148,
+      "radius_max": 2.8431168908725963,
+      "endpoint_min_clearance": 1.7752570304695645,
+      "traversability": 9.082827844173877
+    },
+    {
+      "seed": 2014,
+      "distribution": "uniform",
+      "density": "sparse",
+      "obstacles": 28,
+      "radius_min": 0.5291019130131789,
+      "radius_max": 2.52603206852962,
+      "endpoint_min_clearance": 4.2562964232631035,
+      "traversability": 9.432722246293208
+    },
+    {
+      "seed": 2015,
+      "distribution": "uniform",
+      "density": "sparse",
+      "obstacles": 24,
+      "radius_min": 0.5295539546127174,
+      "radius_max": 2.7941226493743123,
+      "endpoint_min_clearance": 3.512878279602999,
+      "traversability": 9.427113482356942
+    },
+    {
+      "seed": 2016,
+      "distribution": "uniform",
+      "density": "sparse",
+      "obstacles": 28,
+      "radius_min": 0.5436111808585224,
+      "radius_max": 2.6648978885128614,
+      "endpoint_min_clearance": 2.097378537949775,
+      "traversability": 7.929318377090851
+    },
+    {
+      "seed": 2017,
+      "distribution": "uniform",
+      "density": "sparse",
+      "obstacles": 28,
+      "radius_min": 0.6150506463294365,
+      "radius_max": 2.790721450594751,
+      "endpoint_min_clearance": 2.8207347121208524,
+      "traversability": 7.396826383603042
+    },
+    {
+      "seed": 2018,
+      "distribution": "uniform",
+      "density": "sparse",
+      "obstacles": 23,
+      "radius_min": 0.6616847544859961,
+      "radius_max": 2.927851582414175,
+      "endpoint_min_clearance": 3.087462440084138,
+      "traversability": 9.49572672811991
+    },
+    {
+      "seed": 2019,
+      "distribution": "uniform",
+      "density": "sparse",
+      "obstacles": 20,
+      "radius_min": 0.7194357846461918,
+      "radius_max": 2.719651378810946,
+      "endpoint_min_clearance": 6.1648961844766434,
+      "traversability": 8.951839298372727
+    },
+    {
+      "seed": 2020,
+      "distribution": "uniform",
+      "density": "sparse",
+      "obstacles": 23,
+      "radius_min": 0.6023134700865173,
+      "radius_max": 2.9795506953325397,
+      "endpoint_min_clearance": 2.8986439485233593,
+      "traversability": 9.615018218652338
+    },
+    {
+      "seed": 2021,
+      "distribution": "uniform",
+      "density": "sparse",
+      "obstacles": 26,
+      "radius_min": 0.5591904038110508,
+      "radius_max": 2.6838674751451745,
+      "endpoint_min_clearance": 3.2854430073288725,
+      "traversability": 7.997963641037569
+    },
+    {
+      "seed": 2022,
+      "distribution": "uniform",
+      "density": "sparse",
+      "obstacles": 21,
+      "radius_min": 0.5037429544950888,
+      "radius_max": 2.874832510931772,
+      "endpoint_min_clearance": 1.9435147993409512,
+      "traversability": 9.433860902577056
+    },
+    {
+      "seed": 2023,
+      "distribution": "uniform",
+      "density": "sparse",
+      "obstacles": 19,
+      "radius_min": 0.5410662569225131,
+      "radius_max": 2.9013444858744784,
+      "endpoint_min_clearance": 1.6108196021971106,
+      "traversability": 10.306383136844328
+    },
+    {
+      "seed": 2024,
+      "distribution": "uniform",
+      "density": "sparse",
+      "obstacles": 25,
+      "radius_min": 0.51751938997494,
+      "radius_max": 2.7362255809801335,
+      "endpoint_min_clearance": 4.036784753902892,
+      "traversability": 9.23934497555428
+    },
+    {
+      "seed": 2025,
+      "distribution": "uniform",
+      "density": "sparse",
+      "obstacles": 28,
+      "radius_min": 0.749080495634243,
+      "radius_max": 2.8802347327051905,
+      "endpoint_min_clearance": 2.25746295736735,
+      "traversability": 7.110679418886202
+    },
+    {
+      "seed": 2026,
+      "distribution": "uniform",
+      "density": "sparse",
+      "obstacles": 20,
+      "radius_min": 0.54253389165599,
+      "radius_max": 2.8495488686306154,
+      "endpoint_min_clearance": 6.943849150949713,
+      "traversability": 10.212325390840606
+    },
+    {
+      "seed": 2027,
+      "distribution": "uniform",
+      "density": "sparse",
+      "obstacles": 19,
+      "radius_min": 0.5212521296188145,
+      "radius_max": 2.963771961651525,
+      "endpoint_min_clearance": 3.2575752868567576,
+      "traversability": 10.495547934881063
+    },
+    {
+      "seed": 2028,
+      "distribution": "uniform",
+      "density": "sparse",
+      "obstacles": 22,
+      "radius_min": 0.5607432757427179,
+      "radius_max": 2.9411587230924248,
+      "endpoint_min_clearance": 2.0627298347622913,
+      "traversability": 8.731552360425116
+    },
+    {
+      "seed": 2029,
+      "distribution": "uniform",
+      "density": "sparse",
+      "obstacles": 26,
+      "radius_min": 0.5179777418268592,
+      "radius_max": 2.9437412508060126,
+      "endpoint_min_clearance": 2.631213082921196,
+      "traversability": 8.620030650217458
+    },
+    {
+      "seed": 2000,
+      "distribution": "uniform",
+      "density": "medium",
+      "obstacles": 48,
+      "radius_min": 0.5125420650312404,
+      "radius_max": 2.948626550825727,
+      "endpoint_min_clearance": 2.075675835576892,
+      "traversability": 4.677595975957366
+    },
+    {
+      "seed": 2001,
+      "distribution": "uniform",
+      "density": "medium",
+      "obstacles": 46,
+      "radius_min": 0.5701751241414669,
+      "radius_max": 2.6975377017873834,
+      "endpoint_min_clearance": 1.7736494809644006,
+      "traversability": 5.126565577788463
+    },
+    {
+      "seed": 2002,
+      "distribution": "uniform",
+      "density": "medium",
+      "obstacles": 54,
+      "radius_min": 0.5241123911519106,
+      "radius_max": 2.6577025267462258,
+      "endpoint_min_clearance": 2.296081897518636,
+      "traversability": 4.6398613974903995
+    },
+    {
+      "seed": 2003,
+      "distribution": "uniform",
+      "density": "medium",
+      "obstacles": 43,
+      "radius_min": 0.5048160641994988,
+      "radius_max": 2.5617302131899025,
+      "endpoint_min_clearance": 1.8026636311608515,
+      "traversability": 6.156676745445527
+    },
+    {
+      "seed": 2004,
+      "distribution": "uniform",
+      "density": "medium",
+      "obstacles": 50,
+      "radius_min": 0.5016441950319004,
+      "radius_max": 2.8141990411849935,
+      "endpoint_min_clearance": 1.5083328002153364,
+      "traversability": 5.042384824345803
+    },
+    {
+      "seed": 2005,
+      "distribution": "uniform",
+      "density": "medium",
+      "obstacles": 51,
+      "radius_min": 0.5038373317511616,
+      "radius_max": 2.78283162941897,
+      "endpoint_min_clearance": 2.237801704714486,
+      "traversability": 4.650040958701501
+    },
+    {
+      "seed": 2006,
+      "distribution": "uniform",
+      "density": "medium",
+      "obstacles": 54,
+      "radius_min": 0.506888788808163,
+      "radius_max": 2.3273392921979132,
+      "endpoint_min_clearance": 2.023473416104623,
+      "traversability": 4.983698641129789
+    },
+    {
+      "seed": 2007,
+      "distribution": "uniform",
+      "density": "medium",
+      "obstacles": 52,
+      "radius_min": 0.5336588503670918,
+      "radius_max": 2.8590914650506454,
+      "endpoint_min_clearance": 1.729239054791937,
+      "traversability": 4.064763905373655
+    },
+    {
+      "seed": 2008,
+      "distribution": "uniform",
+      "density": "medium",
+      "obstacles": 55,
+      "radius_min": 0.5060836688432276,
+      "radius_max": 2.9073899047279976,
+      "endpoint_min_clearance": 1.5501244101938854,
+      "traversability": 4.557263002572106
+    },
+    {
+      "seed": 2009,
+      "distribution": "uniform",
+      "density": "medium",
+      "obstacles": 42,
+      "radius_min": 0.5305973948445529,
+      "radius_max": 2.5441392249735086,
+      "endpoint_min_clearance": 2.0054180994451656,
+      "traversability": 5.86510298349679
+    },
+    {
+      "seed": 2010,
+      "distribution": "uniform",
+      "density": "medium",
+      "obstacles": 42,
+      "radius_min": 0.5198627363533368,
+      "radius_max": 2.731452276019788,
+      "endpoint_min_clearance": 2.786353717045153,
+      "traversability": 6.162081135388903
+    },
+    {
+      "seed": 2011,
+      "distribution": "uniform",
+      "density": "medium",
+      "obstacles": 52,
+      "radius_min": 0.5005504239098039,
+      "radius_max": 2.7868257469301114,
+      "endpoint_min_clearance": 4.671956924131909,
+      "traversability": 4.6001553827610255
+    },
+    {
+      "seed": 2012,
+      "distribution": "uniform",
+      "density": "medium",
+      "obstacles": 42,
+      "radius_min": 0.5376947851646547,
+      "radius_max": 2.8156310330365164,
+      "endpoint_min_clearance": 1.9584792809673361,
+      "traversability": 4.8971234923166795
+    },
+    {
+      "seed": 2013,
+      "distribution": "uniform",
+      "density": "medium",
+      "obstacles": 43,
+      "radius_min": 0.5030302939191148,
+      "radius_max": 2.8569755968948076,
+      "endpoint_min_clearance": 1.7752570304695645,
+      "traversability": 5.389658224736028
+    },
+    {
+      "seed": 2014,
+      "distribution": "uniform",
+      "density": "medium",
+      "obstacles": 55,
+      "radius_min": 0.5291019130131789,
+      "radius_max": 2.5808143776363632,
+      "endpoint_min_clearance": 1.9555853691201017,
+      "traversability": 5.140380836731671
+    },
+    {
+      "seed": 2015,
+      "distribution": "uniform",
+      "density": "medium",
+      "obstacles": 47,
+      "radius_min": 0.5147361550979563,
+      "radius_max": 2.7941226493743123,
+      "endpoint_min_clearance": 2.2173267593497505,
+      "traversability": 5.278264731061631
+    },
+    {
+      "seed": 2016,
+      "distribution": "uniform",
+      "density": "medium",
+      "obstacles": 56,
+      "radius_min": 0.5042812204642803,
+      "radius_max": 2.6648978885128614,
+      "endpoint_min_clearance": 2.097378537949775,
+      "traversability": 4.332344750340737
+    },
+    {
+      "seed": 2017,
+      "distribution": "uniform",
+      "density": "medium",
+      "obstacles": 55,
+      "radius_min": 0.5280083355999119,
+      "radius_max": 2.790721450594751,
+      "endpoint_min_clearance": 1.5743205000139056,
+      "traversability": 4.04172490158518
+    },
+    {
+      "seed": 2018,
+      "distribution": "uniform",
+      "density": "medium",
+      "obstacles": 47,
+      "radius_min": 0.5023786997781925,
+      "radius_max": 2.927851582414175,
+      "endpoint_min_clearance": 1.52142627433451,
+      "traversability": 5.4222866288459635
+    },
+    {
+      "seed": 2019,
+      "distribution": "uniform",
+      "density": "medium",
+      "obstacles": 40,
+      "radius_min": 0.5165444348486571,
+      "radius_max": 2.719651378810946,
+      "endpoint_min_clearance": 2.2208756881019847,
+      "traversability": 5.44347424740242
+    },
+    {
+      "seed": 2020,
+      "distribution": "uniform",
+      "density": "medium",
+      "obstacles": 46,
+      "radius_min": 0.5327263448492892,
+      "radius_max": 2.9795506953325397,
+      "endpoint_min_clearance": 2.8986439485233593,
+      "traversability": 5.371713083650181
+    },
+    {
+      "seed": 2021,
+      "distribution": "uniform",
+      "density": "medium",
+      "obstacles": 52,
+      "radius_min": 0.5591904038110508,
+      "radius_max": 2.772107697225098,
+      "endpoint_min_clearance": 2.396351315052428,
+      "traversability": 3.970678365756753
+    },
+    {
+      "seed": 2022,
+      "distribution": "uniform",
+      "density": "medium",
+      "obstacles": 42,
+      "radius_min": 0.5037429544950888,
+      "radius_max": 2.874832510931772,
+      "endpoint_min_clearance": 1.9435147993409512,
+      "traversability": 5.910650544926921
+    },
+    {
+      "seed": 2023,
+      "distribution": "uniform",
+      "density": "medium",
+      "obstacles": 39,
+      "radius_min": 0.5122383340235863,
+      "radius_max": 2.9013444858744784,
+      "endpoint_min_clearance": 1.6108196021971106,
+      "traversability": 6.268263463222025
+    },
+    {
+      "seed": 2024,
+      "distribution": "uniform",
+      "density": "medium",
+      "obstacles": 50,
+      "radius_min": 0.51751938997494,
+      "radius_max": 2.7362255809801335,
+      "endpoint_min_clearance": 2.1434100337826534,
+      "traversability": 4.975012496821284
+    },
+    {
+      "seed": 2025,
+      "distribution": "uniform",
+      "density": "medium",
+      "obstacles": 56,
+      "radius_min": 0.5183099851996825,
+      "radius_max": 2.8802347327051905,
+      "endpoint_min_clearance": 2.25746295736735,
+      "traversability": 3.844937309696957
+    },
+    {
+      "seed": 2026,
+      "distribution": "uniform",
+      "density": "medium",
+      "obstacles": 41,
+      "radius_min": 0.52139729733243,
+      "radius_max": 2.8495488686306154,
+      "endpoint_min_clearance": 3.17105388959261,
+      "traversability": 5.816080605145689
+    },
+    {
+      "seed": 2027,
+      "distribution": "uniform",
+      "density": "medium",
+      "obstacles": 38,
+      "radius_min": 0.5212521296188145,
+      "radius_max": 2.963771961651525,
+      "endpoint_min_clearance": 3.2575752868567576,
+      "traversability": 5.4137352800776695
+    },
+    {
+      "seed": 2028,
+      "distribution": "uniform",
+      "density": "medium",
+      "obstacles": 45,
+      "radius_min": 0.5247893873871309,
+      "radius_max": 2.9411587230924248,
+      "endpoint_min_clearance": 2.062209176936853,
+      "traversability": 5.018452832820812
+    },
+    {
+      "seed": 2029,
+      "distribution": "uniform",
+      "density": "medium",
+      "obstacles": 53,
+      "radius_min": 0.5179777418268592,
+      "radius_max": 2.9437412508060126,
+      "endpoint_min_clearance": 1.6915378846645412,
+      "traversability": 4.381164741632011
+    },
+    {
+      "seed": 2000,
+      "distribution": "uniform",
+      "density": "dense",
+      "obstacles": 111,
+      "radius_min": 0.5162705283284781,
+      "radius_max": 2.90301919072463,
+      "endpoint_min_clearance": 1.7469496537605225,
+      "traversability": 2.0998506018012857
+    },
+    {
+      "seed": 2001,
+      "distribution": "uniform",
+      "density": "dense",
+      "obstacles": 94,
+      "radius_min": 0.5076640644667594,
+      "radius_max": 2.6975377017873834,
+      "endpoint_min_clearance": 1.7263798561026324,
+      "traversability": 2.0878570111985852
+    },
+    {
+      "seed": 2002,
+      "distribution": "uniform",
+      "density": "dense",
+      "obstacles": 112,
+      "radius_min": 0.5074030628531667,
+      "radius_max": 2.6577025267462258,
+      "endpoint_min_clearance": 1.8533402958600211,
+      "traversability": 1.8735661099741288
+    },
+    {
+      "seed": 2003,
+      "distribution": "uniform",
+      "density": "dense",
+      "obstacles": 89,
+      "radius_min": 0.500710643915966,
+      "radius_max": 2.780706394838,
+      "endpoint_min_clearance": 1.8026636311608515,
+      "traversability": 2.29884799497144
+    },
+    {
+      "seed": 2004,
+      "distribution": "uniform",
+      "density": "dense",
+      "obstacles": 102,
+      "radius_min": 0.501113848544341,
+      "radius_max": 2.8141990411849935,
+      "endpoint_min_clearance": 1.5083328002153364,
+      "traversability": 2.52979805441219
+    },
+    {
+      "seed": 2005,
+      "distribution": "uniform",
+      "density": "dense",
+      "obstacles": 105,
+      "radius_min": 0.5038373317511616,
+      "radius_max": 2.78283162941897,
+      "endpoint_min_clearance": 1.7589256251077428,
+      "traversability": 2.042703853532367
+    },
+    {
+      "seed": 2006,
+      "distribution": "uniform",
+      "density": "dense",
+      "obstacles": 112,
+      "radius_min": 0.506888788808163,
+      "radius_max": 2.3273392921979132,
+      "endpoint_min_clearance": 1.902670280455374,
+      "traversability": 2.0330973957280523
+    },
+    {
+      "seed": 2007,
+      "distribution": "uniform",
+      "density": "dense",
+      "obstacles": 107,
+      "radius_min": 0.5013533653208406,
+      "radius_max": 2.8590914650506454,
+      "endpoint_min_clearance": 1.729239054791937,
+      "traversability": 1.9412728683020908
+    },
+    {
+      "seed": 2008,
+      "distribution": "uniform",
+      "density": "dense",
+      "obstacles": 82,
+      "radius_min": 0.5157595588607488,
+      "radius_max": 2.785708222907153,
+      "endpoint_min_clearance": 1.5249427586625042,
+      "traversability": 2.4944521137832374
+    },
+    {
+      "seed": 2009,
+      "distribution": "uniform",
+      "density": "dense",
+      "obstacles": 86,
+      "radius_min": 0.5029435896484638,
+      "radius_max": 2.5441392249735086,
+      "endpoint_min_clearance": 2.0054180994451656,
+      "traversability": 3.1285229422046283
+    },
+    {
+      "seed": 2010,
+      "distribution": "uniform",
+      "density": "dense",
+      "obstacles": 87,
+      "radius_min": 0.5042395650835989,
+      "radius_max": 2.731452276019788,
+      "endpoint_min_clearance": 2.786353717045153,
+      "traversability": 2.8736043110785023
+    },
+    {
+      "seed": 2011,
+      "distribution": "uniform",
+      "density": "dense",
+      "obstacles": 107,
+      "radius_min": 0.5005504239098039,
+      "radius_max": 2.7868257469301114,
+      "endpoint_min_clearance": 1.8638351416220917,
+      "traversability": 2.0368082679923636
+    },
+    {
+      "seed": 2012,
+      "distribution": "uniform",
+      "density": "dense",
+      "obstacles": 87,
+      "radius_min": 0.5086273261567347,
+      "radius_max": 2.8156310330365164,
+      "endpoint_min_clearance": 1.9584792809673361,
+      "traversability": 2.3916860256828003
+    },
+    {
+      "seed": 2013,
+      "distribution": "uniform",
+      "density": "dense",
+      "obstacles": 88,
+      "radius_min": 0.5030302939191148,
+      "radius_max": 2.8569755968948076,
+      "endpoint_min_clearance": 1.7752570304695645,
+      "traversability": 2.6646281477526474
+    },
+    {
+      "seed": 2014,
+      "distribution": "uniform",
+      "density": "dense",
+      "obstacles": 113,
+      "radius_min": 0.5053264845985408,
+      "radius_max": 2.5808143776363632,
+      "endpoint_min_clearance": 1.894343209184723,
+      "traversability": 2.380169269673814
+    },
+    {
+      "seed": 2015,
+      "distribution": "uniform",
+      "density": "dense",
+      "obstacles": 82,
+      "radius_min": 0.5141995523370485,
+      "radius_max": 2.8791574923434933,
+      "endpoint_min_clearance": 1.5459802144230586,
+      "traversability": 2.988383854276748
+    },
+    {
+      "seed": 2016,
+      "distribution": "uniform",
+      "density": "dense",
+      "obstacles": 115,
+      "radius_min": 0.5042812204642803,
+      "radius_max": 2.6648978885128614,
+      "endpoint_min_clearance": 1.5570224395012358,
+      "traversability": 1.8365650561315052
+    },
+    {
+      "seed": 2017,
+      "distribution": "uniform",
+      "density": "dense",
+      "obstacles": 86,
+      "radius_min": 0.5200951041729642,
+      "radius_max": 2.822519465523108,
+      "endpoint_min_clearance": 1.8683739375698907,
+      "traversability": 2.266408485048689
+    },
+    {
+      "seed": 2018,
+      "distribution": "uniform",
+      "density": "dense",
+      "obstacles": 107,
+      "radius_min": 0.5028042436668455,
+      "radius_max": 2.9967338738977523,
+      "endpoint_min_clearance": 2.1010019152734905,
+      "traversability": 1.9281519477734068
+    },
+    {
+      "seed": 2019,
+      "distribution": "uniform",
+      "density": "dense",
+      "obstacles": 83,
+      "radius_min": 0.5165444348486571,
+      "radius_max": 2.887330061239809,
+      "endpoint_min_clearance": 1.62527711613402,
+      "traversability": 2.483261770979239
+    },
+    {
+      "seed": 2020,
+      "distribution": "uniform",
+      "density": "dense",
+      "obstacles": 96,
+      "radius_min": 0.5124179450209181,
+      "radius_max": 2.9795506953325397,
+      "endpoint_min_clearance": 1.5166557720608804,
+      "traversability": 2.2754584629631016
+    },
+    {
+      "seed": 2021,
+      "distribution": "uniform",
+      "density": "dense",
+      "obstacles": 107,
+      "radius_min": 0.5192116548402018,
+      "radius_max": 2.772107697225098,
+      "endpoint_min_clearance": 1.7054677885914327,
+      "traversability": 1.894780415868042
+    },
+    {
+      "seed": 2022,
+      "distribution": "uniform",
+      "density": "dense",
+      "obstacles": 81,
+      "radius_min": 0.5238369100514085,
+      "radius_max": 2.829797606719394,
+      "endpoint_min_clearance": 1.5864649452493222,
+      "traversability": 2.982111742644607
+    },
+    {
+      "seed": 2023,
+      "distribution": "uniform",
+      "density": "dense",
+      "obstacles": 81,
+      "radius_min": 0.5122383340235863,
+      "radius_max": 2.9013444858744784,
+      "endpoint_min_clearance": 1.6108196021971106,
+      "traversability": 2.863209833737979
+    },
+    {
+      "seed": 2024,
+      "distribution": "uniform",
+      "density": "dense",
+      "obstacles": 104,
+      "radius_min": 0.5099943695170899,
+      "radius_max": 2.7362255809801335,
+      "endpoint_min_clearance": 1.839644204941441,
+      "traversability": 2.0381356473689523
+    },
+    {
+      "seed": 2025,
+      "distribution": "uniform",
+      "density": "dense",
+      "obstacles": 98,
+      "radius_min": 0.5103670544710661,
+      "radius_max": 2.8562599325826774,
+      "endpoint_min_clearance": 1.5872133431209121,
+      "traversability": 2.2298274736356545
+    },
+    {
+      "seed": 2026,
+      "distribution": "uniform",
+      "density": "dense",
+      "obstacles": 84,
+      "radius_min": 0.5120131975408725,
+      "radius_max": 2.8495488686306154,
+      "endpoint_min_clearance": 1.7040424788519593,
+      "traversability": 2.9391723719254244
+    },
+    {
+      "seed": 2027,
+      "distribution": "uniform",
+      "density": "dense",
+      "obstacles": 78,
+      "radius_min": 0.5133679023392739,
+      "radius_max": 2.963771961651525,
+      "endpoint_min_clearance": 2.13075328420309,
+      "traversability": 2.433831811090757
+    },
+    {
+      "seed": 2028,
+      "distribution": "uniform",
+      "density": "dense",
+      "obstacles": 93,
+      "radius_min": 0.505748268883226,
+      "radius_max": 2.9411587230924248,
+      "endpoint_min_clearance": 1.6619788969051035,
+      "traversability": 2.079233667035069
+    },
+    {
+      "seed": 2029,
+      "distribution": "uniform",
+      "density": "dense",
+      "obstacles": 109,
+      "radius_min": 0.5042720334283132,
+      "radius_max": 2.9437412508060126,
+      "endpoint_min_clearance": 1.6915378846645412,
+      "traversability": 2.0039888476693166
+    },
+    {
+      "seed": 2000,
+      "distribution": "poisson",
+      "density": "sparse",
+      "obstacles": 24,
+      "radius_min": 0.507038246592415,
+      "radius_max": 2.948626550825727,
+      "endpoint_min_clearance": 2.1488617399557453,
+      "traversability": 7.756414511138063
+    },
+    {
+      "seed": 2001,
+      "distribution": "poisson",
+      "density": "sparse",
+      "obstacles": 23,
+      "radius_min": 0.6183316290866798,
+      "radius_max": 2.4907456050764383,
+      "endpoint_min_clearance": 2.3122005198364857,
+      "traversability": 8.818024683842209
+    },
+    {
+      "seed": 2002,
+      "distribution": "poisson",
+      "density": "sparse",
+      "obstacles": 25,
+      "radius_min": 0.5737081434515121,
+      "radius_max": 2.9910043484517237,
+      "endpoint_min_clearance": 2.296081897518636,
+      "traversability": 9.306298667776462
+    },
+    {
+      "seed": 2003,
+      "distribution": "poisson",
+      "density": "sparse",
+      "obstacles": 21,
+      "radius_min": 0.5668672108806566,
+      "radius_max": 2.708815510875521,
+      "endpoint_min_clearance": 1.8026636311608515,
+      "traversability": 10.065684118471335
+    },
+    {
+      "seed": 2004,
+      "distribution": "poisson",
+      "density": "sparse",
+      "obstacles": 22,
+      "radius_min": 0.5016441950319004,
+      "radius_max": 2.8141990411849935,
+      "endpoint_min_clearance": 3.078560387879646,
+      "traversability": 9.979795971203023
+    },
+    {
+      "seed": 2005,
+      "distribution": "poisson",
+      "density": "sparse",
+      "obstacles": 24,
+      "radius_min": 0.526776568856671,
+      "radius_max": 2.8627871789531243,
+      "endpoint_min_clearance": 2.75701150307898,
+      "traversability": 7.540330770272428
+    },
+    {
+      "seed": 2006,
+      "distribution": "poisson",
+      "density": "sparse",
+      "obstacles": 24,
+      "radius_min": 0.5103072550409586,
+      "radius_max": 2.294640578952688,
+      "endpoint_min_clearance": 2.023473416104623,
+      "traversability": 10.171918177195442
+    },
+    {
+      "seed": 2007,
+      "distribution": "poisson",
+      "density": "sparse",
+      "obstacles": 25,
+      "radius_min": 0.5793657398782144,
+      "radius_max": 2.8590914650506454,
+      "endpoint_min_clearance": 1.729239054791937,
+      "traversability": 7.3191798382086315
+    },
+    {
+      "seed": 2008,
+      "distribution": "poisson",
+      "density": "sparse",
+      "obstacles": 24,
+      "radius_min": 0.5226093452265026,
+      "radius_max": 2.7926826413681036,
+      "endpoint_min_clearance": 2.2633877273123817,
+      "traversability": 8.96887983179725
+    },
+    {
+      "seed": 2009,
+      "distribution": "poisson",
+      "density": "sparse",
+      "obstacles": 21,
+      "radius_min": 0.5508527135311216,
+      "radius_max": 2.514488348409903,
+      "endpoint_min_clearance": 1.869183283133989,
+      "traversability": 10.406527903552352
+    },
+    {
+      "seed": 2010,
+      "distribution": "poisson",
+      "density": "sparse",
+      "obstacles": 21,
+      "radius_min": 0.5042395650835989,
+      "radius_max": 2.0310098888605967,
+      "endpoint_min_clearance": 2.8928301499809095,
+      "traversability": 11.2258938813268
+    },
+    {
+      "seed": 2011,
+      "distribution": "poisson",
+      "density": "sparse",
+      "obstacles": 25,
+      "radius_min": 0.5005504239098039,
+      "radius_max": 2.7868257469301114,
+      "endpoint_min_clearance": 2.186367994413968,
+      "traversability": 9.063337568151344
+    },
+    {
+      "seed": 2012,
+      "distribution": "poisson",
+      "density": "sparse",
+      "obstacles": 21,
+      "radius_min": 0.5086273261567347,
+      "radius_max": 2.6889924519879562,
+      "endpoint_min_clearance": 2.3965954570286176,
+      "traversability": 8.980248062196349
+    },
+    {
+      "seed": 2013,
+      "distribution": "poisson",
+      "density": "sparse",
+      "obstacles": 21,
+      "radius_min": 0.5547100826896127,
+      "radius_max": 2.891200495280864,
+      "endpoint_min_clearance": 1.7752570304695645,
+      "traversability": 8.130277571441928
+    },
+    {
+      "seed": 2014,
+      "distribution": "poisson",
+      "density": "sparse",
+      "obstacles": 25,
+      "radius_min": 0.7193592847474505,
+      "radius_max": 2.52603206852962,
+      "endpoint_min_clearance": 1.7395187961409206,
+      "traversability": 9.565144807121337
+    },
+    {
+      "seed": 2015,
+      "distribution": "poisson",
+      "density": "sparse",
+      "obstacles": 24,
+      "radius_min": 0.5130223045847191,
+      "radius_max": 2.7941226493743123,
+      "endpoint_min_clearance": 3.023523353235357,
+      "traversability": 9.643509899466032
+    },
+    {
+      "seed": 2016,
+      "distribution": "poisson",
+      "density": "sparse",
+      "obstacles": 26,
+      "radius_min": 0.5144412914254577,
+      "radius_max": 2.586251175533251,
+      "endpoint_min_clearance": 3.2000845699435776,
+      "traversability": 8.756654677467276
+    },
+    {
+      "seed": 2017,
+      "distribution": "poisson",
+      "density": "sparse",
+      "obstacles": 24,
+      "radius_min": 0.5912685618783605,
+      "radius_max": 2.790721450594751,
+      "endpoint_min_clearance": 1.938940787071879,
+      "traversability": 9.77461130536334
+    },
+    {
+      "seed": 2018,
+      "distribution": "poisson",
+      "density": "sparse",
+      "obstacles": 23,
+      "radius_min": 0.561332217379938,
+      "radius_max": 2.927851582414175,
+      "endpoint_min_clearance": 1.5445972761044817,
+      "traversability": 8.684089785211965
+    },
+    {
+      "seed": 2019,
+      "distribution": "poisson",
+      "density": "sparse",
+      "obstacles": 20,
+      "radius_min": 0.8121026180695088,
+      "radius_max": 2.609865513424088,
+      "endpoint_min_clearance": 2.2208756881019847,
+      "traversability": 9.848333644383285
+    },
+    {
+      "seed": 2020,
+      "distribution": "poisson",
+      "density": "sparse",
+      "obstacles": 23,
+      "radius_min": 0.6193353415086751,
+      "radius_max": 2.9795506953325397,
+      "endpoint_min_clearance": 2.8986439485233593,
+      "traversability": 8.655040210296384
+    },
+    {
+      "seed": 2021,
+      "distribution": "poisson",
+      "density": "sparse",
+      "obstacles": 23,
+      "radius_min": 0.5546474346733938,
+      "radius_max": 2.7912890808870565,
+      "endpoint_min_clearance": 4.897155875050953,
+      "traversability": 9.417288538833397
+    },
+    {
+      "seed": 2022,
+      "distribution": "poisson",
+      "density": "sparse",
+      "obstacles": 21,
+      "radius_min": 0.5037429544950888,
+      "radius_max": 2.874832510931772,
+      "endpoint_min_clearance": 2.9200165722300078,
+      "traversability": 10.14386660474836
+    },
+    {
+      "seed": 2023,
+      "distribution": "poisson",
+      "density": "sparse",
+      "obstacles": 19,
+      "radius_min": 0.5122383340235863,
+      "radius_max": 2.6293171857624857,
+      "endpoint_min_clearance": 1.6108196021971106,
+      "traversability": 10.790293847755024
+    },
+    {
+      "seed": 2024,
+      "distribution": "poisson",
+      "density": "sparse",
+      "obstacles": 25,
+      "radius_min": 0.5950520086114555,
+      "radius_max": 2.7362255809801335,
+      "endpoint_min_clearance": 1.8719844424125451,
+      "traversability": 9.637473691819933
+    },
+    {
+      "seed": 2025,
+      "distribution": "poisson",
+      "density": "sparse",
+      "obstacles": 23,
+      "radius_min": 0.6368779636714076,
+      "radius_max": 2.608998201074972,
+      "endpoint_min_clearance": 1.5318063966965745,
+      "traversability": 9.061109237531278
+    },
+    {
+      "seed": 2026,
+      "distribution": "poisson",
+      "density": "sparse",
+      "obstacles": 20,
+      "radius_min": 0.5992614889309266,
+      "radius_max": 2.8495488686306154,
+      "endpoint_min_clearance": 2.704242026694594,
+      "traversability": 10.69354672063143
+    },
+    {
+      "seed": 2027,
+      "distribution": "poisson",
+      "density": "sparse",
+      "obstacles": 19,
+      "radius_min": 0.5635057323389397,
+      "radius_max": 2.963771961651525,
+      "endpoint_min_clearance": 3.5356751587307045,
+      "traversability": 9.52382586336843
+    },
+    {
+      "seed": 2028,
+      "distribution": "poisson",
+      "density": "sparse",
+      "obstacles": 22,
+      "radius_min": 0.5415708595038399,
+      "radius_max": 2.6351157568791974,
+      "endpoint_min_clearance": 2.0627298347622913,
+      "traversability": 10.524524929833767
+    },
+    {
+      "seed": 2029,
+      "distribution": "poisson",
+      "density": "sparse",
+      "obstacles": 25,
+      "radius_min": 0.5179777418268592,
+      "radius_max": 2.4722960513958467,
+      "endpoint_min_clearance": 2.631213082921196,
+      "traversability": 9.546468466671723
+    },
+    {
+      "seed": 2000,
+      "distribution": "poisson",
+      "density": "medium",
+      "obstacles": 41,
+      "radius_min": 0.5313315236692787,
+      "radius_max": 2.948626550825727,
+      "endpoint_min_clearance": 2.075675835576892,
+      "traversability": 5.218190896716053
+    },
+    {
+      "seed": 2001,
+      "distribution": "poisson",
+      "density": "medium",
+      "obstacles": 43,
+      "radius_min": 0.5302468036353151,
+      "radius_max": 2.6975377017873834,
+      "endpoint_min_clearance": 1.6553009650349009,
+      "traversability": 5.1117029223244295
+    },
+    {
+      "seed": 2002,
+      "distribution": "poisson",
+      "density": "medium",
+      "obstacles": 45,
+      "radius_min": 0.5023762566749677,
+      "radius_max": 2.855786722143512,
+      "endpoint_min_clearance": 1.8533402958600211,
+      "traversability": 5.671403774007194
+    },
+    {
+      "seed": 2003,
+      "distribution": "poisson",
+      "density": "medium",
+      "obstacles": 43,
+      "radius_min": 0.5048160641994988,
+      "radius_max": 2.780706394838,
+      "endpoint_min_clearance": 1.8026636311608515,
+      "traversability": 4.902312080896845
+    },
+    {
+      "seed": 2004,
+      "distribution": "poisson",
+      "density": "medium",
+      "obstacles": 45,
+      "radius_min": 0.5016441950319004,
+      "radius_max": 2.8141990411849935,
+      "endpoint_min_clearance": 1.639769063906832,
+      "traversability": 4.934641036217858
+    },
+    {
+      "seed": 2005,
+      "distribution": "poisson",
+      "density": "medium",
+      "obstacles": 45,
+      "radius_min": 0.5044462969796625,
+      "radius_max": 2.956443014300439,
+      "endpoint_min_clearance": 2.237801704714486,
+      "traversability": 4.111081532930815
+    },
+    {
+      "seed": 2006,
+      "distribution": "poisson",
+      "density": "medium",
+      "obstacles": 42,
+      "radius_min": 0.506888788808163,
+      "radius_max": 2.3273392921979132,
+      "endpoint_min_clearance": 2.0186617091626844,
+      "traversability": 6.5857901151511875
+    },
+    {
+      "seed": 2007,
+      "distribution": "poisson",
+      "density": "medium",
+      "obstacles": 43,
+      "radius_min": 0.565928217988181,
+      "radius_max": 2.9837807891638777,
+      "endpoint_min_clearance": 1.729239054791937,
+      "traversability": 4.489410500446144
+    },
+    {
+      "seed": 2008,
+      "distribution": "poisson",
+      "density": "medium",
+      "obstacles": 43,
+      "radius_min": 0.5226093452265026,
+      "radius_max": 2.9270609809094825,
+      "endpoint_min_clearance": 1.5501244101938854,
+      "traversability": 4.67341924870457
+    },
+    {
+      "seed": 2009,
+      "distribution": "poisson",
+      "density": "medium",
+      "obstacles": 42,
+      "radius_min": 0.5508527135311216,
+      "radius_max": 2.5441392249735086,
+      "endpoint_min_clearance": 1.869183283133989,
+      "traversability": 5.335805278181791
+    },
+    {
+      "seed": 2010,
+      "distribution": "poisson",
+      "density": "medium",
+      "obstacles": 42,
+      "radius_min": 0.518508205157375,
+      "radius_max": 2.284533434611529,
+      "endpoint_min_clearance": 1.8629246505306192,
+      "traversability": 6.394784708484504
+    },
+    {
+      "seed": 2011,
+      "distribution": "poisson",
+      "density": "medium",
+      "obstacles": 44,
+      "radius_min": 0.5005504239098039,
+      "radius_max": 2.7868257469301114,
+      "endpoint_min_clearance": 2.3239925235362637,
+      "traversability": 6.1705524271692775
+    },
+    {
+      "seed": 2012,
+      "distribution": "poisson",
+      "density": "medium",
+      "obstacles": 42,
+      "radius_min": 0.5567027894749329,
+      "radius_max": 2.6889924519879562,
+      "endpoint_min_clearance": 2.3965954570286176,
+      "traversability": 4.956182080768551
+    },
+    {
+      "seed": 2013,
+      "distribution": "poisson",
+      "density": "medium",
+      "obstacles": 41,
+      "radius_min": 0.5547100826896127,
+      "radius_max": 2.8569755968948076,
+      "endpoint_min_clearance": 1.7752570304695645,
+      "traversability": 5.207239970200044
+    },
+    {
+      "seed": 2014,
+      "distribution": "poisson",
+      "density": "medium",
+      "obstacles": 45,
+      "radius_min": 0.6324041812165957,
+      "radius_max": 2.588512467047717,
+      "endpoint_min_clearance": 1.6034416628203525,
+      "traversability": 5.5800035381472
+    },
+    {
+      "seed": 2015,
+      "distribution": "poisson",
+      "density": "medium",
+      "obstacles": 44,
+      "radius_min": 0.5073884407335775,
+      "radius_max": 2.7941226493743123,
+      "endpoint_min_clearance": 1.8119541828466157,
+      "traversability": 5.378739178655516
+    },
+    {
+      "seed": 2016,
+      "distribution": "poisson",
+      "density": "medium",
+      "obstacles": 44,
+      "radius_min": 0.5267859242210349,
+      "radius_max": 2.8985311063519763,
+      "endpoint_min_clearance": 2.097378537949775,
+      "traversability": 4.5744476000819905
+    },
+    {
+      "seed": 2017,
+      "distribution": "poisson",
+      "density": "medium",
+      "obstacles": 42,
+      "radius_min": 0.6150506463294365,
+      "radius_max": 2.790721450594751,
+      "endpoint_min_clearance": 1.5743205000139056,
+      "traversability": 4.898031226230928
+    },
+    {
+      "seed": 2018,
+      "distribution": "poisson",
+      "density": "medium",
+      "obstacles": 45,
+      "radius_min": 0.5136112940567364,
+      "radius_max": 2.927851582414175,
+      "endpoint_min_clearance": 2.1648910794239127,
+      "traversability": 4.530810052456625
+    },
+    {
+      "seed": 2019,
+      "distribution": "poisson",
+      "density": "medium",
+      "obstacles": 40,
+      "radius_min": 0.5642393596155335,
+      "radius_max": 2.9205324469599168,
+      "endpoint_min_clearance": 2.0952916490365103,
+      "traversability": 4.374373327229814
+    },
+    {
+      "seed": 2020,
+      "distribution": "poisson",
+      "density": "medium",
+      "obstacles": 45,
+      "radius_min": 0.6193353415086751,
+      "radius_max": 2.9795506953325397,
+      "endpoint_min_clearance": 1.6463720633610646,
+      "traversability": 4.286686441284322
+    },
+    {
+      "seed": 2021,
+      "distribution": "poisson",
+      "density": "medium",
+      "obstacles": 46,
+      "radius_min": 0.5286191055671356,
+      "radius_max": 2.562292957374602,
+      "endpoint_min_clearance": 1.7054677885914327,
+      "traversability": 5.871261632834128
+    },
+    {
+      "seed": 2022,
+      "distribution": "poisson",
+      "density": "medium",
+      "obstacles": 40,
+      "radius_min": 0.501119410027748,
+      "radius_max": 2.874832510931772,
+      "endpoint_min_clearance": 2.05418100816811,
+      "traversability": 6.585652102503804
+    },
+    {
+      "seed": 2023,
+      "distribution": "poisson",
+      "density": "medium",
+      "obstacles": 39,
+      "radius_min": 0.5122383340235863,
+      "radius_max": 2.8023107231523277,
+      "endpoint_min_clearance": 1.6108196021971106,
+      "traversability": 5.373470148391908
+    },
+    {
+      "seed": 2024,
+      "distribution": "poisson",
+      "density": "medium",
+      "obstacles": 42,
+      "radius_min": 0.51751938997494,
+      "radius_max": 2.856907731268758,
+      "endpoint_min_clearance": 2.1434100337826534,
+      "traversability": 4.786549397638851
+    },
+    {
+      "seed": 2025,
+      "distribution": "poisson",
+      "density": "medium",
+      "obstacles": 46,
+      "radius_min": 0.541093853700661,
+      "radius_max": 2.6131827996918626,
+      "endpoint_min_clearance": 2.25746295736735,
+      "traversability": 5.299907338863193
+    },
+    {
+      "seed": 2026,
+      "distribution": "poisson",
+      "density": "medium",
+      "obstacles": 41,
+      "radius_min": 0.5405466757903165,
+      "radius_max": 2.8495488686306154,
+      "endpoint_min_clearance": 3.17105388959261,
+      "traversability": 5.292578795993333
+    },
+    {
+      "seed": 2027,
+      "distribution": "poisson",
+      "density": "medium",
+      "obstacles": 38,
+      "radius_min": 0.5318256701350499,
+      "radius_max": 2.963771961651525,
+      "endpoint_min_clearance": 1.5044187745082358,
+      "traversability": 4.982405811495441
+    },
+    {
+      "seed": 2028,
+      "distribution": "poisson",
+      "density": "medium",
+      "obstacles": 42,
+      "radius_min": 0.5247893873871309,
+      "radius_max": 2.8145836976387635,
+      "endpoint_min_clearance": 2.062209176936853,
+      "traversability": 5.089366093990982
+    },
+    {
+      "seed": 2029,
+      "distribution": "poisson",
+      "density": "medium",
+      "obstacles": 44,
+      "radius_min": 0.5179777418268592,
+      "radius_max": 2.4504773824529615,
+      "endpoint_min_clearance": 1.6915378846645412,
+      "traversability": 5.908871514173898
+    },
+    {
+      "seed": 2000,
+      "distribution": "poisson",
+      "density": "dense",
+      "obstacles": 80,
+      "radius_min": 0.507038246592415,
+      "radius_max": 2.948626550825727,
+      "endpoint_min_clearance": 2.075675835576892,
+      "traversability": 2.2701561094335587
+    },
+    {
+      "seed": 2001,
+      "distribution": "poisson",
+      "density": "dense",
+      "obstacles": 81,
+      "radius_min": 0.5090049405325912,
+      "radius_max": 2.6975377017873834,
+      "endpoint_min_clearance": 1.6553009650349009,
+      "traversability": 2.2804221130778686
+    },
+    {
+      "seed": 2002,
+      "distribution": "poisson",
+      "density": "dense",
+      "obstacles": 86,
+      "radius_min": 0.5109447057043588,
+      "radius_max": 2.6577025267462258,
+      "endpoint_min_clearance": 1.8533402958600211,
+      "traversability": 2.4987920943966886
+    },
+    {
+      "seed": 2003,
+      "distribution": "poisson",
+      "density": "dense",
+      "obstacles": 78,
+      "radius_min": 0.5048160641994988,
+      "radius_max": 2.780706394838,
+      "endpoint_min_clearance": 1.5285568658232311,
+      "traversability": 2.464639820299917
+    },
+    {
+      "seed": 2004,
+      "distribution": "poisson",
+      "density": "dense",
+      "obstacles": 86,
+      "radius_min": 0.5016441950319004,
+      "radius_max": 2.8141990411849935,
+      "endpoint_min_clearance": 1.5083328002153364,
+      "traversability": 2.4160334502111906
+    },
+    {
+      "seed": 2005,
+      "distribution": "poisson",
+      "density": "dense",
+      "obstacles": 83,
+      "radius_min": 0.5235465396764104,
+      "radius_max": 2.78283162941897,
+      "endpoint_min_clearance": 1.7589256251077428,
+      "traversability": 2.3829154014501643
+    },
+    {
+      "seed": 2006,
+      "distribution": "poisson",
+      "density": "dense",
+      "obstacles": 88,
+      "radius_min": 0.5103072550409586,
+      "radius_max": 2.670291677759142,
+      "endpoint_min_clearance": 1.902670280455374,
+      "traversability": 2.3737087107121497
+    },
+    {
+      "seed": 2007,
+      "distribution": "poisson",
+      "density": "dense",
+      "obstacles": 86,
+      "radius_min": 0.5352592422090059,
+      "radius_max": 2.8590914650506454,
+      "endpoint_min_clearance": 1.729239054791937,
+      "traversability": 2.0624403328911147
+    },
+    {
+      "seed": 2008,
+      "distribution": "poisson",
+      "density": "dense",
+      "obstacles": 89,
+      "radius_min": 0.504309836352823,
+      "radius_max": 2.9194818916521905,
+      "endpoint_min_clearance": 1.5501244101938854,
+      "traversability": 2.235874127817247
+    },
+    {
+      "seed": 2009,
+      "distribution": "poisson",
+      "density": "dense",
+      "obstacles": 83,
+      "radius_min": 0.5210371559385539,
+      "radius_max": 2.5610791028283915,
+      "endpoint_min_clearance": 1.507118100080853,
+      "traversability": 2.5899253009638774
+    },
+    {
+      "seed": 2010,
+      "distribution": "poisson",
+      "density": "dense",
+      "obstacles": 85,
+      "radius_min": 0.5042395650835989,
+      "radius_max": 2.731452276019788,
+      "endpoint_min_clearance": 1.8763801611582793,
+      "traversability": 2.5385460034904845
+    },
+    {
+      "seed": 2011,
+      "distribution": "poisson",
+      "density": "dense",
+      "obstacles": 86,
+      "radius_min": 0.5009178520196792,
+      "radius_max": 2.8179376201043738,
+      "endpoint_min_clearance": 1.506881728965639,
+      "traversability": 2.2242117114701525
+    },
+    {
+      "seed": 2012,
+      "distribution": "poisson",
+      "density": "dense",
+      "obstacles": 85,
+      "radius_min": 0.5086273261567347,
+      "radius_max": 2.8156310330365164,
+      "endpoint_min_clearance": 1.6224330304085466,
+      "traversability": 2.300973664129041
+    },
+    {
+      "seed": 2013,
+      "distribution": "poisson",
+      "density": "dense",
+      "obstacles": 82,
+      "radius_min": 0.5167217446579961,
+      "radius_max": 2.8569755968948076,
+      "endpoint_min_clearance": 1.7752570304695645,
+      "traversability": 2.4123307579824655
+    },
+    {
+      "seed": 2014,
+      "distribution": "poisson",
+      "density": "dense",
+      "obstacles": 84,
+      "radius_min": 0.5080358770665231,
+      "radius_max": 2.964119831273527,
+      "endpoint_min_clearance": 1.7395187961409206,
+      "traversability": 2.635229425113824
+    },
+    {
+      "seed": 2015,
+      "distribution": "poisson",
+      "density": "dense",
+      "obstacles": 80,
+      "radius_min": 0.5073884407335775,
+      "radius_max": 2.7941226493743123,
+      "endpoint_min_clearance": 2.2173267593497505,
+      "traversability": 2.455725419098679
+    },
+    {
+      "seed": 2016,
+      "distribution": "poisson",
+      "density": "dense",
+      "obstacles": 88,
+      "radius_min": 0.5127078298487056,
+      "radius_max": 2.747595036573598,
+      "endpoint_min_clearance": 1.8017870451814533,
+      "traversability": 2.535363046353301
+    },
+    {
+      "seed": 2017,
+      "distribution": "poisson",
+      "density": "dense",
+      "obstacles": 86,
+      "radius_min": 0.5177349070987833,
+      "radius_max": 2.7947496262575373,
+      "endpoint_min_clearance": 1.558540802882423,
+      "traversability": 2.2983830668584044
+    },
+    {
+      "seed": 2018,
+      "distribution": "poisson",
+      "density": "dense",
+      "obstacles": 85,
+      "radius_min": 0.5106042323110502,
+      "radius_max": 2.927851582414175,
+      "endpoint_min_clearance": 1.52142627433451,
+      "traversability": 2.3534894928453896
+    },
+    {
+      "seed": 2019,
+      "distribution": "poisson",
+      "density": "dense",
+      "obstacles": 83,
+      "radius_min": 0.5099727468454065,
+      "radius_max": 2.887330061239809,
+      "endpoint_min_clearance": 1.5617141979188456,
+      "traversability": 2.1834159158318682
+    },
+    {
+      "seed": 2020,
+      "distribution": "poisson",
+      "density": "dense",
+      "obstacles": 82,
+      "radius_min": 0.5161632170416466,
+      "radius_max": 2.9795506953325397,
+      "endpoint_min_clearance": 1.5290157638337416,
+      "traversability": 2.4793692026463887
+    },
+    {
+      "seed": 2021,
+      "distribution": "poisson",
+      "density": "dense",
+      "obstacles": 83,
+      "radius_min": 0.5010734459985944,
+      "radius_max": 2.772107697225098,
+      "endpoint_min_clearance": 1.7054677885914327,
+      "traversability": 2.3106259164965155
+    },
+    {
+      "seed": 2022,
+      "distribution": "poisson",
+      "density": "dense",
+      "obstacles": 85,
+      "radius_min": 0.5037429544950888,
+      "radius_max": 2.874832510931772,
+      "endpoint_min_clearance": 2.05418100816811,
+      "traversability": 2.2209296561360032
+    },
+    {
+      "seed": 2023,
+      "distribution": "poisson",
+      "density": "dense",
+      "obstacles": 81,
+      "radius_min": 0.5122383340235863,
+      "radius_max": 2.9013444858744784,
+      "endpoint_min_clearance": 1.6108196021971106,
+      "traversability": 2.450315502964608
+    },
+    {
+      "seed": 2024,
+      "distribution": "poisson",
+      "density": "dense",
+      "obstacles": 86,
+      "radius_min": 0.51751938997494,
+      "radius_max": 2.7362255809801335,
+      "endpoint_min_clearance": 1.839644204941441,
+      "traversability": 2.5027099013577
+    },
+    {
+      "seed": 2025,
+      "distribution": "poisson",
+      "density": "dense",
+      "obstacles": 81,
+      "radius_min": 0.5028861448013129,
+      "radius_max": 2.6854735025246588,
+      "endpoint_min_clearance": 1.5190124268143945,
+      "traversability": 2.6054785507817426
+    },
+    {
+      "seed": 2026,
+      "distribution": "poisson",
+      "density": "dense",
+      "obstacles": 81,
+      "radius_min": 0.5106999266792465,
+      "radius_max": 2.976909025469181,
+      "endpoint_min_clearance": 1.7040424788519593,
+      "traversability": 2.546017926082194
+    },
+    {
+      "seed": 2027,
+      "distribution": "poisson",
+      "density": "dense",
+      "obstacles": 83,
+      "radius_min": 0.5040685386016874,
+      "radius_max": 2.786718655500015,
+      "endpoint_min_clearance": 1.509523805788349,
+      "traversability": 2.2647303483285652
+    },
+    {
+      "seed": 2028,
+      "distribution": "poisson",
+      "density": "dense",
+      "obstacles": 84,
+      "radius_min": 0.5106498113619852,
+      "radius_max": 2.9411587230924248,
+      "endpoint_min_clearance": 1.650865211560081,
+      "traversability": 2.272405454368162
+    },
+    {
+      "seed": 2029,
+      "distribution": "poisson",
+      "density": "dense",
+      "obstacles": 81,
+      "radius_min": 0.5179777418268592,
+      "radius_max": 2.9437412508060126,
+      "endpoint_min_clearance": 1.6915378846645412,
+      "traversability": 2.406382103927184
+    },
+    {
+      "seed": 2000,
+      "distribution": "clustered",
+      "density": "sparse",
+      "obstacles": 24,
+      "radius_min": 0.5478203037244916,
+      "radius_max": 2.7372388235110865,
+      "endpoint_min_clearance": 4.322466434452498,
+      "traversability": 8.825797659709362
+    },
+    {
+      "seed": 2001,
+      "distribution": "clustered",
+      "density": "sparse",
+      "obstacles": 23,
+      "radius_min": 0.7544121730764799,
+      "radius_max": 2.4907456050764383,
+      "endpoint_min_clearance": 2.182813922134332,
+      "traversability": 8.939417937026233
+    },
+    {
+      "seed": 2002,
+      "distribution": "clustered",
+      "density": "sparse",
+      "obstacles": 27,
+      "radius_min": 0.5519526367497112,
+      "radius_max": 2.7196567382822647,
+      "endpoint_min_clearance": 3.214064951201658,
+      "traversability": 9.353511263390107
+    },
+    {
+      "seed": 2003,
+      "distribution": "clustered",
+      "density": "sparse",
+      "obstacles": 21,
+      "radius_min": 0.5052304218380353,
+      "radius_max": 2.763918865714258,
+      "endpoint_min_clearance": 2.423400982568773,
+      "traversability": 11.063448737241181
+    },
+    {
+      "seed": 2004,
+      "distribution": "clustered",
+      "density": "sparse",
+      "obstacles": 25,
+      "radius_min": 0.5310041281555962,
+      "radius_max": 2.3758781344852533,
+      "endpoint_min_clearance": 2.8121416077128987,
+      "traversability": 8.911225088331298
+    },
+    {
+      "seed": 2005,
+      "distribution": "clustered",
+      "density": "sparse",
+      "obstacles": 26,
+      "radius_min": 0.5881036860202004,
+      "radius_max": 2.509481765120306,
+      "endpoint_min_clearance": 2.8541120232987964,
+      "traversability": 8.402034793228578
+    },
+    {
+      "seed": 2006,
+      "distribution": "clustered",
+      "density": "sparse",
+      "obstacles": 27,
+      "radius_min": 0.5164934972903827,
+      "radius_max": 2.88949506423842,
+      "endpoint_min_clearance": 6.378082872777811,
+      "traversability": 8.323602746784939
+    },
+    {
+      "seed": 2007,
+      "distribution": "clustered",
+      "density": "sparse",
+      "obstacles": 26,
+      "radius_min": 0.5568024431198372,
+      "radius_max": 2.2377764532461826,
+      "endpoint_min_clearance": 1.5636094253621704,
+      "traversability": 9.403663025954183
+    },
+    {
+      "seed": 2008,
+      "distribution": "clustered",
+      "density": "sparse",
+      "obstacles": 27,
+      "radius_min": 0.5001374488282,
+      "radius_max": 2.9073899047279976,
+      "endpoint_min_clearance": 3.6159767461102583,
+      "traversability": 9.198194379212028
+    },
+    {
+      "seed": 2009,
+      "distribution": "clustered",
+      "density": "sparse",
+      "obstacles": 21,
+      "radius_min": 0.6365152540489877,
+      "radius_max": 2.141344800888515,
+      "endpoint_min_clearance": 6.2920522610016665,
+      "traversability": 10.085246952236275
+    },
+    {
+      "seed": 2010,
+      "distribution": "clustered",
+      "density": "sparse",
+      "obstacles": 21,
+      "radius_min": 0.5110616936455614,
+      "radius_max": 2.943550035244437,
+      "endpoint_min_clearance": 3.9286776017091154,
+      "traversability": 9.039935875907723
+    },
+    {
+      "seed": 2011,
+      "distribution": "clustered",
+      "density": "sparse",
+      "obstacles": 26,
+      "radius_min": 0.5702523570389824,
+      "radius_max": 2.95965119785532,
+      "endpoint_min_clearance": 3.1736911257665095,
+      "traversability": 9.482223569024306
+    },
+    {
+      "seed": 2012,
+      "distribution": "clustered",
+      "density": "sparse",
+      "obstacles": 21,
+      "radius_min": 0.5797117852799154,
+      "radius_max": 2.9064045631004944,
+      "endpoint_min_clearance": 4.45271675004579,
+      "traversability": 8.56998131204437
+    },
+    {
+      "seed": 2013,
+      "distribution": "clustered",
+      "density": "sparse",
+      "obstacles": 21,
+      "radius_min": 0.743191681091505,
+      "radius_max": 2.517012930151218,
+      "endpoint_min_clearance": 3.6056825352775688,
+      "traversability": 9.50938722417371
+    },
+    {
+      "seed": 2014,
+      "distribution": "clustered",
+      "density": "sparse",
+      "obstacles": 28,
+      "radius_min": 0.5577887646832429,
+      "radius_max": 2.8117727345166124,
+      "endpoint_min_clearance": 2.39645354617581,
+      "traversability": 7.212873981707449
+    },
+    {
+      "seed": 2015,
+      "distribution": "clustered",
+      "density": "sparse",
+      "obstacles": 24,
+      "radius_min": 0.5998126618744153,
+      "radius_max": 2.9335511832419727,
+      "endpoint_min_clearance": 4.302087992662928,
+      "traversability": 8.41860521427149
+    },
+    {
+      "seed": 2016,
+      "distribution": "clustered",
+      "density": "sparse",
+      "obstacles": 28,
+      "radius_min": 0.5144412914254577,
+      "radius_max": 2.5136267581393836,
+      "endpoint_min_clearance": 2.097378537949775,
+      "traversability": 7.8415242286232
+    },
+    {
+      "seed": 2017,
+      "distribution": "clustered",
+      "density": "sparse",
+      "obstacles": 28,
+      "radius_min": 0.5372115115120087,
+      "radius_max": 2.970729103842393,
+      "endpoint_min_clearance": 5.713437455124876,
+      "traversability": 8.214019718173953
+    },
+    {
+      "seed": 2018,
+      "distribution": "clustered",
+      "density": "sparse",
+      "obstacles": 23,
+      "radius_min": 0.5122663060742689,
+      "radius_max": 2.927851582414175,
+      "endpoint_min_clearance": 3.6883920332370974,
+      "traversability": 9.721851710558207
+    },
+    {
+      "seed": 2019,
+      "distribution": "clustered",
+      "density": "sparse",
+      "obstacles": 20,
+      "radius_min": 0.5191622798194377,
+      "radius_max": 2.937664227796306,
+      "endpoint_min_clearance": 3.6677852495721326,
+      "traversability": 10.308696452266222
+    },
+    {
+      "seed": 2020,
+      "distribution": "clustered",
+      "density": "sparse",
+      "obstacles": 23,
+      "radius_min": 0.505352920071143,
+      "radius_max": 2.963642128514302,
+      "endpoint_min_clearance": 2.540830113889725,
+      "traversability": 8.349296821275246
+    },
+    {
+      "seed": 2021,
+      "distribution": "clustered",
+      "density": "sparse",
+      "obstacles": 26,
+      "radius_min": 0.5309687245765529,
+      "radius_max": 2.7896412793213394,
+      "endpoint_min_clearance": 4.185250845074308,
+      "traversability": 9.041373666748127
+    },
+    {
+      "seed": 2022,
+      "distribution": "clustered",
+      "density": "sparse",
+      "obstacles": 21,
+      "radius_min": 0.5222230725938416,
+      "radius_max": 2.98293194900012,
+      "endpoint_min_clearance": 6.321820509721979,
+      "traversability": 10.832073929422036
+    },
+    {
+      "seed": 2023,
+      "distribution": "clustered",
+      "density": "sparse",
+      "obstacles": 19,
+      "radius_min": 0.5186184980385099,
+      "radius_max": 2.8694570442366114,
+      "endpoint_min_clearance": 2.297917853889903,
+      "traversability": 9.95639421408106
+    },
+    {
+      "seed": 2024,
+      "distribution": "clustered",
+      "density": "sparse",
+      "obstacles": 25,
+      "radius_min": 0.5146118875875079,
+      "radius_max": 2.5685749295270854,
+      "endpoint_min_clearance": 2.3641987202083117,
+      "traversability": 8.86911136453525
+    },
+    {
+      "seed": 2025,
+      "distribution": "clustered",
+      "density": "sparse",
+      "obstacles": 28,
+      "radius_min": 0.541093853700661,
+      "radius_max": 2.7476206715576823,
+      "endpoint_min_clearance": 2.505080128555673,
+      "traversability": 8.308688737404237
+    },
+    {
+      "seed": 2026,
+      "distribution": "clustered",
+      "density": "sparse",
+      "obstacles": 20,
+      "radius_min": 0.5023430596888647,
+      "radius_max": 2.709899478778189,
+      "endpoint_min_clearance": 2.9993701082846904,
+      "traversability": 10.376631509975658
+    },
+    {
+      "seed": 2027,
+      "distribution": "clustered",
+      "density": "sparse",
+      "obstacles": 19,
+      "radius_min": 0.5475600011545213,
+      "radius_max": 2.963771961651525,
+      "endpoint_min_clearance": 1.5893845311972306,
+      "traversability": 9.008363197919877
+    },
+    {
+      "seed": 2028,
+      "distribution": "clustered",
+      "density": "sparse",
+      "obstacles": 22,
+      "radius_min": 0.5148466475952616,
+      "radius_max": 2.585676754655092,
+      "endpoint_min_clearance": 2.704919963471249,
+      "traversability": 9.858162000004612
+    },
+    {
+      "seed": 2029,
+      "distribution": "clustered",
+      "density": "sparse",
+      "obstacles": 26,
+      "radius_min": 0.5770133113766461,
+      "radius_max": 2.8279217868871287,
+      "endpoint_min_clearance": 2.8481203273729836,
+      "traversability": 8.232079280919127
+    },
+    {
+      "seed": 2000,
+      "distribution": "clustered",
+      "density": "medium",
+      "obstacles": 48,
+      "radius_min": 0.5306178811953186,
+      "radius_max": 2.7372388235110865,
+      "endpoint_min_clearance": 2.3194658893800497,
+      "traversability": 4.88395117862379
+    },
+    {
+      "seed": 2001,
+      "distribution": "clustered",
+      "density": "medium",
+      "obstacles": 46,
+      "radius_min": 0.5045483334497022,
+      "radius_max": 2.6835434561378295,
+      "endpoint_min_clearance": 1.6347125777402902,
+      "traversability": 5.736039757221908
+    },
+    {
+      "seed": 2002,
+      "distribution": "clustered",
+      "density": "medium",
+      "obstacles": 54,
+      "radius_min": 0.5109697805691689,
+      "radius_max": 2.7196567382822647,
+      "endpoint_min_clearance": 2.3960144100898173,
+      "traversability": 5.728643394692081
+    },
+    {
+      "seed": 2003,
+      "distribution": "clustered",
+      "density": "medium",
+      "obstacles": 43,
+      "radius_min": 0.5052304218380353,
+      "radius_max": 2.763918865714258,
+      "endpoint_min_clearance": 2.423400982568773,
+      "traversability": 6.2092596843405
+    },
+    {
+      "seed": 2004,
+      "distribution": "clustered",
+      "density": "medium",
+      "obstacles": 50,
+      "radius_min": 0.5135200462235995,
+      "radius_max": 2.3758781344852533,
+      "endpoint_min_clearance": 2.675097957442042,
+      "traversability": 5.399528690122594
+    },
+    {
+      "seed": 2005,
+      "distribution": "clustered",
+      "density": "medium",
+      "obstacles": 51,
+      "radius_min": 0.504577999997456,
+      "radius_max": 2.9747462561914606,
+      "endpoint_min_clearance": 2.054764932697923,
+      "traversability": 4.917527896218729
+    },
+    {
+      "seed": 2006,
+      "distribution": "clustered",
+      "density": "medium",
+      "obstacles": 54,
+      "radius_min": 0.5164934972903827,
+      "radius_max": 2.88949506423842,
+      "endpoint_min_clearance": 1.9426101350998588,
+      "traversability": 4.816667073593694
+    },
+    {
+      "seed": 2007,
+      "distribution": "clustered",
+      "density": "medium",
+      "obstacles": 52,
+      "radius_min": 0.5568024431198372,
+      "radius_max": 2.982344765290202,
+      "endpoint_min_clearance": 2.683105346652107,
+      "traversability": 5.397466931121844
+    },
+    {
+      "seed": 2008,
+      "distribution": "clustered",
+      "density": "medium",
+      "obstacles": 55,
+      "radius_min": 0.5001374488282,
+      "radius_max": 2.524815549979028,
+      "endpoint_min_clearance": 3.629975807865444,
+      "traversability": 5.431178052991499
+    },
+    {
+      "seed": 2009,
+      "distribution": "clustered",
+      "density": "medium",
+      "obstacles": 42,
+      "radius_min": 0.5531375590359829,
+      "radius_max": 2.4016362833193017,
+      "endpoint_min_clearance": 3.0850375983414566,
+      "traversability": 6.384191698791369
+    },
+    {
+      "seed": 2010,
+      "distribution": "clustered",
+      "density": "medium",
+      "obstacles": 42,
+      "radius_min": 0.5110616936455614,
+      "radius_max": 2.943550035244437,
+      "endpoint_min_clearance": 2.5946496867121587,
+      "traversability": 5.442164450795867
+    },
+    {
+      "seed": 2011,
+      "distribution": "clustered",
+      "density": "medium",
+      "obstacles": 52,
+      "radius_min": 0.5110516724524137,
+      "radius_max": 2.95965119785532,
+      "endpoint_min_clearance": 1.896539595172828,
+      "traversability": 5.217042101736113
+    },
+    {
+      "seed": 2012,
+      "distribution": "clustered",
+      "density": "medium",
+      "obstacles": 42,
+      "radius_min": 0.5022297637823403,
+      "radius_max": 2.9064045631004944,
+      "endpoint_min_clearance": 3.327642946056372,
+      "traversability": 5.438621221372653
+    },
+    {
+      "seed": 2013,
+      "distribution": "clustered",
+      "density": "medium",
+      "obstacles": 43,
+      "radius_min": 0.5259318855538027,
+      "radius_max": 2.6112901394233603,
+      "endpoint_min_clearance": 2.314135023395261,
+      "traversability": 6.391509190324659
+    },
+    {
+      "seed": 2014,
+      "distribution": "clustered",
+      "density": "medium",
+      "obstacles": 55,
+      "radius_min": 0.5304941438657333,
+      "radius_max": 2.8117727345166124,
+      "endpoint_min_clearance": 2.39645354617581,
+      "traversability": 4.190129291065796
+    },
+    {
+      "seed": 2015,
+      "distribution": "clustered",
+      "density": "medium",
+      "obstacles": 47,
+      "radius_min": 0.5329368667955432,
+      "radius_max": 2.7796175615429055,
+      "endpoint_min_clearance": 1.5520950651427525,
+      "traversability": 4.916461417299433
+    },
+    {
+      "seed": 2016,
+      "distribution": "clustered",
+      "density": "medium",
+      "obstacles": 56,
+      "radius_min": 0.5144412914254577,
+      "radius_max": 2.998925870154272,
+      "endpoint_min_clearance": 2.097378537949775,
+      "traversability": 4.612390692635237
+    },
+    {
+      "seed": 2017,
+      "distribution": "clustered",
+      "density": "medium",
+      "obstacles": 55,
+      "radius_min": 0.5328437792197469,
+      "radius_max": 2.970729103842393,
+      "endpoint_min_clearance": 1.6681706962617495,
+      "traversability": 5.012042659705255
+    },
+    {
+      "seed": 2018,
+      "distribution": "clustered",
+      "density": "medium",
+      "obstacles": 47,
+      "radius_min": 0.5109816444375178,
+      "radius_max": 2.927851582414175,
+      "endpoint_min_clearance": 3.6883920332370974,
+      "traversability": 6.325910664682709
+    },
+    {
+      "seed": 2019,
+      "distribution": "clustered",
+      "density": "medium",
+      "obstacles": 40,
+      "radius_min": 0.5285906933666991,
+      "radius_max": 2.937664227796306,
+      "endpoint_min_clearance": 4.494972426380718,
+      "traversability": 6.830762351011771
+    },
+    {
+      "seed": 2020,
+      "distribution": "clustered",
+      "density": "medium",
+      "obstacles": 46,
+      "radius_min": 0.505352920071143,
+      "radius_max": 2.963642128514302,
+      "endpoint_min_clearance": 1.7503472343608715,
+      "traversability": 5.4113743343777285
+    },
+    {
+      "seed": 2021,
+      "distribution": "clustered",
+      "density": "medium",
+      "obstacles": 52,
+      "radius_min": 0.5309687245765529,
+      "radius_max": 2.9871828483354097,
+      "endpoint_min_clearance": 2.523552103649581,
+      "traversability": 4.932881703421831
+    },
+    {
+      "seed": 2022,
+      "distribution": "clustered",
+      "density": "medium",
+      "obstacles": 42,
+      "radius_min": 0.5222230725938416,
+      "radius_max": 2.98293194900012,
+      "endpoint_min_clearance": 2.771357762142786,
+      "traversability": 6.575974920132832
+    },
+    {
+      "seed": 2023,
+      "distribution": "clustered",
+      "density": "medium",
+      "obstacles": 39,
+      "radius_min": 0.5186184980385099,
+      "radius_max": 2.8694570442366114,
+      "endpoint_min_clearance": 2.297917853889903,
+      "traversability": 5.782565875072664
+    },
+    {
+      "seed": 2024,
+      "distribution": "clustered",
+      "density": "medium",
+      "obstacles": 50,
+      "radius_min": 0.5202806239704781,
+      "radius_max": 2.7930615590788888,
+      "endpoint_min_clearance": 1.6901678242236104,
+      "traversability": 4.926739403779532
+    },
+    {
+      "seed": 2025,
+      "distribution": "clustered",
+      "density": "medium",
+      "obstacles": 56,
+      "radius_min": 0.5083572820539272,
+      "radius_max": 2.7476206715576823,
+      "endpoint_min_clearance": 1.5561737812123675,
+      "traversability": 4.54713888695529
+    },
+    {
+      "seed": 2026,
+      "distribution": "clustered",
+      "density": "medium",
+      "obstacles": 41,
+      "radius_min": 0.5023430596888647,
+      "radius_max": 2.709899478778189,
+      "endpoint_min_clearance": 2.284054254006831,
+      "traversability": 6.191431713633726
+    },
+    {
+      "seed": 2027,
+      "distribution": "clustered",
+      "density": "medium",
+      "obstacles": 38,
+      "radius_min": 0.5475600011545213,
+      "radius_max": 2.963771961651525,
+      "endpoint_min_clearance": 1.5893845311972306,
+      "traversability": 5.746137767879959
+    },
+    {
+      "seed": 2028,
+      "distribution": "clustered",
+      "density": "medium",
+      "obstacles": 45,
+      "radius_min": 0.5148466475952616,
+      "radius_max": 2.585676754655092,
+      "endpoint_min_clearance": 1.5866677551083601,
+      "traversability": 6.065119612245939
+    },
+    {
+      "seed": 2029,
+      "distribution": "clustered",
+      "density": "medium",
+      "obstacles": 53,
+      "radius_min": 0.5008172075370136,
+      "radius_max": 2.8279217868871287,
+      "endpoint_min_clearance": 2.8481203273729836,
+      "traversability": 5.091774112237334
+    },
+    {
+      "seed": 2000,
+      "distribution": "clustered",
+      "density": "dense",
+      "obstacles": 100,
+      "radius_min": 0.5021712838488691,
+      "radius_max": 2.7372388235110865,
+      "endpoint_min_clearance": 1.7083645945871622,
+      "traversability": 2.820787835801862
+    },
+    {
+      "seed": 2001,
+      "distribution": "clustered",
+      "density": "dense",
+      "obstacles": 94,
+      "radius_min": 0.5006962785295436,
+      "radius_max": 2.6835434561378295,
+      "endpoint_min_clearance": 1.6347125777402902,
+      "traversability": 2.986254519692534
+    },
+    {
+      "seed": 2002,
+      "distribution": "clustered",
+      "density": "dense",
+      "obstacles": 97,
+      "radius_min": 0.5022893022849533,
+      "radius_max": 2.789621773792457,
+      "endpoint_min_clearance": 1.9502969204600762,
+      "traversability": 2.317097982680438
+    },
+    {
+      "seed": 2003,
+      "distribution": "clustered",
+      "density": "dense",
+      "obstacles": 89,
+      "radius_min": 0.5052304218380353,
+      "radius_max": 2.763918865714258,
+      "endpoint_min_clearance": 1.6832969506615596,
+      "traversability": 2.9258323389419987
+    },
+    {
+      "seed": 2004,
+      "distribution": "clustered",
+      "density": "dense",
+      "obstacles": 102,
+      "radius_min": 0.5135200462235995,
+      "radius_max": 2.3758781344852533,
+      "endpoint_min_clearance": 1.9306418346283987,
+      "traversability": 2.534218798843631
+    },
+    {
+      "seed": 2005,
+      "distribution": "clustered",
+      "density": "dense",
+      "obstacles": 92,
+      "radius_min": 0.5099793190196823,
+      "radius_max": 2.9733155943018117,
+      "endpoint_min_clearance": 1.552669593429441,
+      "traversability": 2.597668550958289
+    },
+    {
+      "seed": 2006,
+      "distribution": "clustered",
+      "density": "dense",
+      "obstacles": 112,
+      "radius_min": 0.5052875302926235,
+      "radius_max": 2.88949506423842,
+      "endpoint_min_clearance": 1.7129213206095066,
+      "traversability": 2.13876795949586
+    },
+    {
+      "seed": 2007,
+      "distribution": "clustered",
+      "density": "dense",
+      "obstacles": 111,
+      "radius_min": 0.5087257896390618,
+      "radius_max": 2.9069778705949476,
+      "endpoint_min_clearance": 1.5585761070028976,
+      "traversability": 2.193698495039173
+    },
+    {
+      "seed": 2008,
+      "distribution": "clustered",
+      "density": "dense",
+      "obstacles": 98,
+      "radius_min": 0.5036654455475126,
+      "radius_max": 2.9573359966025192,
+      "endpoint_min_clearance": 1.8507578049558289,
+      "traversability": 2.1372319777932023
+    },
+    {
+      "seed": 2009,
+      "distribution": "clustered",
+      "density": "dense",
+      "obstacles": 86,
+      "radius_min": 0.5053283745093037,
+      "radius_max": 2.4016362833193017,
+      "endpoint_min_clearance": 3.0850375983414566,
+      "traversability": 3.1821844579626886
+    },
+    {
+      "seed": 2010,
+      "distribution": "clustered",
+      "density": "dense",
+      "obstacles": 87,
+      "radius_min": 0.5110616936455614,
+      "radius_max": 2.943550035244437,
+      "endpoint_min_clearance": 1.6702380081482437,
+      "traversability": 2.5125331675548424
+    },
+    {
+      "seed": 2011,
+      "distribution": "clustered",
+      "density": "dense",
+      "obstacles": 81,
+      "radius_min": 0.5125471308241422,
+      "radius_max": 2.842459312691898,
+      "endpoint_min_clearance": 1.7109920178590101,
+      "traversability": 2.919509905203563
+    },
+    {
+      "seed": 2012,
+      "distribution": "clustered",
+      "density": "dense",
+      "obstacles": 87,
+      "radius_min": 0.5022297637823403,
+      "radius_max": 2.9064045631004944,
+      "endpoint_min_clearance": 2.3837084848866485,
+      "traversability": 2.9377924029264317
+    },
+    {
+      "seed": 2013,
+      "distribution": "clustered",
+      "density": "dense",
+      "obstacles": 88,
+      "radius_min": 0.501241648932371,
+      "radius_max": 2.6112901394233603,
+      "endpoint_min_clearance": 1.84618036286273,
+      "traversability": 3.1803881591908385
+    },
+    {
+      "seed": 2014,
+      "distribution": "clustered",
+      "density": "dense",
+      "obstacles": 79,
+      "radius_min": 0.5050269661975596,
+      "radius_max": 2.742102842424251,
+      "endpoint_min_clearance": 1.8858025499869506,
+      "traversability": 3.5747751996630255
+    },
+    {
+      "seed": 2015,
+      "distribution": "clustered",
+      "density": "dense",
+      "obstacles": 97,
+      "radius_min": 0.5025949910965442,
+      "radius_max": 2.61885938791158,
+      "endpoint_min_clearance": 2.2202268539471284,
+      "traversability": 2.590726461233535
+    },
+    {
+      "seed": 2016,
+      "distribution": "clustered",
+      "density": "dense",
+      "obstacles": 82,
+      "radius_min": 0.5027658955469138,
+      "radius_max": 2.7433325762955727,
+      "endpoint_min_clearance": 2.196142226370906,
+      "traversability": 2.9837848719617552
+    },
+    {
+      "seed": 2017,
+      "distribution": "clustered",
+      "density": "dense",
+      "obstacles": 114,
+      "radius_min": 0.5016429268723344,
+      "radius_max": 2.970729103842393,
+      "endpoint_min_clearance": 1.6681706962617495,
+      "traversability": 2.1310932911475615
+    },
+    {
+      "seed": 2018,
+      "distribution": "clustered",
+      "density": "dense",
+      "obstacles": 97,
+      "radius_min": 0.5020651039246453,
+      "radius_max": 2.927851582414175,
+      "endpoint_min_clearance": 1.5827480277524493,
+      "traversability": 2.2818190283253283
+    },
+    {
+      "seed": 2019,
+      "distribution": "clustered",
+      "density": "dense",
+      "obstacles": 83,
+      "radius_min": 0.511895867287576,
+      "radius_max": 2.832266910614173,
+      "endpoint_min_clearance": 1.624122620289579,
+      "traversability": 3.828047837758415
+    },
+    {
+      "seed": 2020,
+      "distribution": "clustered",
+      "density": "dense",
+      "obstacles": 107,
+      "radius_min": 0.5084137513537801,
+      "radius_max": 2.8512684249575626,
+      "endpoint_min_clearance": 1.5821229190265325,
+      "traversability": 1.828102603088152
+    },
+    {
+      "seed": 2021,
+      "distribution": "clustered",
+      "density": "dense",
+      "obstacles": 87,
+      "radius_min": 0.5154376985382263,
+      "radius_max": 2.884747025375481,
+      "endpoint_min_clearance": 1.7832224240311463,
+      "traversability": 2.7861716283637317
+    },
+    {
+      "seed": 2022,
+      "distribution": "clustered",
+      "density": "dense",
+      "obstacles": 87,
+      "radius_min": 0.5071366414587958,
+      "radius_max": 2.8608713591615187,
+      "endpoint_min_clearance": 2.771357762142786,
+      "traversability": 3.1262915780317555
+    },
+    {
+      "seed": 2023,
+      "distribution": "clustered",
+      "density": "dense",
+      "obstacles": 81,
+      "radius_min": 0.5117170172234182,
+      "radius_max": 2.8694570442366114,
+      "endpoint_min_clearance": 1.5559176829098194,
+      "traversability": 3.158973099791043
+    },
+    {
+      "seed": 2024,
+      "distribution": "clustered",
+      "density": "dense",
+      "obstacles": 92,
+      "radius_min": 0.5004407042189537,
+      "radius_max": 2.738503528161284,
+      "endpoint_min_clearance": 1.885865353116793,
+      "traversability": 3.0290190729533504
+    },
+    {
+      "seed": 2025,
+      "distribution": "clustered",
+      "density": "dense",
+      "obstacles": 103,
+      "radius_min": 0.5020472285379304,
+      "radius_max": 2.957924635902027,
+      "endpoint_min_clearance": 1.676515452697473,
+      "traversability": 3.198763663502176
+    },
+    {
+      "seed": 2026,
+      "distribution": "clustered",
+      "density": "dense",
+      "obstacles": 84,
+      "radius_min": 0.5023430596888647,
+      "radius_max": 2.709899478778189,
+      "endpoint_min_clearance": 1.65420554622668,
+      "traversability": 3.0291514171968923
+    },
+    {
+      "seed": 2027,
+      "distribution": "clustered",
+      "density": "dense",
+      "obstacles": 78,
+      "radius_min": 0.5161815503626446,
+      "radius_max": 2.963771961651525,
+      "endpoint_min_clearance": 1.5893845311972306,
+      "traversability": 2.8580345086776755
+    },
+    {
+      "seed": 2028,
+      "distribution": "clustered",
+      "density": "dense",
+      "obstacles": 93,
+      "radius_min": 0.5007830733685233,
+      "radius_max": 2.585676754655092,
+      "endpoint_min_clearance": 1.7210361486094832,
+      "traversability": 3.152551388792016
+    },
+    {
+      "seed": 2029,
+      "distribution": "clustered",
+      "density": "dense",
+      "obstacles": 98,
+      "radius_min": 0.5051414879200963,
+      "radius_max": 2.3527692260346535,
+      "endpoint_min_clearance": 1.6713879227956623,
+      "traversability": 2.7022026626684874
+    }
+  ],
+  "figure_scenes": [
+    {
+      "seed": 2026,
+      "density": "sparse",
+      "cylinders": [
+        [
+          -1.9023148461316062,
+          14.059808158581838,
+          1.573663835888241
+        ],
+        [
+          10.203225811548624,
+          23.66023819045992,
+          2.8495488686306154
+        ],
+        [
+          7.481067611219064,
+          12.893575639841357,
+          0.9151443450724212
+        ],
+        [
+          -10.11638131100155,
+          19.743856871566237,
+          1.4110931563511122
+        ],
+        [
+          15.685132159973826,
+          38.98072451709601,
+          0.6214797135430035
+        ],
+        [
+          -12.700837713915245,
+          36.713669822201325,
+          1.3072161047600643
+        ],
+        [
+          -18.88089257594809,
+          24.04312080451296,
+          0.6207551133846814
+        ],
+        [
+          2.3968233923793996,
+          34.61738589388807,
+          1.2817967577425216
+        ],
+        [
+          17.026309617999193,
+          31.080505272191324,
+          0.7447343094330745
+        ],
+        [
+          10.096779622654939,
+          3.593621793186237,
+          1.023683518188446
+        ],
+        [
+          -7.1126078044613035,
+          5.412772665250045,
+          0.9142826563703688
+        ],
+        [
+          -0.9952810337209534,
+          22.149360786907025,
+          1.5655509558683736
+        ],
+        [
+          16.478126677010287,
+          9.9216496997537,
+          2.2236581205397687
+        ],
+        [
+          -7.788319301180662,
+          26.802883756214733,
+          0.9794455752857272
+        ],
+        [
+          -13.655217775007777,
+          2.0709871331654632,
+          1.130389808109273
+        ],
+        [
+          -14.833297142929023,
+          9.711364635656413,
+          0.5992614889309266
+        ],
+        [
+          -5.385939909009336,
+          36.08488610750888,
+          1.4618709130560907
+        ],
+        [
+          18.2798860910541,
+          20.21756644757018,
+          1.2259924123112316
+        ],
+        [
+          -18.45071748007355,
+          16.104831531735027,
+          1.3892227354214874
+        ],
+        [
+          1.5473415631703915,
+          5.017988020055531,
+          0.7164725915159691
+        ]
+      ],
+      "start": [
+        16.16052100570907,
+        15.887125638878494,
+        3.0
+      ],
+      "goal": [
+        -17.77699683735171,
+        12.067189366528142,
+        3.790518245853265
+      ]
+    },
+    {
+      "seed": 2026,
+      "density": "medium",
+      "cylinders": [
+        [
+          -1.9023148461316062,
+          14.059808158581838,
+          1.573663835888241
+        ],
+        [
+          10.203225811548624,
+          23.66023819045992,
+          2.8495488686306154
+        ],
+        [
+          2.315699529152994,
+          17.54326692410774,
+          1.730865728273543
+        ],
+        [
+          7.481067611219064,
+          12.893575639841357,
+          0.9151443450724212
+        ],
+        [
+          -10.11638131100155,
+          19.743856871566237,
+          1.4110931563511122
+        ],
+        [
+          -3.035243838712473,
+          19.80336011431105,
+          0.9837876118358788
+        ],
+        [
+          15.685132159973826,
+          38.98072451709601,
+          0.6214797135430035
+        ],
+        [
+          10.39727920940891,
+          37.383555950185716,
+          1.041542251009539
+        ],
+        [
+          -12.700837713915245,
+          36.713669822201325,
+          1.3072161047600643
+        ],
+        [
+          -7.793231103317499,
+          26.131695607624096,
+          2.1572513477050337
+        ],
+        [
+          -18.88089257594809,
+          24.04312080451296,
+          0.6207551133846814
+        ],
+        [
+          2.3968233923793996,
+          34.61738589388807,
+          1.2817967577425216
+        ],
+        [
+          17.026309617999193,
+          31.080505272191324,
+          0.7447343094330745
+        ],
+        [
+          10.986453310273422,
+          7.230660766297411,
+          2.519179190723497
+        ],
+        [
+          -7.1126078044613035,
+          5.412772665250045,
+          0.9142826563703688
+        ],
+        [
+          7.573937925171997,
+          31.923084680058906,
+          2.5801992699848286
+        ],
+        [
+          16.478126677010287,
+          9.9216496997537,
+          2.2236581205397687
+        ],
+        [
+          3.278502967950079,
+          10.0275834583443,
+          0.9144167058792534
+        ],
+        [
+          11.20637629839581,
+          17.020470462999466,
+          0.6659533039643473
+        ],
+        [
+          -13.655217775007777,
+          2.0709871331654632,
+          1.130389808109273
+        ],
+        [
+          -14.833297142929023,
+          9.711364635656413,
+          0.5992614889309266
+        ],
+        [
+          -5.385939909009336,
+          36.08488610750888,
+          1.4618709130560907
+        ],
+        [
+          18.2798860910541,
+          20.21756644757018,
+          1.2259924123112316
+        ],
+        [
+          -18.34784424423573,
+          5.331607210182405,
+          1.2688450666452404
+        ],
+        [
+          -10.902390040341071,
+          13.682623228694522,
+          2.440027711465337
+        ],
+        [
+          -1.5571684548470053,
+          2.9258760122962846,
+          1.0093828640040372
+        ],
+        [
+          0.6664460094500022,
+          29.203517993366997,
+          1.4185600868767407
+        ],
+        [
+          -13.051673308693267,
+          30.893955628329714,
+          0.7618601810980352
+        ],
+        [
+          -17.299480858472123,
+          18.296711354756468,
+          2.4848846242832026
+        ],
+        [
+          4.185248673640274,
+          23.8968895140274,
+          0.7853603889683922
+        ],
+        [
+          6.211674785657138,
+          3.6335475604419263,
+          2.650043066838372
+        ],
+        [
+          18.750017025034378,
+          1.846551342178966,
+          0.8922710568425197
+        ],
+        [
+          -4.222784228424652,
+          30.930300126205758,
+          1.4656861111203119
+        ],
+        [
+          12.693945063765149,
+          2.138320061868157,
+          1.8733034943722915
+        ],
+        [
+          -18.291843656056287,
+          30.016163848998737,
+          1.1693469555086482
+        ],
+        [
+          15.054746295269709,
+          25.296732827646103,
+          1.3559024725540194
+        ],
+        [
+          -2.5383123233418345,
+          8.564615305196698,
+          1.4089375083643239
+        ],
+        [
+          -13.83798888524344,
+          24.585583814734758,
+          1.0197149610564038
+        ],
+        [
+          -18.99072748931144,
+          36.73523653731414,
+          0.6055674292787144
+        ],
+        [
+          4.828478472549325,
+          39.14893211690831,
+          0.5405466757903165
+        ],
+        [
+          -0.9234181542706104,
+          38.3669761734234,
+          0.6506560517104147
+        ]
+      ],
+      "start": [
+        16.16052100570907,
+        15.887125638878494,
+        3.0
+      ],
+      "goal": [
+        -17.77699683735171,
+        12.067189366528142,
+        3.790518245853265
+      ]
+    },
+    {
+      "seed": 2026,
+      "density": "dense",
+      "cylinders": [
+        [
+          -1.9023148461316062,
+          14.059808158581838,
+          1.573663835888241
+        ],
+        [
+          0.9916645572765042,
+          17.346226266383216,
+          0.7942329738964244
+        ],
+        [
+          10.203225811548624,
+          23.66023819045992,
+          2.8495488686306154
+        ],
+        [
+          7.481067611219064,
+          12.893575639841357,
+          0.9151443450724212
+        ],
+        [
+          -10.11638131100155,
+          19.743856871566237,
+          1.4110931563511122
+        ],
+        [
+          -3.035243838712473,
+          19.80336011431105,
+          0.9837876118358788
+        ],
+        [
+          15.685132159973826,
+          38.98072451709601,
+          0.6214797135430035
+        ],
+        [
+          10.39727920940891,
+          37.383555950185716,
+          1.041542251009539
+        ],
+        [
+          -12.700837713915245,
+          36.713669822201325,
+          1.3072161047600643
+        ],
+        [
+          -7.793231103317499,
+          26.131695607624096,
+          2.1572513477050337
+        ],
+        [
+          -18.88089257594809,
+          24.04312080451296,
+          0.6207551133846814
+        ],
+        [
+          2.3968233923793996,
+          34.61738589388807,
+          1.2817967577425216
+        ],
+        [
+          17.026309617999193,
+          31.080505272191324,
+          0.7447343094330745
+        ],
+        [
+          10.986453310273422,
+          7.230660766297411,
+          2.519179190723497
+        ],
+        [
+          10.096779622654939,
+          3.593621793186237,
+          1.023683518188446
+        ],
+        [
+          6.426892408262791,
+          5.832190288885008,
+          0.9395986955568141
+        ],
+        [
+          -7.1126078044613035,
+          5.412772665250045,
+          0.9142826563703688
+        ],
+        [
+          7.573937925171997,
+          31.923084680058906,
+          2.5801992699848286
+        ],
+        [
+          16.478126677010287,
+          9.9216496997537,
+          2.2236581205397687
+        ],
+        [
+          3.278502967950079,
+          10.0275834583443,
+          0.9144167058792534
+        ],
+        [
+          11.20637629839581,
+          17.020470462999466,
+          0.6659533039643473
+        ],
+        [
+          -14.771643897177011,
+          18.669396646996898,
+          0.5396042505623636
+        ],
+        [
+          14.190711044152913,
+          33.61814523320613,
+          2.0545669785909273
+        ],
+        [
+          -8.192143978976409,
+          34.97292353540531,
+          2.138112284084102
+        ],
+        [
+          -13.655217775007777,
+          2.0709871331654632,
+          1.130389808109273
+        ],
+        [
+          -14.833297142929023,
+          9.711364635656413,
+          0.5992614889309266
+        ],
+        [
+          18.2798860910541,
+          20.21756644757018,
+          1.2259924123112316
+        ],
+        [
+          14.634657999884464,
+          21.653573107163513,
+          0.52139729733243
+        ],
+        [
+          -18.34784424423573,
+          5.331607210182405,
+          1.2688450666452404
+        ],
+        [
+          0.805096565595381,
+          30.002390020061778,
+          1.778637490110072
+        ],
+        [
+          -14.622574699618209,
+          5.9303397104779805,
+          1.1461294004105427
+        ],
+        [
+          -10.902390040341071,
+          13.682623228694522,
+          2.440027711465337
+        ],
+        [
+          -1.5571684548470053,
+          2.9258760122962846,
+          1.0093828640040372
+        ],
+        [
+          -3.717764025268579,
+          26.694692710096206,
+          1.6463024051028048
+        ],
+        [
+          -13.051673308693267,
+          30.893955628329714,
+          0.7618601810980352
+        ],
+        [
+          -7.7293824641042335,
+          10.108972670594857,
+          1.5434562128205678
+        ],
+        [
+          7.5892935790432325,
+          18.95045358344766,
+          1.0330304601440743
+        ],
+        [
+          4.185248673640274,
+          23.8968895140274,
+          0.7853603889683922
+        ],
+        [
+          -11.33855170682228,
+          26.26292512379221,
+          0.6165069495693414
+        ],
+        [
+          -18.45071748007355,
+          16.104831531735027,
+          1.3892227354214874
+        ],
+        [
+          3.0606361232907062,
+          14.45805781621321,
+          1.531268764941285
+        ],
+        [
+          -2.7203754450489654,
+          31.53945744940969,
+          0.6347841397925107
+        ],
+        [
+          -0.15576672763429045,
+          23.330572973234293,
+          1.7840831714840875
+        ],
+        [
+          1.5473415631703915,
+          5.017988020055531,
+          0.7164725915159691
+        ],
+        [
+          6.400672772673655,
+          36.16057082886542,
+          1.3770390149974316
+        ],
+        [
+          11.848969097116889,
+          27.111610019867943,
+          0.6212323017224011
+        ],
+        [
+          18.750017025034378,
+          1.846551342178966,
+          0.8922710568425197
+        ],
+        [
+          -5.239129187860135,
+          15.119570836917644,
+          0.5120131975408725
+        ],
+        [
+          -16.48816017032996,
+          34.29144107372634,
+          2.976909025469181
+        ],
+        [
+          4.655017991614834,
+          1.3847472302454922,
+          1.331938793182263
+        ],
+        [
+          3.9096409047682315,
+          19.497296725958993,
+          1.467671181998609
+        ],
+        [
+          5.08674020776629,
+          27.58453608944577,
+          1.7572501737694344
+        ],
+        [
+          -7.9499557645285055,
+          31.024162017943674,
+          1.219118699875219
+        ],
+        [
+          14.42210769756672,
+          13.367826028966705,
+          1.3568318005702005
+        ],
+        [
+          -3.7866928662434702,
+          8.82365413666138,
+          1.087431306096118
+        ],
+        [
+          -18.291843656056287,
+          30.016163848998737,
+          1.1693469555086482
+        ],
+        [
+          18.145891528082362,
+          26.909958626192424,
+          1.5348181609605571
+        ],
+        [
+          -18.274720815055687,
+          8.830995394138657,
+          0.5209350785833591
+        ],
+        [
+          12.518787447408581,
+          1.056150982487499,
+          0.7021053142123596
+        ],
+        [
+          -4.644985892435981,
+          34.50660342300668,
+          0.8960537948716983
+        ],
+        [
+          -5.041961745410925,
+          0.9906844116422651,
+          0.6385790477856526
+        ],
+        [
+          -14.690850346229173,
+          23.803105907747298,
+          1.7185665006161186
+        ],
+        [
+          -14.715659503247707,
+          14.500008646358427,
+          1.042161858289425
+        ],
+        [
+          -10.780651929944431,
+          7.049310064076573,
+          1.0073073365418888
+        ],
+        [
+          16.003227342071764,
+          5.4610086743734465,
+          1.6413502013071593
+        ],
+        [
+          -2.0325948259424074,
+          38.46697967795296,
+          1.3058377367108007
+        ],
+        [
+          -6.506992775185726,
+          18.90867559059101,
+          1.0920249179101722
+        ],
+        [
+          -14.762030396343707,
+          27.549184826545854,
+          1.227857184754858
+        ],
+        [
+          -10.228703950845608,
+          3.075718068510307,
+          0.7109041654916425
+        ],
+        [
+          18.987412379473696,
+          35.684103792714495,
+          0.6164472533989889
+        ],
+        [
+          2.6353417479071197,
+          38.44312517193579,
+          1.1862068304507014
+        ],
+        [
+          -18.233896440368454,
+          1.4564749284392082,
+          0.5883441719371378
+        ],
+        [
+          19.256655626224113,
+          16.359526837879628,
+          0.5858837169346693
+        ],
+        [
+          -8.15728156074796,
+          38.547182669062394,
+          1.0357123616463944
+        ],
+        [
+          12.403889813365478,
+          30.600068271337943,
+          0.874661522968878
+        ],
+        [
+          -5.454713394677654,
+          23.164703007490587,
+          0.7741503834845891
+        ],
+        [
+          -17.96962134638883,
+          20.29590850108386,
+          0.6642376885050341
+        ],
+        [
+          11.098575454427483,
+          12.239321582684685,
+          1.4738872419352025
+        ],
+        [
+          -0.23683284832954143,
+          9.535498045845365,
+          1.7018980597657571
+        ],
+        [
+          -18.309188875348966,
+          39.12595114103332,
+          0.5106999266792465
+        ],
+        [
+          7.043149469360067,
+          9.412459199181919,
+          0.9714855271409373
+        ]
+      ],
+      "start": [
+        16.16052100570907,
+        15.887125638878494,
+        3.0
+      ],
+      "goal": [
+        -17.77699683735171,
+        12.067189366528142,
+        3.790518245853265
+      ]
+    }
+  ],
+  "source_sha256": {
+    "/home/lz/lzspace/MAVRL_CBF/scripts/audit_scenes.py": "6e2f1952abd68f670c04f0f1caa4aec33fe1c8f996eafed2cf5bd799985e3c0b",
+    "mavrl_isaac/scenes.py": "8c7c57895cb4bf561344dcc69bba9114b6b3a71c69db598026d2a12dd8a7ab79",
+    "configs/isaac_mavrl.json": "4cd3dc24adb94d4be602204d0bace725bd69cbbb4c3625e68de8d0f7718c57f5"
+  },
+  "scope": "Geometric connectivity and endpoint clearance; no dynamic feasibility, policy competence or shortest-path claim."
+}

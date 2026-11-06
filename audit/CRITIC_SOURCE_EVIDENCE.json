@@ -1,0 +1,214 @@
+{
+  "checkpoint_metadata": [
+    {
+      "path": "upstream/mavrl/ckpts/available_policy/iter_00540.pth",
+      "sha256": "a530396e060fb31f431344d701fd27241e1afed59d8b307a6f5b0a619a1a7e80",
+      "data_keys": [
+        "action_space",
+        "activation_fn",
+        "features_extractor_class",
+        "features_extractor_kwargs",
+        "full_std",
+        "log_std_init",
+        "lr_schedule",
+        "net_arch",
+        "normalize_images",
+        "observation_space",
+        "optimizer_class",
+        "optimizer_kwargs",
+        "ortho_init",
+        "squash_output",
+        "use_expln",
+        "use_sde"
+      ],
+      "shared_lstm_in_metadata": false,
+      "enable_critic_lstm_in_metadata": false,
+      "actor_lstm_shapes": {
+        "weight_ih_l0": [
+          1024,
+          64
+        ],
+        "weight_hh_l0": [
+          1024,
+          256
+        ],
+        "bias_ih_l0": [
+          1024
+        ],
+        "bias_hh_l0": [
+          1024
+        ]
+      },
+      "critic_lstm_shapes": {
+        "weight_ih_l0": [
+          1024,
+          64
+        ],
+        "weight_hh_l0": [
+          1024,
+          256
+        ],
+        "bias_ih_l0": [
+          1024
+        ],
+        "bias_hh_l0": [
+          1024
+        ]
+      },
+      "actor_critic_max_abs_diff": {
+        "weight_ih_l0": 0.2022562325000763,
+        "weight_hh_l0": 0.2721535563468933,
+        "bias_ih_l0": 0.3762779235839844,
+        "bias_hh_l0": 0.3026920557022095
+      }
+    },
+    {
+      "path": "upstream/mavrl/ckpts/available_policy/iter_00640.pth",
+      "sha256": "799ec5e313d4c00f48292b9023746ee3e76e6ef7c200442ea74007b0c27ada57",
+      "data_keys": [
+        "action_space",
+        "activation_fn",
+        "features_extractor_class",
+        "features_extractor_kwargs",
+        "full_std",
+        "log_std_init",
+        "lr_schedule",
+        "net_arch",
+        "normalize_images",
+        "observation_space",
+        "optimizer_class",
+        "optimizer_kwargs",
+        "ortho_init",
+        "squash_output",
+        "use_expln",
+        "use_sde"
+      ],
+      "shared_lstm_in_metadata": false,
+      "enable_critic_lstm_in_metadata": false,
+      "actor_lstm_shapes": {
+        "weight_ih_l0": [
+          1024,
+          64
+        ],
+        "weight_hh_l0": [
+          1024,
+          256
+        ],
+        "bias_ih_l0": [
+          1024
+        ],
+        "bias_hh_l0": [
+          1024
+        ]
+      },
+      "critic_lstm_shapes": {
+        "weight_ih_l0": [
+          1024,
+          64
+        ],
+        "weight_hh_l0": [
+          1024,
+          256
+        ],
+        "bias_ih_l0": [
+          1024
+        ],
+        "bias_hh_l0": [
+          1024
+        ]
+      },
+      "actor_critic_max_abs_diff": {
+        "weight_ih_l0": 0.2022562325000763,
+        "weight_hh_l0": 0.2721535563468933,
+        "bias_ih_l0": 0.3762779235839844,
+        "bias_hh_l0": 0.3026920557022095
+      }
+    }
+  ],
+  "across_540_640": {
+    "lstm_actor.": {
+      "all_equal": true,
+      "tensor_count": 4
+    },
+    "lstm_critic.": {
+      "all_equal": true,
+      "tensor_count": 4
+    },
+    "mlp_extractor.policy_net.": {
+      "all_equal": false,
+      "tensor_count": 4
+    },
+    "mlp_extractor.value_net.": {
+      "all_equal": false,
+      "tensor_count": 4
+    }
+  },
+  "cpu_fixture": {
+    "description": "First two saved images/states treated as two independent zero-state episodes; source-shaped modules loaded from raw official weights; no simulator or optimization.",
+    "source_npz": "artifacts/smoke/dataset/train/sequence_00000.npz",
+    "source_npz_sha256": "c302c1d522cd9ebbbbd445b1579b7c83a983fd4ce0a24739f3bc3a8554db2f0f",
+    "actor_mean_max_abs_difference": 0.0,
+    "source_separate_critic_values": [
+      0.04683275148272514,
+      -0.09389836341142654
+    ],
+    "local_shared_latent_values": [
+      0.08734024316072464,
+      -0.06384766846895218
+    ],
+    "critic_value_max_abs_difference": 0.040507491677999496,
+    "actor_critic_latent_max_abs_difference": 0.2524030804634094,
+    "local_model_source": "6c2e89ca8ce062fb2a583b3f2d3ff13607664f25:mavrl_isaac/models.py (executed directly from git show; independent of concurrent working-tree edits)",
+    "local_checkpoint_sha256": "be627f3fddd0d4d75c88666f3f0b7f3603aa774262554cc00fdc2bf68fdff129"
+  },
+  "local_checkpoint_recurrent_keys": {
+    "artifacts/official/iter_00540.pt": [
+      "lstm.weight_ih_l0",
+      "lstm.weight_hh_l0",
+      "lstm.bias_ih_l0",
+      "lstm.bias_hh_l0"
+    ],
+    "artifacts/smoke/initial/latest.pt": [
+      "lstm.weight_ih_l0",
+      "lstm.weight_hh_l0",
+      "lstm.bias_ih_l0",
+      "lstm.bias_hh_l0"
+    ],
+    "artifacts/smoke/lstm/best.pt": [
+      "lstm.weight_ih_l0",
+      "lstm.weight_hh_l0",
+      "lstm.bias_ih_l0",
+      "lstm.bias_hh_l0"
+    ],
+    "artifacts/smoke/final/latest.pt": [
+      "lstm.weight_ih_l0",
+      "lstm.weight_hh_l0",
+      "lstm.bias_ih_l0",
+      "lstm.bias_hh_l0"
+    ]
+  },
+  "cuda_initialized": false,
+  "review_anchor_commit": "6c2e89ca8ce062fb2a583b3f2d3ff13607664f25",
+  "working_tree_hashes_captured_during_concurrent_fix_not_reviewed": {
+    "upstream/mavrl/mav_baselines/torch/recurrent_ppo/recurrent/policies.py": "39951940791271d6b4dc2b445136e09283e9d41c1075134dcc357123ef82dd3d",
+    "upstream/mavrl/mav_baselines/torch/recurrent_ppo/ppo_recurrent.py": "274c2e7827b7780aa723c584c7c9216812de00f7eb825f1610642636584ba5f9",
+    "upstream/mavrl/train_policy.py": "91a69e5499e34e619ead1d19802369d60c24afa28ceada164d639e73e0510e55",
+    "upstream/mavrl/train_lstm_without_env.py": "60141185d500f83c1771b2bb48f915c81bdeb18968780bc8d04f46f3f49ff567",
+    "scripts/import_official_checkpoint.py": "4233fe879e59454f87a381a9f3f5e3521d4ecaa43e67197e6efe91d73bdd1fff",
+    "mavrl_isaac/models.py": "7de7648153a4a701af7b751a33659cc9f7344452841656625315df810637334c",
+    "mavrl_isaac/training.py": "18b370079e72fd47f3709faeeb639891be7711a6ca4d101da72b16e1d2e9c53d",
+    "mavrl_isaac/representation_training.py": "0e77f9e96066dbe23e7388655c1e8f3b010d91a1502f46d67fa03c7be920f9d2",
+    "mavrl_isaac/evaluation.py": "29e7b3db40c97f75ffc9647bebd6c88b16eb80738eee572c36ce247fadbcb7b6"
+  },
+  "reviewed_source_sha256": {
+    "upstream/mavrl/mav_baselines/torch/recurrent_ppo/recurrent/policies.py": "39951940791271d6b4dc2b445136e09283e9d41c1075134dcc357123ef82dd3d",
+    "upstream/mavrl/mav_baselines/torch/recurrent_ppo/ppo_recurrent.py": "274c2e7827b7780aa723c584c7c9216812de00f7eb825f1610642636584ba5f9",
+    "upstream/mavrl/train_policy.py": "91a69e5499e34e619ead1d19802369d60c24afa28ceada164d639e73e0510e55",
+    "upstream/mavrl/train_lstm_without_env.py": "60141185d500f83c1771b2bb48f915c81bdeb18968780bc8d04f46f3f49ff567",
+    "scripts/import_official_checkpoint.py": "05c63395d7b9372a5a1df64872e663ee9c1694fa4368c61f14bcbde54f26c831",
+    "mavrl_isaac/models.py": "25b5a28c2b3e98307024ae130c8f781c55b13b4def90db8ba7eb1dbd6951ba5c",
+    "mavrl_isaac/training.py": "eb92d283ebd484a50a7759455078f0ab78474cfc4e7e0ce505d50e007bf354c0",
+    "mavrl_isaac/representation_training.py": "df6aea3a4d193e76236019dc88d759a732bb922050bf9628b6f510edffb6d4ec",
+    "mavrl_isaac/evaluation.py": "29e7b3db40c97f75ffc9647bebd6c88b16eb80738eee572c36ce247fadbcb7b6"
+  }
+}

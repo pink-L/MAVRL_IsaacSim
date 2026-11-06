@@ -1,0 +1,47 @@
+{
+  "created_at": "2026-11-06T10:13:38.265483+08:00",
+  "question": "Direct transfer of existing baseline and current-only policies when 3 original cylinders move",
+  "user_choice": "Move existing cylinders, keep total obstacle count unchanged",
+  "config": "configs/isaac_capture2_dynamic.json",
+  "dynamic_obstacles": {
+    "enabled": true,
+    "count": 3,
+    "speed": 1.0,
+    "track_length": 4.0,
+    "seed_salt": 20261106,
+    "motion": "constant_speed_reflected_segment",
+    "selection": "original_cylinders",
+    "radius_mode": "preserve_original",
+    "initial_phase": "track_midpoint"
+  },
+  "evaluation_seed": 200,
+  "episodes_per_density": 100,
+  "densities": [
+    "sparse",
+    "medium",
+    "dense"
+  ],
+  "num_envs": 16,
+  "policies": {
+    "baseline": "artifacts/capture2_baseline_seed0/final/latest.pt",
+    "current_only": "artifacts/capture2_current_seed0/final/latest.pt"
+  },
+  "pairing": "Identical original map/mission seeds and original radii/count/initial positions. Three seeded original cylinders move on 4 m centered tracks at 1 m/s, starting at midpoint with seeded direction. Motion uses episode simulation time, never wall time or policy state.",
+  "analysis": [
+    "arrival/collision/boundary/timeout rates per density",
+    "collision origin: static, moving, both",
+    "mean episode speed",
+    "paired task outcomes between policies",
+    "paired differences against original static delivery"
+  ],
+  "limitations": [
+    "One chosen moving count, speed and track length; one training seed.",
+    "Original TRAV retained for reward reporting.",
+    "Whole tracks avoid static geometry and endpoints; only initial grid connectivity checked, no time-dependent feasibility guarantee.",
+    "Selection is restricted to original cylinders with room for a 4 m track; not an unconstrained random moving subset.",
+    "Current-only retains its LSTM and recurrent state."
+  ],
+  "training": "none",
+  "supersedes": "artifacts/dynamic_zero_shot_20261106_100717 (additive probe, stopped after user choice; excluded)",
+  "status": "implementation_validation"
+}

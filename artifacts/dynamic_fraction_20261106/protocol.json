@@ -1,0 +1,79 @@
+{
+  "created_at": "2026-11-06T10:50:34.629625+08:00",
+  "question": "Zero-shot MAVRL baseline/current-only evaluation with 30% and 50% of original cylinders moving",
+  "fractions": [
+    0.3,
+    0.5
+  ],
+  "configs": {
+    "30": "configs/isaac_capture2_dynamic_30pct.json",
+    "50": "configs/isaac_capture2_dynamic_50pct.json"
+  },
+  "policies": {
+    "baseline": "artifacts/capture2_baseline_seed0/final/latest.pt",
+    "current_only": "artifacts/capture2_current_seed0/final/latest.pt"
+  },
+  "run_order": [
+    [
+      30,
+      "baseline"
+    ],
+    [
+      30,
+      "current_only"
+    ],
+    [
+      50,
+      "current_only"
+    ],
+    [
+      50,
+      "baseline"
+    ]
+  ],
+  "episodes_per_density": 100,
+  "densities": [
+    "sparse",
+    "medium",
+    "dense"
+  ],
+  "evaluation_seed": 200,
+  "num_envs": 16,
+  "training": "none",
+  "formal_episodes": 1200,
+  "rounding": "floor(N*fraction+0.5); positive fractions use at least one mover",
+  "motion": {
+    "speed_m_s": 1.0,
+    "track_length_m": 4.0,
+    "initial_position": "original center, track midpoint",
+    "motion_type": "straight reflected track",
+    "radius_height_count": "original values preserved",
+    "time": "per-episode simulation time",
+    "surface_gap_m": 0.001
+  },
+  "pairing": "Both policies see identical 300 map/motion tasks within each fraction. 30% is an exact prefix of the 50% shared master tracks, with identical motion for common cylinders.",
+  "planning_change": "Replace disjoint trajectory bounding disks by exact full-cycle relative-disk separation. Preserve original maps, start/goals, radius, height, speed and track length. Whole tracks also avoid other original cylinder positions, with 1 mm physical surface gap. No skipped maps or reduced moving counts.",
+  "validation": [
+    "35 CPU tests before GPU runs",
+    "all 300 master maps checked before observing policy outcomes",
+    "50% setting: 9 tasks per policy evaluated twice; compare episode/trajectory/scene SHA256",
+    "verify paired maps, nested motion, checkpoint SHA256 after full evaluations"
+  ],
+  "analysis": [
+    "arrival and failure causes per fraction/model/density",
+    "static versus moving collision counts",
+    "episode-weighted speed",
+    "paired model wins/losses",
+    "paired 30%-to-50% changes",
+    "historical static/3-mover references clearly labelled"
+  ],
+  "limitations": [
+    "One training seed, one obstacle speed and track length.",
+    "Current-only retains memory; inference remains deterministic with normal recurrent state.",
+    "Initial map feasibility only; moving obstacles may temporarily close passages.",
+    "Selected moving cylinders must admit a feasible track.",
+    "Prior 3-mover evaluation used a more conservative, different track selection rule. Its difference from this round is not purely moving fraction.",
+    "Small 50% replay tests do not guarantee all full-run frames or cross-hardware determinism."
+  ],
+  "master_manifest_sha256": "56d90c8bce5c61ec63751a55498b2b20735a9ecbe4f5f80c0f0d26adf19ddabc"
+}

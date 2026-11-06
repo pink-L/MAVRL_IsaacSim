@@ -1,0 +1,15 @@
+{
+  "source": "artifacts/formal_seed0",
+  "reconstruction_members": [
+    1,
+    1,
+    0
+  ],
+  "sha256": {
+    "artifacts/formal_seed0/initial/latest.pt": "f65096e6b72bbf0f5593536f6e57eb21f0fdf29d55063e27ca0b54a91bb9a043",
+    "artifacts/formal_seed0/dataset/manifest.json": "68ec65ccd901928676556b1fd70a23d7861d672335d497214f0109dd805b8e72",
+    "artifacts/formal_seed0/vae/best.pt": "2abda18881fdd968021fee97c5945cbce6305f87da45e42bb383e329bea3729c",
+    "artifacts/formal_seed0/lstm/best.pt": "a3c90cf1653501cb20b5f745051ce315071f25fdf967d7ef9ab5b6bfae1222f3"
+  },
+  "scope": "Fresh seed=0 PPO using the same qualified capture setting in both branches. Data/VAE/LSTM are shared or reused historical artifacts; their source capture configuration is preserved."
+}

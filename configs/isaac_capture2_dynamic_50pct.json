@@ -1,0 +1,150 @@
+{
+  "seed": 0,
+  "num_envs": 4,
+  "device": "cuda",
+  "simulation": {
+    "dt": 0.1,
+    "max_time": 100.0,
+    "action_scale": [
+      4.0,
+      4.0,
+      1.0,
+      0.6
+    ],
+    "bounds": [
+      [
+        -22.0,
+        22.0
+      ],
+      [
+        -2.0,
+        45.0
+      ],
+      [
+        0.4,
+        6.0
+      ]
+    ],
+    "drone_radius": 0.1,
+    "reset_if_collide": true
+  },
+  "camera": {
+    "width": 256,
+    "height": 256,
+    "fov": 70.0,
+    "max_depth": 12.0,
+    "offset_flu": [
+      0.2,
+      -0.1,
+      0.3
+    ],
+    "tiled": true,
+    "synchronize_depth": true,
+    "rt_subframes": 2
+  },
+  "scene": {
+    "width": 40.0,
+    "length": 40.0,
+    "goal_y": 37.0,
+    "start_band": 6.0,
+    "height": 8.0,
+    "density": "mixed",
+    "distribution": "poisson",
+    "radius_range": [
+      0.5,
+      1.8
+    ],
+    "large_probability": 0.25,
+    "large_radius_range": [
+      1.8,
+      3.0
+    ],
+    "endpoint_clearance": 1.5,
+    "path_grid": 0.5,
+    "spacing": {
+      "sparse": 7.0,
+      "medium": 5.0,
+      "dense": 3.5
+    }
+  },
+  "reward": {
+    "initial": [
+      -0.001,
+      -0.001,
+      -0.002,
+      -0.003,
+      -0.0005,
+      -0.003
+    ],
+    "final": [
+      0.0,
+      -0.05,
+      0.0,
+      -0.0015,
+      -0.0001,
+      -0.0015
+    ],
+    "speed_threshold": 3.0,
+    "boundary": -2.0,
+    "collision": -2.0,
+    "timeout": -5.0,
+    "arrival_scale": 20.0,
+    "goal_tolerance": 0.4
+  },
+  "ppo": {
+    "learning_rate": 0.0001,
+    "gamma": 0.99,
+    "gae_lambda": 0.95,
+    "n_steps": 1000,
+    "batch_size": 4000,
+    "n_epochs": 10,
+    "clip_range": 0.2,
+    "ent_coef": 0.0,
+    "vf_coef": 0.2,
+    "max_grad_norm": 0.5,
+    "total_timesteps": 8000000,
+    "warmup_timesteps": 1200000,
+    "save_every": 10,
+    "schedule_timesteps": 8000000
+  },
+  "vae": {
+    "latent_size": 64,
+    "batch_size": 32,
+    "epochs": 1000,
+    "learning_rate": 0.001,
+    "early_stop_patience": 50
+  },
+  "lstm": {
+    "hidden_size": 256,
+    "num_layers": 1,
+    "reconstruction_members": [
+      1,
+      1,
+      0
+    ],
+    "reconstruction_steps": 10,
+    "sequence_length": 500,
+    "batch_sequences": 1,
+    "epochs": 2000,
+    "learning_rate": 0.0001
+  },
+  "dynamic_obstacles": {
+    "enabled": true,
+    "speed": 1.0,
+    "track_length": 4.0,
+    "seed_salt": 20261106,
+    "master_fraction": 0.5,
+    "surface_gap": 0.001,
+    "candidate_angles": 1024,
+    "planning_trials": 32,
+    "motion": "constant_speed_reflected_segment",
+    "selection": "original_cylinders",
+    "radius_mode": "preserve_original",
+    "initial_phase": "track_midpoint",
+    "planner": "synchronous_exact_v1",
+    "fraction_rounding": "floor(N*fraction+0.5)",
+    "fraction": 0.5,
+    "manifest_path": "artifacts/dynamic_fraction_20261106/master_tracks.json",
+    "manifest_sha256": "56d90c8bce5c61ec63751a55498b2b20735a9ecbe4f5f80c0f0d26adf19ddabc"
+  }
+}

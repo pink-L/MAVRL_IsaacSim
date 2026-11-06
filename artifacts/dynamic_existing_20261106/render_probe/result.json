@@ -1,0 +1,24 @@
+{
+  "times": [
+    0.0,
+    1.0,
+    2.0,
+    0.0
+  ],
+  "center_gray": [
+    113,
+    255,
+    255,
+    113
+  ],
+  "center_depth_m": [
+    5.317647058823529,
+    12.0,
+    12.0,
+    5.317647058823529
+  ],
+  "fixed_time_replay_exact": true,
+  "motion_changes_depth": true,
+  "geometry_count": 1,
+  "center_obstacle_then_clear": true
+}

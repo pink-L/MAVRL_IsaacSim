@@ -1,0 +1,38 @@
+{
+  "exact_replay": true,
+  "paired_outcomes": [
+    {
+      "density": "sparse",
+      "both_success": 95,
+      "normal_only_success": 5,
+      "reset_only_success": 0,
+      "both_fail": 0
+    },
+    {
+      "density": "medium",
+      "both_success": 72,
+      "normal_only_success": 26,
+      "reset_only_success": 1,
+      "both_fail": 1
+    },
+    {
+      "density": "dense",
+      "both_success": 31,
+      "normal_only_success": 58,
+      "reset_only_success": 1,
+      "both_fail": 10
+    }
+  ],
+  "sha256": {
+    "artifacts/capture2_baseline_seed0/evaluation_full/summary.json": "c1de91adb6bf0466755171188101627b22a93886839791c0025a3f709e0ec26a",
+    "artifacts/capture2_baseline_seed0/evaluation_full/episodes.json": "bbdc548dae20f2ce98024e61951e11c6a37672cda08d614d2f45395eef09eaf2",
+    "artifacts/capture2_baseline_seed0/evaluation_full/trajectories.json": "42f7abc9da31f60d3d02e633d015619c73a1e8093a1b852654b0b702a10eb1fd",
+    "artifacts/capture2_baseline_seed0/evaluation_full_reset/summary.json": "b6fee047fad18b7799c0340c3cd9d744d161d43b140a29abfed8f1227b335ea9",
+    "artifacts/capture2_baseline_seed0/evaluation_full_reset/episodes.json": "b548e60738fa0b0d89adbc16f27a96330161eed54f51dcc2aa89f91309433ec8",
+    "artifacts/capture2_baseline_seed0/evaluation_full_reset/trajectories.json": "71322b1c5219cce61b864e8170c1965582c0d85cb86c167109e21f899589e8c3",
+    "artifacts/capture2_baseline_seed0/evaluation_full_replay/summary.json": "127c75b229eda136f27be4a94fb8d6577c2b269987165a79b42e1ffd59f411e4",
+    "artifacts/capture2_baseline_seed0/evaluation_full_replay/episodes.json": "bbdc548dae20f2ce98024e61951e11c6a37672cda08d614d2f45395eef09eaf2",
+    "artifacts/capture2_baseline_seed0/evaluation_full_replay/trajectories.json": "42f7abc9da31f60d3d02e633d015619c73a1e8093a1b852654b0b702a10eb1fd"
+  },
+  "scope": "One weight, inference-time reset, not a separately retrained current-only baseline. All-episode speed is affected by failures. Exact replay is limited to this hardware/software/capture configuration."
+}

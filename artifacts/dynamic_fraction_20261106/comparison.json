@@ -1,0 +1,508 @@
+{
+  "protocol": {
+    "created_at": "2026-11-06T10:50:34.629625+08:00",
+    "question": "Zero-shot MAVRL baseline/current-only evaluation with 30% and 50% of original cylinders moving",
+    "fractions": [
+      0.3,
+      0.5
+    ],
+    "configs": {
+      "30": "configs/isaac_capture2_dynamic_30pct.json",
+      "50": "configs/isaac_capture2_dynamic_50pct.json"
+    },
+    "policies": {
+      "baseline": "artifacts/capture2_baseline_seed0/final/latest.pt",
+      "current_only": "artifacts/capture2_current_seed0/final/latest.pt"
+    },
+    "run_order": [
+      [
+        30,
+        "baseline"
+      ],
+      [
+        30,
+        "current_only"
+      ],
+      [
+        50,
+        "current_only"
+      ],
+      [
+        50,
+        "baseline"
+      ]
+    ],
+    "episodes_per_density": 100,
+    "densities": [
+      "sparse",
+      "medium",
+      "dense"
+    ],
+    "evaluation_seed": 200,
+    "num_envs": 16,
+    "training": "none",
+    "formal_episodes": 1200,
+    "rounding": "floor(N*fraction+0.5); positive fractions use at least one mover",
+    "motion": {
+      "speed_m_s": 1.0,
+      "track_length_m": 4.0,
+      "initial_position": "original center, track midpoint",
+      "motion_type": "straight reflected track",
+      "radius_height_count": "original values preserved",
+      "time": "per-episode simulation time",
+      "surface_gap_m": 0.001
+    },
+    "pairing": "Both policies see identical 300 map/motion tasks within each fraction. 30% is an exact prefix of the 50% shared master tracks, with identical motion for common cylinders.",
+    "planning_change": "Replace disjoint trajectory bounding disks by exact full-cycle relative-disk separation. Preserve original maps, start/goals, radius, height, speed and track length. Whole tracks also avoid other original cylinder positions, with 1 mm physical surface gap. No skipped maps or reduced moving counts.",
+    "validation": [
+      "35 CPU tests before GPU runs",
+      "all 300 master maps checked before observing policy outcomes",
+      "50% setting: 9 tasks per policy evaluated twice; compare episode/trajectory/scene SHA256",
+      "verify paired maps, nested motion, checkpoint SHA256 after full evaluations"
+    ],
+    "analysis": [
+      "arrival and failure causes per fraction/model/density",
+      "static versus moving collision counts",
+      "episode-weighted speed",
+      "paired model wins/losses",
+      "paired 30%-to-50% changes",
+      "historical static/3-mover references clearly labelled"
+    ],
+    "limitations": [
+      "One training seed, one obstacle speed and track length.",
+      "Current-only retains memory; inference remains deterministic with normal recurrent state.",
+      "Initial map feasibility only; moving obstacles may temporarily close passages.",
+      "Selected moving cylinders must admit a feasible track.",
+      "Prior 3-mover evaluation used a more conservative, different track selection rule. Its difference from this round is not purely moving fraction.",
+      "Small 50% replay tests do not guarantee all full-run frames or cross-hardware determinism."
+    ],
+    "master_manifest_sha256": "56d90c8bce5c61ec63751a55498b2b20735a9ecbe4f5f80c0f0d26adf19ddabc"
+  },
+  "metrics": {
+    "30": {
+      "baseline": {
+        "sparse": {
+          "episodes": 100,
+          "counts": {
+            "collision": 17,
+            "success": 83
+          },
+          "arrival_rate": 0.83,
+          "arrival_95ci": [
+            0.7445181876635703,
+            0.8910652394022684
+          ],
+          "collision_counts": {
+            "dynamic": 17
+          },
+          "mean_speed": 2.227349833860264,
+          "mean_duration_s": 15.022999999999973,
+          "moving_count_min": 6,
+          "moving_count_max": 8,
+          "moving_count_mean": 6.73,
+          "actual_fraction_mean": 0.303053982859246
+        },
+        "medium": {
+          "episodes": 100,
+          "counts": {
+            "collision": 38,
+            "success": 62
+          },
+          "arrival_rate": 0.62,
+          "arrival_95ci": [
+            0.5220957382071033,
+            0.7090255079986562
+          ],
+          "collision_counts": {
+            "dynamic": 37,
+            "static": 1
+          },
+          "mean_speed": 2.117817245007679,
+          "mean_duration_s": 14.137999999999982,
+          "moving_count_min": 11,
+          "moving_count_max": 14,
+          "moving_count_mean": 12.84,
+          "actual_fraction_mean": 0.3021179735543532
+        },
+        "dense": {
+          "episodes": 100,
+          "counts": {
+            "collision": 66,
+            "success": 34
+          },
+          "arrival_rate": 0.34,
+          "arrival_95ci": [
+            0.25461379497543,
+            0.43722454341689065
+          ],
+          "collision_counts": {
+            "dynamic": 55,
+            "static": 11
+          },
+          "mean_speed": 1.8077670622410753,
+          "mean_duration_s": 12.493999999999993,
+          "moving_count_min": 23,
+          "moving_count_max": 27,
+          "moving_count_mean": 25.21,
+          "actual_fraction_mean": 0.301377976015867
+        }
+      },
+      "current_only": {
+        "sparse": {
+          "episodes": 100,
+          "counts": {
+            "collision": 12,
+            "success": 88
+          },
+          "arrival_rate": 0.88,
+          "arrival_95ci": [
+            0.8018773199709163,
+            0.9300066263473222
+          ],
+          "collision_counts": {
+            "dynamic": 12
+          },
+          "mean_speed": 2.0888045607384114,
+          "mean_duration_s": 16.39899999999998,
+          "moving_count_min": 6,
+          "moving_count_max": 8,
+          "moving_count_mean": 6.73,
+          "actual_fraction_mean": 0.303053982859246
+        },
+        "medium": {
+          "episodes": 100,
+          "counts": {
+            "collision": 31,
+            "success": 69
+          },
+          "arrival_rate": 0.69,
+          "arrival_95ci": [
+            0.5937376052204429,
+            0.7722043679386762
+          ],
+          "collision_counts": {
+            "dynamic": 31
+          },
+          "mean_speed": 2.007620003328255,
+          "mean_duration_s": 15.499999999999993,
+          "moving_count_min": 11,
+          "moving_count_max": 14,
+          "moving_count_mean": 12.84,
+          "actual_fraction_mean": 0.3021179735543532
+        },
+        "dense": {
+          "episodes": 100,
+          "counts": {
+            "collision": 73,
+            "success": 27
+          },
+          "arrival_rate": 0.27,
+          "arrival_95ci": [
+            0.1926946091766482,
+            0.3643230022623127
+          ],
+          "collision_counts": {
+            "dynamic": 60,
+            "static": 13
+          },
+          "mean_speed": 1.710639832089065,
+          "mean_duration_s": 13.763000000000002,
+          "moving_count_min": 23,
+          "moving_count_max": 27,
+          "moving_count_mean": 25.21,
+          "actual_fraction_mean": 0.301377976015867
+        }
+      }
+    },
+    "50": {
+      "baseline": {
+        "sparse": {
+          "episodes": 100,
+          "counts": {
+            "collision": 24,
+            "success": 76
+          },
+          "arrival_rate": 0.76,
+          "arrival_95ci": [
+            0.6676748127670786,
+            0.8330878873454004
+          ],
+          "collision_counts": {
+            "dynamic": 24
+          },
+          "mean_speed": 2.2229143580886603,
+          "mean_duration_s": 14.421999999999974,
+          "moving_count_min": 10,
+          "moving_count_max": 13,
+          "moving_count_mean": 11.42,
+          "actual_fraction_mean": 0.5145318295739348
+        },
+        "medium": {
+          "episodes": 100,
+          "counts": {
+            "collision": 53,
+            "success": 47
+          },
+          "arrival_rate": 0.47,
+          "arrival_95ci": [
+            0.3751065198210374,
+            0.5671131686275227
+          ],
+          "collision_counts": {
+            "dynamic": 52,
+            "static": 1
+          },
+          "mean_speed": 2.1136330778431316,
+          "mean_duration_s": 12.785999999999984,
+          "moving_count_min": 19,
+          "moving_count_max": 24,
+          "moving_count_mean": 21.52,
+          "actual_fraction_mean": 0.5064239223818036
+        },
+        "dense": {
+          "episodes": 100,
+          "counts": {
+            "collision": 78,
+            "success": 22
+          },
+          "arrival_rate": 0.22,
+          "arrival_95ci": [
+            0.15001174503655804,
+            0.3107053471500031
+          ],
+          "collision_counts": {
+            "dynamic": 76,
+            "static": 2
+          },
+          "mean_speed": 1.8131888509521432,
+          "mean_duration_s": 11.043999999999992,
+          "moving_count_min": 38,
+          "moving_count_max": 45,
+          "moving_count_mean": 42.03,
+          "actual_fraction_mean": 0.5024528410260128
+        }
+      },
+      "current_only": {
+        "sparse": {
+          "episodes": 100,
+          "counts": {
+            "collision": 24,
+            "success": 76
+          },
+          "arrival_rate": 0.76,
+          "arrival_95ci": [
+            0.6676748127670786,
+            0.8330878873454004
+          ],
+          "collision_counts": {
+            "dynamic": 24
+          },
+          "mean_speed": 2.087358003203328,
+          "mean_duration_s": 15.33599999999998,
+          "moving_count_min": 10,
+          "moving_count_max": 13,
+          "moving_count_mean": 11.42,
+          "actual_fraction_mean": 0.5145318295739348
+        },
+        "medium": {
+          "episodes": 100,
+          "counts": {
+            "collision": 54,
+            "success": 46
+          },
+          "arrival_rate": 0.46,
+          "arrival_95ci": [
+            0.36560643853331865,
+            0.5573531460647615
+          ],
+          "collision_counts": {
+            "dynamic": 54
+          },
+          "mean_speed": 1.9914991228198662,
+          "mean_duration_s": 13.47899999999999,
+          "moving_count_min": 19,
+          "moving_count_max": 24,
+          "moving_count_mean": 21.52,
+          "actual_fraction_mean": 0.5064239223818037
+        },
+        "dense": {
+          "episodes": 100,
+          "counts": {
+            "collision": 86,
+            "success": 14
+          },
+          "arrival_rate": 0.14,
+          "arrival_95ci": [
+            0.08526265754464905,
+            0.22137360383807236
+          ],
+          "collision_counts": {
+            "dynamic": 78,
+            "static": 8
+          },
+          "mean_speed": 1.7007027312059682,
+          "mean_duration_s": 10.490999999999996,
+          "moving_count_min": 38,
+          "moving_count_max": 45,
+          "moving_count_mean": 42.03,
+          "actual_fraction_mean": 0.502452841026013
+        }
+      }
+    }
+  },
+  "paired_models": {
+    "30": {
+      "sparse": {
+        "both_success": 78,
+        "left_only_success": 5,
+        "right_only_success": 10,
+        "both_fail": 7
+      },
+      "medium": {
+        "both_success": 51,
+        "left_only_success": 11,
+        "right_only_success": 18,
+        "both_fail": 20
+      },
+      "dense": {
+        "both_success": 16,
+        "left_only_success": 18,
+        "right_only_success": 11,
+        "both_fail": 55
+      }
+    },
+    "50": {
+      "sparse": {
+        "both_success": 65,
+        "left_only_success": 11,
+        "right_only_success": 11,
+        "both_fail": 13
+      },
+      "medium": {
+        "both_success": 28,
+        "left_only_success": 19,
+        "right_only_success": 18,
+        "both_fail": 35
+      },
+      "dense": {
+        "both_success": 10,
+        "left_only_success": 12,
+        "right_only_success": 4,
+        "both_fail": 74
+      }
+    }
+  },
+  "paired_30_vs_50": {
+    "baseline": {
+      "sparse": {
+        "both_success": 73,
+        "left_only_success": 10,
+        "right_only_success": 3,
+        "both_fail": 14
+      },
+      "medium": {
+        "both_success": 39,
+        "left_only_success": 23,
+        "right_only_success": 8,
+        "both_fail": 30
+      },
+      "dense": {
+        "both_success": 14,
+        "left_only_success": 20,
+        "right_only_success": 8,
+        "both_fail": 58
+      }
+    },
+    "current_only": {
+      "sparse": {
+        "both_success": 74,
+        "left_only_success": 14,
+        "right_only_success": 2,
+        "both_fail": 10
+      },
+      "medium": {
+        "both_success": 43,
+        "left_only_success": 26,
+        "right_only_success": 3,
+        "both_fail": 28
+      },
+      "dense": {
+        "both_success": 5,
+        "left_only_success": 22,
+        "right_only_success": 9,
+        "both_fail": 64
+      }
+    }
+  },
+  "historical_references": {
+    "baseline": {
+      "sparse": {
+        "static_arrival_rate": 1.0,
+        "three_movers_arrival_rate": 0.94
+      },
+      "medium": {
+        "static_arrival_rate": 0.98,
+        "three_movers_arrival_rate": 0.89
+      },
+      "dense": {
+        "static_arrival_rate": 0.89,
+        "three_movers_arrival_rate": 0.81
+      }
+    },
+    "current_only": {
+      "sparse": {
+        "static_arrival_rate": 1.0,
+        "three_movers_arrival_rate": 0.98
+      },
+      "medium": {
+        "static_arrival_rate": 0.99,
+        "three_movers_arrival_rate": 0.89
+      },
+      "dense": {
+        "static_arrival_rate": 0.89,
+        "three_movers_arrival_rate": 0.81
+      }
+    }
+  },
+  "source_sha256": {
+    "artifacts/dynamic_fraction_20261106/pct30_baseline_full/summary.json": "9b81dc2078d7b7538da043a31fd55d7693627c6b9d820c7b5714485107db3a7a",
+    "artifacts/dynamic_fraction_20261106/pct30_baseline_full/episodes.json": "edfd27f389b0fc7d08ea1bcc45134e095eb14339fd5cac20e9d2c66abc2e3f44",
+    "artifacts/dynamic_fraction_20261106/pct30_baseline_full/trajectories.json": "df9db8e2fd48286357d48760d05735dfdd9bb821815787bc79bba76cd8c05785",
+    "artifacts/dynamic_fraction_20261106/pct30_baseline_full/scenes.json": "d781c7650409edb7ada171ba4a7d3869f7f03f7715f3f85f253f7d5a99793150",
+    "artifacts/dynamic_fraction_20261106/pct30_baseline_full/config.json": "be47cf398686881ffc9dac439f28caef06b49ff577f77dbe9957a27ccf104f7a",
+    "artifacts/dynamic_fraction_20261106/pct30_current_only_full/summary.json": "0e7590eb583de1516c3b3cfa37381f7750a47aa00dfe5bb9f29cfd8805b9e858",
+    "artifacts/dynamic_fraction_20261106/pct30_current_only_full/episodes.json": "1b7c37e1b231fa45fd3faf9e7b4f738cb43d207c7836e125e7ba0ac79ca34a5c",
+    "artifacts/dynamic_fraction_20261106/pct30_current_only_full/trajectories.json": "5ce9ca3d44bfa3a254ad131568a82f643e5e804a837eb2897de67633bb8300cc",
+    "artifacts/dynamic_fraction_20261106/pct30_current_only_full/scenes.json": "d781c7650409edb7ada171ba4a7d3869f7f03f7715f3f85f253f7d5a99793150",
+    "artifacts/dynamic_fraction_20261106/pct30_current_only_full/config.json": "af6535b65c2bb812915e59ff175b933159e17ebcf3d52e0fe1161284a116c184",
+    "artifacts/dynamic_fraction_20261106/pct50_baseline_full/summary.json": "498c2faaba5462f912542d43e09c1e4d1224309836bab9a642d8f63828d55f6c",
+    "artifacts/dynamic_fraction_20261106/pct50_baseline_full/episodes.json": "d8aa8bb46e9024e3686f6bd68c0eedc0d4b05db3533bf5d3a6a1880a3da8c294",
+    "artifacts/dynamic_fraction_20261106/pct50_baseline_full/trajectories.json": "2b6be836c8285d67af1554c8978c9831d84e2e430271316f990288677df0aaaa",
+    "artifacts/dynamic_fraction_20261106/pct50_baseline_full/scenes.json": "dde19c4b4c528a93e43ac779e6f4fc747fafff2fbfca3cf3b5dcc0a9e3bbce7c",
+    "artifacts/dynamic_fraction_20261106/pct50_baseline_full/config.json": "70d9e0ff7e0818f02f83b36d20d19381b0c8b2c7e2f6cf235abe5493be0ac35a",
+    "artifacts/dynamic_fraction_20261106/pct50_current_only_full/summary.json": "b95efb358e2d7e3d466b05cd5bb0308f41bdc1f76951f71431f5a8f76a39fe16",
+    "artifacts/dynamic_fraction_20261106/pct50_current_only_full/episodes.json": "a27909bb9564a3cdc840446102d7738e151171bca9303303a6be8d50b1f84b68",
+    "artifacts/dynamic_fraction_20261106/pct50_current_only_full/trajectories.json": "bccbee2925c638d091a8c58c245e5267f996bead4fcef34c976737abd5a7c0e1",
+    "artifacts/dynamic_fraction_20261106/pct50_current_only_full/scenes.json": "dde19c4b4c528a93e43ac779e6f4fc747fafff2fbfca3cf3b5dcc0a9e3bbce7c",
+    "artifacts/dynamic_fraction_20261106/pct50_current_only_full/config.json": "e47fb5c6e3899b2b40cec23fb03aafc499e069aaac289dce456195cdeecf1e6e"
+  },
+  "validation": {
+    "all_full_source_snapshots_equal": true,
+    "same_tasks_between_models": true,
+    "nested_motion": true,
+    "requested_counts_and_radii_verified": true,
+    "small_replay": {
+      "baseline": {
+        "episodes.json": true,
+        "trajectories.json": true,
+        "scenes.json": true
+      },
+      "current_only": {
+        "episodes.json": true,
+        "trajectories.json": true,
+        "scenes.json": true
+      }
+    }
+  },
+  "scope": "One training seed and one motion speed/length. 30% and 50% share nested identical motion. Previous 3-mover reference used a different, more conservative trajectory planner; differences from it are not solely moving percentage."
+}

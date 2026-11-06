@@ -1,0 +1,38 @@
+{
+  "exact_replay": true,
+  "paired_outcomes": [
+    {
+      "density": "sparse",
+      "both_success": 90,
+      "normal_only_success": 10,
+      "reset_only_success": 0,
+      "both_fail": 0
+    },
+    {
+      "density": "medium",
+      "both_success": 73,
+      "normal_only_success": 25,
+      "reset_only_success": 0,
+      "both_fail": 2
+    },
+    {
+      "density": "dense",
+      "both_success": 17,
+      "normal_only_success": 64,
+      "reset_only_success": 3,
+      "both_fail": 16
+    }
+  ],
+  "sha256": {
+    "artifacts/capture2_fixed_speed_seed0/evaluation_full/summary.json": "abd3f8ac76128769774032d37af3e7822b01952cf5ae593ae20927cdee41d6f0",
+    "artifacts/capture2_fixed_speed_seed0/evaluation_full/episodes.json": "d8d25ca42b3129618bafd201762b2283ede077ab52bfc497615b33a10e85401f",
+    "artifacts/capture2_fixed_speed_seed0/evaluation_full/trajectories.json": "8f203d675c409b7346af573a383037f7fca34ca248c13e167ca97430aedda9da",
+    "artifacts/capture2_fixed_speed_seed0/evaluation_full_reset/summary.json": "b20e183f3b63ab2804e4386384da915e0a9339cf0a0d160658116a1278eebf3d",
+    "artifacts/capture2_fixed_speed_seed0/evaluation_full_reset/episodes.json": "2e973e33118e1eeb4c6976841a4547e4459d869926a21f531b5f74ef377a0bf0",
+    "artifacts/capture2_fixed_speed_seed0/evaluation_full_reset/trajectories.json": "a435d548b536053529e5b9cded8e6f2ab068012bc7f1565a111f4825aa66d808",
+    "artifacts/capture2_fixed_speed_seed0/evaluation_full_replay/summary.json": "c37955054e39f546ae276d228293d7e893aa137f6094db2670e82c105fb20573",
+    "artifacts/capture2_fixed_speed_seed0/evaluation_full_replay/episodes.json": "d8d25ca42b3129618bafd201762b2283ede077ab52bfc497615b33a10e85401f",
+    "artifacts/capture2_fixed_speed_seed0/evaluation_full_replay/trajectories.json": "8f203d675c409b7346af573a383037f7fca34ca248c13e167ca97430aedda9da"
+  },
+  "scope": "One weight, inference-time reset, not a separately retrained current-only baseline. All-episode speed is affected by failures. Exact replay is limited to this hardware/software/capture configuration."
+}

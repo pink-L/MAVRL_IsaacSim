@@ -1,0 +1,15 @@
+{
+  "source": "artifacts/ablation_current_seed0",
+  "reconstruction_members": [
+    0,
+    1,
+    0
+  ],
+  "sha256": {
+    "artifacts/ablation_current_seed0/initial/latest.pt": "f65096e6b72bbf0f5593536f6e57eb21f0fdf29d55063e27ca0b54a91bb9a043",
+    "artifacts/ablation_current_seed0/dataset/manifest.json": "68ec65ccd901928676556b1fd70a23d7861d672335d497214f0109dd805b8e72",
+    "artifacts/ablation_current_seed0/vae/best.pt": "2abda18881fdd968021fee97c5945cbce6305f87da45e42bb383e329bea3729c",
+    "artifacts/ablation_current_seed0/lstm/best.pt": "ea08581b278880dba1d6dd81bea5bec54811351c055014c681ef490d1b3a91a7"
+  },
+  "scope": "Fresh seed=0 PPO using the same qualified capture setting in both branches. Data/VAE/LSTM are shared or reused historical artifacts; their source capture configuration is preserved."
+}

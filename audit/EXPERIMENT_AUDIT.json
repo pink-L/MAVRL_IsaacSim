@@ -1,0 +1,195 @@
+{
+  "date": "2026-11-04",
+  "auditor": "independent Codex reviewer, same-family Type-A",
+  "cross_family": false,
+  "gpt_5_5_certification": false,
+  "project": "MAVRL_CBF",
+  "commit": "216e9e101705cfce7ffc3ded03f1650153619622",
+  "overall_verdict": "warn",
+  "integrity_status": "warn",
+  "scope": {
+    "simulator_launched": false,
+    "training_launched": false,
+    "tests_rerun": false,
+    "verification": "CPU reads, saved-data recomputation, metadata/tensor/hash comparisons; direct primary-source inspection",
+    "excluded": [
+      "artifacts/short/",
+      "new post-anchor probe_speed and official transfer results"
+    ]
+  },
+  "checks": {
+    "gt_provenance": {
+      "status": "pass",
+      "details": "Geometric simulator terminal labels and stored camera-frame reconstruction targets; no prediction-generated reference.",
+      "evidence": [
+        "mavrl_isaac/environment.py:54",
+        "mavrl_isaac/dataset.py:27",
+        "mavrl_isaac/representation_training.py:62"
+      ]
+    },
+    "score_normalization": {
+      "status": "pass",
+      "details": "Fixed depth scale and count/pixel denominators; no model-output extrema denominator. PPO advantage normalization is a training operation.",
+      "evidence": [
+        "mavrl_isaac/dynamics.py:43",
+        "mavrl_isaac/representation_training.py:37",
+        "mavrl_isaac/evaluation.py:47"
+      ]
+    },
+    "result_existence": {
+      "status": "warn",
+      "details": "Core smoke numbers, seed lists, confidence intervals and dependency hashes match. Tiled-parity producer/source capture provenance and old checkpoint source versions remain unverified; tracker stale.",
+      "evidence": [
+        "artifacts/smoke/evaluation/summary.json:136",
+        "artifacts/tiled_parity.json:2",
+        "refine-logs/EXPERIMENT_TRACKER.md:9",
+        "audit/READ_ONLY_EVIDENCE.json"
+      ]
+    },
+    "dead_code": {
+      "status": "pass",
+      "details": "Core metric functions are called and corresponding outputs exist; parameter changes and representation freeze verified from stored tensors. No full rerun was performed.",
+      "evidence": [
+        "scripts/run.py:29",
+        "scripts/run.py:45",
+        "mavrl_isaac/evaluation.py:49",
+        "mavrl_isaac/representation_training.py:95",
+        "mavrl_isaac/representation_training.py:110"
+      ]
+    },
+    "scope": {
+      "status": "warn",
+      "reporting_honesty": "pass",
+      "details": "One seed, 36 tasks, all zero success. Honest smoke qualifiers are present; navigation success and ablation claims remain unsupported.",
+      "evidence": [
+        "artifacts/smoke/evaluation/summary.json:136",
+        "artifacts/smoke/evaluation/summary.json:218",
+        "refine-logs/EXPERIMENT_PLAN.md:9"
+      ]
+    },
+    "eval_type": {
+      "status": "pass",
+      "navigation": "simulation_only",
+      "rendering_throughput": "simulation_only",
+      "reconstruction": "self_supervised_proxy on simulated observations",
+      "evidence": [
+        "mavrl_isaac/evaluation.py:59",
+        "mavrl_isaac/representation_training.py:35",
+        "mavrl_isaac/representation_training.py:62"
+      ]
+    }
+  },
+  "findings": [
+    {
+      "id": "F1",
+      "priority": "P1",
+      "kind": "actual_defect",
+      "title": "Resume ignores saved phase and defaults final checkpoints to initial empty environment",
+      "evidence": [
+        "scripts/run.py:10",
+        "scripts/run.py:41",
+        "mavrl_isaac/training.py:73",
+        "mavrl_isaac/training.py:81",
+        "mavrl_isaac/training.py:89",
+        "mavrl_isaac/training.py:124"
+      ],
+      "impact": "Triggered by resuming a final checkpoint without --phase final; not exercised in smoke.",
+      "action": "Infer phase from checkpoint when unspecified; make incompatible explicit overrides fail or explicit."
+    },
+    {
+      "id": "F2",
+      "priority": "P1",
+      "kind": "confirmed_source_fidelity_difference",
+      "title": "Dataset collector samples Gaussian actions whereas official collection is deterministic",
+      "evidence": [
+        "mavrl_isaac/dataset.py:31",
+        "mavrl_isaac/models.py:63",
+        "upstream/mavrl/mav_baselines/torch/recurrent_ppo/ppo_recurrent.py:1250"
+      ],
+      "action": "Use deterministic mean actions for source-matched collection, or label stochastic collection as an intentional variant; preserve old datasets."
+    },
+    {
+      "id": "F3",
+      "priority": "P2",
+      "kind": "confirmed_source_fidelity_difference",
+      "title": "Offline LSTM learning rate is 3e-4 rather than upstream 1e-4",
+      "evidence": [
+        "configs/isaac_mavrl.json:126",
+        "mavrl_isaac/representation_training.py:77",
+        "upstream/mavrl/train_lstm_without_env.py:55",
+        "upstream/mavrl/mav_baselines/torch/recurrent_ppo/ppo_recurrent.py:91",
+        "upstream/mavrl/mav_baselines/torch/recurrent_ppo/ppo_recurrent.py:992"
+      ],
+      "action": "Use upstream value or disclose the deviation."
+    },
+    {
+      "id": "F4",
+      "priority": "P2",
+      "kind": "evidence_gap_not_proven_implementation_bug",
+      "title": "Four tiled parity rows and old checkpoint provenance do not establish broad camera or historical source equivalence",
+      "evidence": [
+        "artifacts/tiled_parity.json:2",
+        "scripts/benchmark_env.py:13",
+        "scripts/probe_isaac.py:16",
+        "scripts/probe_isaac.py:32",
+        "logs/isaac_probe_sync.log:445",
+        "mavrl_isaac/training.py:26",
+        "mavrl_isaac/representation_training.py:42",
+        "audit/READ_ONLY_EVIDENCE.json"
+      ],
+      "action": "Constrain existing claims; preserve future parity producer/capture identities and source version without retroactively certifying old runs."
+    },
+    {
+      "id": "F5",
+      "priority": "P3",
+      "kind": "confirmed_task_distribution_difference",
+      "title": "Third mission orientation samples y in [0,40] instead of [0,34]",
+      "evidence": [
+        "mavrl_isaac/scenes.py:88",
+        "upstream/AvoidBench/src/avoidbench/avoidlib/src/vision_envs/avoid_vision_envs/avoid_vision_envs.cpp:202",
+        "upstream/AvoidBench/src/avoidbench/avoidlib/src/vision_envs/avoid_vision_envs/avoid_vision_envs.cpp:207",
+        "upstream/mavrl/configs/control/config_new_out.yaml:6"
+      ],
+      "action": "Restore source interval or explicitly disclose the wider scene adaptation."
+    },
+    {
+      "id": "F6",
+      "priority": "P3",
+      "kind": "reporting_maintenance",
+      "title": "Tracker and results-document references lag completed smoke artifacts",
+      "evidence": [
+        "refine-logs/EXPERIMENT_TRACKER.md:7",
+        "refine-logs/EXPERIMENT_TRACKER.md:9",
+        "docs/SOURCE_AUDIT.md:59"
+      ],
+      "action": "Update completed smoke status and report zero success; leave formal experiments unfinished."
+    }
+  ],
+  "claims": [
+    {
+      "id": "pipeline_smoke",
+      "impact": "supported_with_historical_source_provenance_qualifier"
+    },
+    {
+      "id": "C1_navigation",
+      "impact": "unsupported_by_completed_smoke"
+    },
+    {
+      "id": "C2_memory_speed_benefits",
+      "impact": "unsupported"
+    },
+    {
+      "id": "source_fidelity",
+      "impact": "needs_qualifier"
+    },
+    {
+      "id": "original_avoidbench_or_real_world",
+      "impact": "unsupported_and_disclaimed"
+    }
+  ],
+  "evidence_files": [
+    "audit/READ_ONLY_EVIDENCE.json",
+    "audit/REVIEWED_FILES.json"
+  ],
+  "report": "audit/EXPERIMENT_AUDIT.md"
+}

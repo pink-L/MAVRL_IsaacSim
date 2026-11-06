@@ -1,0 +1,156 @@
+{
+  "state": "completed",
+  "stage": "evaluations_finished",
+  "updated_at": "2026-11-06T10:28:19.089438+08:00",
+  "policy_sha256": {
+    "baseline": "397cda53c2a15626fe86593fd95c46e6603ad36b26cd8e4517d5f9131974a6c3",
+    "current_only": "021365d5481fe3884c1a626cbfbb720189e4ff6827058d38f333ee19977b3bc7"
+  },
+  "commands": [
+    {
+      "stage": "render_probe",
+      "argv": [
+        "/home/lz/lzspace/MAVRL_CBF/.venv/bin/python",
+        "scripts/check_dynamic_render.py",
+        "--out",
+        "artifacts/dynamic_existing_20261106/render_probe"
+      ]
+    },
+    {
+      "stage": "baseline_smoke",
+      "argv": [
+        "/home/lz/lzspace/MAVRL_CBF/.venv/bin/python",
+        "scripts/run.py",
+        "evaluate",
+        "--config",
+        "configs/isaac_capture2_dynamic.json",
+        "--policy",
+        "artifacts/capture2_baseline_seed0/final/latest.pt",
+        "--out",
+        "artifacts/dynamic_existing_20261106/baseline_smoke",
+        "--episodes",
+        "3",
+        "--num-envs",
+        "16",
+        "--seed",
+        "200"
+      ]
+    },
+    {
+      "stage": "baseline_smoke_replay",
+      "argv": [
+        "/home/lz/lzspace/MAVRL_CBF/.venv/bin/python",
+        "scripts/run.py",
+        "evaluate",
+        "--config",
+        "configs/isaac_capture2_dynamic.json",
+        "--policy",
+        "artifacts/capture2_baseline_seed0/final/latest.pt",
+        "--out",
+        "artifacts/dynamic_existing_20261106/baseline_smoke_replay",
+        "--episodes",
+        "3",
+        "--num-envs",
+        "16",
+        "--seed",
+        "200"
+      ]
+    },
+    {
+      "stage": "current_only_smoke",
+      "argv": [
+        "/home/lz/lzspace/MAVRL_CBF/.venv/bin/python",
+        "scripts/run.py",
+        "evaluate",
+        "--config",
+        "configs/isaac_capture2_dynamic.json",
+        "--policy",
+        "artifacts/capture2_current_seed0/final/latest.pt",
+        "--out",
+        "artifacts/dynamic_existing_20261106/current_only_smoke",
+        "--episodes",
+        "3",
+        "--num-envs",
+        "16",
+        "--seed",
+        "200",
+        "--current-only"
+      ]
+    },
+    {
+      "stage": "current_only_smoke_replay",
+      "argv": [
+        "/home/lz/lzspace/MAVRL_CBF/.venv/bin/python",
+        "scripts/run.py",
+        "evaluate",
+        "--config",
+        "configs/isaac_capture2_dynamic.json",
+        "--policy",
+        "artifacts/capture2_current_seed0/final/latest.pt",
+        "--out",
+        "artifacts/dynamic_existing_20261106/current_only_smoke_replay",
+        "--episodes",
+        "3",
+        "--num-envs",
+        "16",
+        "--seed",
+        "200",
+        "--current-only"
+      ]
+    },
+    {
+      "stage": "baseline_full",
+      "argv": [
+        "/home/lz/lzspace/MAVRL_CBF/.venv/bin/python",
+        "scripts/run.py",
+        "evaluate",
+        "--config",
+        "configs/isaac_capture2_dynamic.json",
+        "--policy",
+        "artifacts/capture2_baseline_seed0/final/latest.pt",
+        "--out",
+        "artifacts/dynamic_existing_20261106/baseline_full",
+        "--episodes",
+        "100",
+        "--num-envs",
+        "16",
+        "--seed",
+        "200"
+      ]
+    },
+    {
+      "stage": "current_only_full",
+      "argv": [
+        "/home/lz/lzspace/MAVRL_CBF/.venv/bin/python",
+        "scripts/run.py",
+        "evaluate",
+        "--config",
+        "configs/isaac_capture2_dynamic.json",
+        "--policy",
+        "artifacts/capture2_current_seed0/final/latest.pt",
+        "--out",
+        "artifacts/dynamic_existing_20261106/current_only_full",
+        "--episodes",
+        "100",
+        "--num-envs",
+        "16",
+        "--seed",
+        "200",
+        "--current-only"
+      ]
+    }
+  ],
+  "smoke_replay_checks": {
+    "baseline": {
+      "episodes.json": true,
+      "trajectories.json": true,
+      "scenes.json": true
+    },
+    "current_only": {
+      "episodes.json": true,
+      "trajectories.json": true,
+      "scenes.json": true
+    }
+  },
+  "full_scenes_equal": true
+}

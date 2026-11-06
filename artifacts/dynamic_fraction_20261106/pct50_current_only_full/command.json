@@ -1,0 +1,29 @@
+{
+  "command": "evaluate",
+  "config": "configs/isaac_capture2_dynamic_50pct.json",
+  "out": "artifacts/dynamic_fraction_20261106/pct50_current_only_full",
+  "seed": 200,
+  "num_envs": 16,
+  "phase": "initial",
+  "steps": null,
+  "n_steps": null,
+  "batch_size": null,
+  "warmup_steps": null,
+  "epochs": null,
+  "schedule_steps": null,
+  "policy": "artifacts/capture2_current_seed0/final/latest.pt",
+  "representation": null,
+  "resume": null,
+  "dataset": null,
+  "vae": null,
+  "frames": 4096,
+  "sequence_length": null,
+  "episodes": 100,
+  "densities": [
+    "sparse",
+    "medium",
+    "dense"
+  ],
+  "reset_memory": false,
+  "current_only": true
+}

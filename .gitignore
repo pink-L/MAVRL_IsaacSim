@@ -1,0 +1,13 @@
+.venv/
+.runtime/
+upstream/
+artifacts/
+logs/
+__pycache__/
+*.pyc
+core
+core.*
+docs/*.pdf
+docs/mavrl_arxiv.txt
+
+.aris/

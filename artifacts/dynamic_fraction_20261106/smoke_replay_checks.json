@@ -1,0 +1,12 @@
+{
+  "baseline": {
+    "episodes.json": true,
+    "trajectories.json": true,
+    "scenes.json": true
+  },
+  "current_only": {
+    "episodes.json": true,
+    "trajectories.json": true,
+    "scenes.json": true
+  }
+}

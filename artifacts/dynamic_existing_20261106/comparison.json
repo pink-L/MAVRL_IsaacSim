@@ -1,0 +1,285 @@
+{
+  "protocol": {
+    "created_at": "2026-11-06T10:13:38.265483+08:00",
+    "question": "Direct transfer of existing baseline and current-only policies when 3 original cylinders move",
+    "user_choice": "Move existing cylinders, keep total obstacle count unchanged",
+    "config": "configs/isaac_capture2_dynamic.json",
+    "dynamic_obstacles": {
+      "enabled": true,
+      "count": 3,
+      "speed": 1.0,
+      "track_length": 4.0,
+      "seed_salt": 20261106,
+      "motion": "constant_speed_reflected_segment",
+      "selection": "original_cylinders",
+      "radius_mode": "preserve_original",
+      "initial_phase": "track_midpoint"
+    },
+    "evaluation_seed": 200,
+    "episodes_per_density": 100,
+    "densities": [
+      "sparse",
+      "medium",
+      "dense"
+    ],
+    "num_envs": 16,
+    "policies": {
+      "baseline": "artifacts/capture2_baseline_seed0/final/latest.pt",
+      "current_only": "artifacts/capture2_current_seed0/final/latest.pt"
+    },
+    "pairing": "Identical original map/mission seeds and original radii/count/initial positions. Three seeded original cylinders move on 4 m centered tracks at 1 m/s, starting at midpoint with seeded direction. Motion uses episode simulation time, never wall time or policy state.",
+    "analysis": [
+      "arrival/collision/boundary/timeout rates per density",
+      "collision origin: static, moving, both",
+      "mean episode speed",
+      "paired task outcomes between policies",
+      "paired differences against original static delivery"
+    ],
+    "limitations": [
+      "One chosen moving count, speed and track length; one training seed.",
+      "Original TRAV retained for reward reporting.",
+      "Whole tracks avoid static geometry and endpoints; only initial grid connectivity checked, no time-dependent feasibility guarantee.",
+      "Selection is restricted to original cylinders with room for a 4 m track; not an unconstrained random moving subset.",
+      "Current-only retains its LSTM and recurrent state."
+    ],
+    "training": "none",
+    "supersedes": "artifacts/dynamic_zero_shot_20261106_100717 (additive probe, stopped after user choice; excluded)",
+    "status": "implementation_validation"
+  },
+  "metrics": {
+    "baseline": {
+      "sparse": {
+        "episodes": 100,
+        "counts": {
+          "collision": 6,
+          "success": 94
+        },
+        "arrival_rate": 0.94,
+        "collision_counts": {
+          "dynamic": 5,
+          "static": 1
+        },
+        "mean_speed": 2.22656586235462,
+        "mean_duration_s": 15.892999999999967,
+        "static_arrival_rate": 1.0,
+        "arrival_95ci": [
+          0.8752303146877748,
+          0.9722142547333433
+        ]
+      },
+      "medium": {
+        "episodes": 100,
+        "counts": {
+          "collision": 11,
+          "success": 89
+        },
+        "arrival_rate": 0.89,
+        "collision_counts": {
+          "dynamic": 7,
+          "static": 4
+        },
+        "mean_speed": 2.1446656819311456,
+        "mean_duration_s": 16.22399999999998,
+        "static_arrival_rate": 0.98,
+        "arrival_95ci": [
+          0.8136853697209698,
+          0.9374586804477487
+        ]
+      },
+      "dense": {
+        "episodes": 100,
+        "counts": {
+          "collision": 19,
+          "success": 81
+        },
+        "arrival_rate": 0.81,
+        "collision_counts": {
+          "dynamic": 7,
+          "static": 12
+        },
+        "mean_speed": 1.8988554476160444,
+        "mean_duration_s": 18.047000000000004,
+        "static_arrival_rate": 0.89,
+        "arrival_95ci": [
+          0.7222097592919214,
+          0.8748534600729574
+        ]
+      }
+    },
+    "current_only": {
+      "sparse": {
+        "episodes": 100,
+        "counts": {
+          "collision": 2,
+          "success": 98
+        },
+        "arrival_rate": 0.98,
+        "collision_counts": {
+          "dynamic": 2
+        },
+        "mean_speed": 2.0987006537423314,
+        "mean_duration_s": 17.097999999999978,
+        "static_arrival_rate": 1.0,
+        "arrival_95ci": [
+          0.9299868370580063,
+          0.9944981477650318
+        ]
+      },
+      "medium": {
+        "episodes": 100,
+        "counts": {
+          "collision": 11,
+          "success": 89
+        },
+        "arrival_rate": 0.89,
+        "collision_counts": {
+          "dynamic": 9,
+          "static": 2
+        },
+        "mean_speed": 2.006141930477907,
+        "mean_duration_s": 17.106999999999985,
+        "static_arrival_rate": 0.99,
+        "arrival_95ci": [
+          0.8136853697209698,
+          0.9374586804477487
+        ]
+      },
+      "dense": {
+        "episodes": 100,
+        "counts": {
+          "collision": 19,
+          "success": 81
+        },
+        "arrival_rate": 0.81,
+        "collision_counts": {
+          "dynamic": 9,
+          "static": 10
+        },
+        "mean_speed": 1.762139201362752,
+        "mean_duration_s": 19.23100000000002,
+        "static_arrival_rate": 0.89,
+        "arrival_95ci": [
+          0.7222097592919214,
+          0.8748534600729574
+        ]
+      }
+    }
+  },
+  "paired_baseline_vs_current_only": {
+    "sparse": {
+      "both_success": 93,
+      "left_only_success": 1,
+      "right_only_success": 5,
+      "both_fail": 1
+    },
+    "medium": {
+      "both_success": 82,
+      "left_only_success": 7,
+      "right_only_success": 7,
+      "both_fail": 4
+    },
+    "dense": {
+      "both_success": 71,
+      "left_only_success": 10,
+      "right_only_success": 10,
+      "both_fail": 9
+    }
+  },
+  "paired_static_vs_dynamic": {
+    "baseline": {
+      "sparse": {
+        "both_success": 94,
+        "left_only_success": 6,
+        "right_only_success": 0,
+        "both_fail": 0
+      },
+      "medium": {
+        "both_success": 89,
+        "left_only_success": 9,
+        "right_only_success": 0,
+        "both_fail": 2
+      },
+      "dense": {
+        "both_success": 79,
+        "left_only_success": 10,
+        "right_only_success": 2,
+        "both_fail": 9
+      }
+    },
+    "current_only": {
+      "sparse": {
+        "both_success": 98,
+        "left_only_success": 2,
+        "right_only_success": 0,
+        "both_fail": 0
+      },
+      "medium": {
+        "both_success": 88,
+        "left_only_success": 11,
+        "right_only_success": 1,
+        "both_fail": 0
+      },
+      "dense": {
+        "both_success": 78,
+        "left_only_success": 11,
+        "right_only_success": 3,
+        "both_fail": 8
+      }
+    }
+  },
+  "source_sha256": {
+    "artifacts/dynamic_existing_20261106/baseline_full/summary.json": "594659d2180ee769a88869e729ebdc6d4818ae4086fddf162c9926816414bbc0",
+    "artifacts/dynamic_existing_20261106/baseline_full/episodes.json": "29904b6e478ffed65ad1ba228fc358a3f0c2707683ec64950813d362ce5a2c91",
+    "artifacts/dynamic_existing_20261106/baseline_full/trajectories.json": "d5e5a7dcb8539f1baeabdfcbef204655c2452f0272420610dc81dcfce4350ac0",
+    "artifacts/dynamic_existing_20261106/baseline_full/scenes.json": "07834ba7af4d29cc2227c185efd4a6d43f0a7325abd0131c3d40bb8a9f70bf5f",
+    "artifacts/dynamic_existing_20261106/baseline_full/config.json": "81eb875566f42a3b2b372b1060bff6323201ba6fc24663b3bc3234078ddd9214",
+    "artifacts/capture2_baseline_seed0/evaluation_full/episodes.json": "bbdc548dae20f2ce98024e61951e11c6a37672cda08d614d2f45395eef09eaf2",
+    "artifacts/dynamic_existing_20261106/current_only_full/summary.json": "0e7b572919b5555a30dcfb76a34c393732d960f79125d2554fd8bf629015d0d8",
+    "artifacts/dynamic_existing_20261106/current_only_full/episodes.json": "bf9df349b297ea1f6d9c6607df28c5bfd5ee5be41b66ae6a0f24959fde0fd1c2",
+    "artifacts/dynamic_existing_20261106/current_only_full/trajectories.json": "a594e1bb7fa28c03065e0c45f2e2592c40b533d20b601b126afff6e1564c0a0b",
+    "artifacts/dynamic_existing_20261106/current_only_full/scenes.json": "07834ba7af4d29cc2227c185efd4a6d43f0a7325abd0131c3d40bb8a9f70bf5f",
+    "artifacts/dynamic_existing_20261106/current_only_full/config.json": "f9bdec6ff9e7dbadc0a28adff7ee9f3e891644de3b18d8ed8889b806e11d26a0",
+    "artifacts/capture2_current_seed0/evaluation_full/episodes.json": "fceefaeae416a4b8ef0c53cbb0af94ae65a8c0166f0596d43dfc13748ef236e1"
+  },
+  "validation": {
+    "full_scene_manifests_equal": true,
+    "obstacle_counts_radii_initial_positions_preserved": true,
+    "render_probe": {
+      "times": [
+        0.0,
+        1.0,
+        2.0,
+        0.0
+      ],
+      "center_gray": [
+        113,
+        255,
+        255,
+        113
+      ],
+      "center_depth_m": [
+        5.317647058823529,
+        12.0,
+        12.0,
+        5.317647058823529
+      ],
+      "fixed_time_replay_exact": true,
+      "motion_changes_depth": true,
+      "geometry_count": 1,
+      "center_obstacle_then_clear": true
+    },
+    "smoke_replay": {
+      "baseline": {
+        "episodes.json": true,
+        "trajectories.json": true,
+        "scenes.json": true
+      },
+      "current_only": {
+        "episodes.json": true,
+        "trajectories.json": true,
+        "scenes.json": true
+      }
+    }
+  },
+  "scope": "Descriptive zero-shot transfer on 300 paired map/motion tasks. One training seed and one selected motion setting. Current-only retains memory. Small replay checks are not full-run or cross-hardware determinism guarantees."
+}

@@ -1,0 +1,28 @@
+{
+  "state": "completed",
+  "completed_at": "2026-11-06T11:18:39.041432+08:00",
+  "git_base_commit": "e854c3abf390e45b5f4e1399cfaaeff98dcf9737",
+  "git_dirty": true,
+  "formal_episodes": 1200,
+  "paired_map_motion_tasks": 300,
+  "cpu_tests_passed": 35,
+  "source_sha256": {
+    "artifacts/dynamic_fraction_20261106/protocol.json": "d5cf53a5399d676ba77e2d820def20863471622626b45767106ab37c279098b1",
+    "artifacts/dynamic_fraction_20261106/status.json": "15603211bbb0aa5847b5a2a9ee95f094471e65ce776ef4edaaf37a72928c18e9",
+    "artifacts/dynamic_fraction_20261106/master_tracks.json": "56d90c8bce5c61ec63751a55498b2b20735a9ecbe4f5f80c0f0d26adf19ddabc",
+    "artifacts/dynamic_fraction_20261106/geometry_audit.json": "afe7333840bb1f825f44be83e7768a7492dd520193c23b157068aa01c62dfa35",
+    "artifacts/dynamic_fraction_20261106/cpu_tests.log": "7e4a2f38180837783a1726463f7ee3e458b66bde720ef7a6eec1bf1c1964f81e",
+    "artifacts/dynamic_fraction_20261106/smoke_replay_checks.json": "adb0d635c6777a08bb17863bbae0be9a02ce10ca0b6c615381dfde0ebfd9bcb2",
+    "artifacts/dynamic_fraction_20261106/integrity_check.json": "57741189c44036e90ccc09b84beea520967cd6da1b0b3b93c4b2a03b9afeb6f5",
+    "artifacts/dynamic_fraction_20261106/comparison.json": "b4d7da7b17899c8029360a8754d6998a6e0e7f06989f2523e3fd86ad3acff288",
+    "artifacts/dynamic_fraction_20261106/RESULTS.md": "5ee2cf0453aff9ffb8399feb4472fa2a4b2fd8b31e08d77726974b2ad54f4438",
+    "artifacts/dynamic_fraction_20261106/comparison.png": "b4d654ce22d940c705eb99babdc0ea040379b9250d5d502e6b914a6c4602c285",
+    "artifacts/dynamic_fraction_20261106/comparison.svg": "6d024f987a64ab22f19204961e2583450c5f364ec50cbefa2c0c93361a45439b",
+    "artifacts/dynamic_fraction_20261106/reporting_source.py": "dca1ab33cd6691b8c381acb67494df745c8ceb4efacf13064b46e3b86a92a141",
+    "configs/isaac_capture2_dynamic_30pct.json": "5955608ee7eaec0418368faa5163e73263e0fd459b8fbdedbc14105af87831dc",
+    "configs/isaac_capture2_dynamic_50pct.json": "b5dbb6a6621cf2b40eafbd0f1643e7e3786679943e7e10ad5394ec705173953b",
+    "docs/DYNAMIC_FRACTION_EVALUATION.md": "52e77573a899538aa09765b300a70820e93ff12ee662b6da4effa334dceb426e",
+    "tests/test_dynamic_fractions.py": "3be49eed5abe3456f393e882af91af5bd32ef25b8f391c88a54d50c9813458ac"
+  },
+  "scope": "Existing baseline and current-only policies evaluated with 30% and 50% nested moving subsets, rounded per map. Original maps, radii, total counts and initial positions retained. 1 m/s, 4 m reflected tracks. No training. Prior 3-mover run used a different trajectory selection rule."
+}

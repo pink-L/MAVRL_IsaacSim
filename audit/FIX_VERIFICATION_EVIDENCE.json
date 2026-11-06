@@ -1,0 +1,205 @@
+{
+  "anchor_commit": "b8f4e3b1bccb3342adf3b6e5bf192a073704e8cd",
+  "source_sha256": {
+    "mavrl_isaac/models.py": "7de7648153a4a701af7b751a33659cc9f7344452841656625315df810637334c",
+    "mavrl_isaac/training.py": "18b370079e72fd47f3709faeeb639891be7711a6ca4d101da72b16e1d2e9c53d",
+    "mavrl_isaac/representation_training.py": "0e77f9e96066dbe23e7388655c1e8f3b010d91a1502f46d67fa03c7be920f9d2",
+    "mavrl_isaac/dataset.py": "a2fe14a7f52f14c7343da22b53875334104c7eb593f6f56cdfa8d0df384d046a",
+    "scripts/import_official_checkpoint.py": "4233fe879e59454f87a381a9f3f5e3521d4ecaa43e67197e6efe91d73bdd1fff",
+    "scripts/run.py": "07af7b433f10887eb1c3b70ffb67893b6b0087ca59ee344c2c83ca5dcd16a73f",
+    "tests/test_source_parity.py": "76739ba59345f7bf8b5022a4f866df6423d7c434a584bda38b8e763936506aff",
+    "tests/test_run_integrity.py": "059cbd0e45d0c31786d84a4b5a87006932aa1252ed7fa9d43ef6b089b073a09c",
+    "configs/isaac_mavrl.json": "4cd3dc24adb94d4be602204d0bace725bd69cbbb4c3625e68de8d0f7718c57f5"
+  },
+  "source_matches_frozen_commit": {
+    "mavrl_isaac/models.py": true,
+    "mavrl_isaac/training.py": true,
+    "mavrl_isaac/representation_training.py": true,
+    "mavrl_isaac/dataset.py": true,
+    "scripts/import_official_checkpoint.py": true,
+    "scripts/run.py": true,
+    "tests/test_source_parity.py": true,
+    "tests/test_run_integrity.py": true,
+    "configs/isaac_mavrl.json": true
+  },
+  "checkpoints": {
+    "source": {
+      "path": "upstream/mavrl/ckpts/available_policy/iter_00540.pth",
+      "sha256": "a530396e060fb31f431344d701fd27241e1afed59d8b307a6f5b0a619a1a7e80"
+    },
+    "converted": {
+      "path": "artifacts/official/iter_00540_full.pt",
+      "sha256": "aef7c10c7b3809a3fe4108c088ac11892efd639312159e96618eebb3f9e30851",
+      "phase": "official_zero_shot",
+      "source_hash_matches": true
+    },
+    "has_separate_critic": true,
+    "all_representation_frozen": true
+  },
+  "tensor_mapping": {
+    "source_tensor_count": 53,
+    "mapped_count": 53,
+    "unmapped_keys": [],
+    "unequal_keys": []
+  },
+  "official_multistep_parity": {
+    "steps": 6,
+    "environments": 3,
+    "source_npz": "artifacts/smoke/dataset/train/sequence_00000.npz",
+    "source_npz_sha256": "c302c1d522cd9ebbbbd445b1579b7c83a983fd4ce0a24739f3bc3a8554db2f0f",
+    "episode_start_masks": [
+      [
+        true,
+        true,
+        true
+      ],
+      [
+        false,
+        false,
+        false
+      ],
+      [
+        false,
+        true,
+        false
+      ],
+      [
+        true,
+        false,
+        true
+      ],
+      [
+        false,
+        false,
+        false
+      ],
+      [
+        false,
+        false,
+        true
+      ]
+    ],
+    "errors": [
+      {
+        "step": 0,
+        "actor_mean": 0.0,
+        "critic_value": 0.0,
+        "actor_latent": 0.0,
+        "critic_latent": 0.0,
+        "hidden_states": 0.0,
+        "log_probability_at_mean": 0.0
+      },
+      {
+        "step": 1,
+        "actor_mean": 0.0,
+        "critic_value": 0.0,
+        "actor_latent": 0.0,
+        "critic_latent": 0.0,
+        "hidden_states": 0.0,
+        "log_probability_at_mean": 0.0
+      },
+      {
+        "step": 2,
+        "actor_mean": 0.0,
+        "critic_value": 0.0,
+        "actor_latent": 0.0,
+        "critic_latent": 0.0,
+        "hidden_states": 0.0,
+        "log_probability_at_mean": 0.0
+      },
+      {
+        "step": 3,
+        "actor_mean": 0.0,
+        "critic_value": 0.0,
+        "actor_latent": 0.0,
+        "critic_latent": 0.0,
+        "hidden_states": 0.0,
+        "log_probability_at_mean": 0.0
+      },
+      {
+        "step": 4,
+        "actor_mean": 0.0,
+        "critic_value": 0.0,
+        "actor_latent": 0.0,
+        "critic_latent": 0.0,
+        "hidden_states": 0.0,
+        "log_probability_at_mean": 0.0
+      },
+      {
+        "step": 5,
+        "actor_mean": 0.0,
+        "critic_value": 0.0,
+        "actor_latent": 0.0,
+        "critic_latent": 0.0,
+        "hidden_states": 0.0,
+        "log_probability_at_mean": 0.0
+      }
+    ],
+    "tolerance": {
+      "rtol": 2e-05,
+      "atol": 3e-07
+    }
+  },
+  "roundtrip": {
+    "separate_critic_preserved": true,
+    "representation_equal": true,
+    "heads_equal": true,
+    "all_representation_frozen": true
+  },
+  "cached_feature_gradients": {
+    "actor_feature_requires_grad": false,
+    "critic_feature_requires_grad": false,
+    "representation_gradients_none": true,
+    "actor_head_has_gradient": true
+  },
+  "offline_reconstruction_gradients": {
+    "actor_lstm_has_gradient": true,
+    "critic_lstm_gradients_none": true,
+    "encoder_gradients_none": true
+  },
+  "cuda_initialized": false,
+  "review_type": "same-family Type-A",
+  "cross_family_certification": false,
+  "verdict": "pass_for_requested_fixes",
+  "new_actual_defects": [],
+  "existing_tests": {
+    "tests_run": 9,
+    "successful": true,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "cuda_initialized": false,
+    "temporary_artifacts": "Created under audit and removed automatically"
+  },
+  "checks": {
+    "initial_shared_critic": "pass",
+    "offline_reload_separate_critic": "pass",
+    "final_separate_critic_required": "pass",
+    "actor_critic_episode_resets": "pass",
+    "separate_cached_features_and_bootstrap_static_path": "pass",
+    "frozen_representation": "pass",
+    "checkpoint_topology_roundtrip": "pass",
+    "official_tensor_mapping": "pass",
+    "official_actor_value_multistep_parity": "pass",
+    "resume_phase_and_config": "pass",
+    "deterministic_collection": "pass"
+  },
+  "limits": [
+    "No GPU, simulator, training loop, or optimizer update executed.",
+    "Rollout/cache/PPO connection reviewed statically; no full optimizer-step parity test.",
+    "Whole old SB3/Flightgym runtime not executed.",
+    "No navigation or convergence claim.",
+    "Actor-only action callers discard their value; full critic parity requires critic_x."
+  ],
+  "source_unchanged_at_review_end": {
+    "mavrl_isaac/models.py": true,
+    "mavrl_isaac/training.py": true,
+    "mavrl_isaac/representation_training.py": true,
+    "mavrl_isaac/dataset.py": true,
+    "scripts/import_official_checkpoint.py": true,
+    "scripts/run.py": true,
+    "tests/test_source_parity.py": true,
+    "tests/test_run_integrity.py": true,
+    "configs/isaac_mavrl.json": true
+  }
+}

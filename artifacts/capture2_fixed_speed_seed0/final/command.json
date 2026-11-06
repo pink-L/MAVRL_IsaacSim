@@ -1,0 +1,29 @@
+{
+  "command": "train",
+  "config": "configs/isaac_capture2_fixed_speed.json",
+  "out": "artifacts/capture2_fixed_speed_seed0/final",
+  "seed": null,
+  "num_envs": 64,
+  "phase": "final",
+  "steps": 8000000,
+  "n_steps": null,
+  "batch_size": null,
+  "warmup_steps": null,
+  "epochs": null,
+  "schedule_steps": null,
+  "policy": null,
+  "representation": "artifacts/capture2_fixed_speed_seed0/lstm/best.pt",
+  "resume": null,
+  "dataset": null,
+  "vae": null,
+  "frames": 4096,
+  "sequence_length": null,
+  "episodes": 20,
+  "densities": [
+    "sparse",
+    "medium",
+    "dense"
+  ],
+  "reset_memory": false,
+  "current_only": false
+}
